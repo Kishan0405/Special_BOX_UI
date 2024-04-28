@@ -7,10 +7,10 @@
     position: relative; /* Allows for the image to be positioned on top of the background color */
   }
   
-  .banner img {
-    width: 50%; /* Makes the image fit the width of the banner */
+    .banner img {
+    width:10%; /* Makes the image fit the width of the banner */
     height:auto; /* Makes the image adjust its height based on its width */
-    position: -50%; /* Positions the image on top of the background color */
+    position: 10%; /* Positions the image on top of the background color */
     top: 0%; /* Positions the image vertically at 50% of the banner's height */
     transform: translateY(-25%); /* Adjusts the image's position vertically to center it */
   }
