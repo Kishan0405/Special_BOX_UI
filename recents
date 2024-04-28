@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recents</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles4.css"> <!-- Import CSS for the banner -->
+    <style>
+        /* CSS for animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content article {
+            animation: fadeInUp 0.5s ease-in-out both;
+        }
+
+        .recent-updates {
+            animation: fadeInUp 0.5s ease-in-out both;
+        }
+
+        /* CSS for animations */
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            display: inline-block;
+            margin-right: 20px;
+            position: relative;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        li:hover {
+            transform: translateY(-5px);
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+            transition: color 0.3s ease-in-out;
+        }
+
+        a:hover {
+            color: #ff6347; /* Change color to your desired hover color */
+        }
+        /* Add animations for header and navigation */
+        header {
+            text-align: center;
+            animation: slideDown 1s ease-in-out;
+        }
+
+        nav {
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Add animation for navigation links */
+        nav ul li a {
+            display: inline-block;
+            padding: 10px 20px;
+            color: #333;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #f0f0f0;
+            color: #007bff;
+            transform: translateY(-3px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Open Site</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="Recents.html">Recents</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <section class="content">
+        <article>
+            <header>
+                <h1>Powering Up in 2024: Gaming Trends and Hot PC Releases</h1>
+                <p>By My Open Site</p>
+            </header>
+            <div class="content">
+                <h2>Gaming Trends 2024:</h2>
+                <p>The world of gaming is a constant whirlwind of innovation, and 2024 is shaping up to be another year of groundbreaking developments. Here's a deeper dive into some of the hottest trends and upcoming PC releases you'll want to keep on your radar:</p>
+        
+                <h3>Cloud Gaming Soars:</h3>
+                <p>Remember the days of needing a top-of-the-line PC to play the latest titles? Cloud gaming services like Google Stadia and Microsoft xCloud are making those days a distant memory. By leveraging powerful remote servers, these services allow you to stream high-end games directly to your device, eliminating the need for expensive hardware upgrades. This opens the door for a wider range of people to experience the thrill of demanding games without the hefty upfront cost.</p>
+        
+                <h3>Indie Gems Shine Bright:</h3>
+                <p>The independent development scene continues to be a breeding ground for creativity. Unburdened by the constraints of larger studios, indie developers are pushing the boundaries of storytelling and gameplay. We can expect to see even more unique and captivating experiences emerge in 2024, from narrative-driven adventures with profound emotional impact to innovative takes on established genres that breathe new life into familiar concepts. Keep an eye on smaller studios and game jams to discover the hidden gems that might become your next favorite obsession.</p>
+        
+                <h3>Subscription Services Take Center Stage:</h3>
+                <p>Gone are the days of agonizing over which new release to buy first. Subscription services like Game Pass and PlayStation Plus are offering a vast library of games for a monthly fee. This "Netflix for games" approach makes gaming more affordable and convenient than ever before. With a constantly rotating selection of titles, you can try out new genres you might have hesitated to invest in before, revisit classics you haven't played in years, and discover hidden gems you might have otherwise missed, all without breaking the bank.</p>
+        
+                <h3>Narrative Branching Blossoms:</h3>
+                <p>Games are becoming more like interactive novels, placing a greater emphasis on player choice and branching narratives. This allows for more personalized and replayable experiences. Imagine a game where the choices you make throughout the story have a significant impact on the world around you, the characters you encounter, and even the ending you experience. This level of player agency is what narrative branching is all about, and it's set to become an even bigger trend in 2024. The most compelling branching narratives will make you feel like you're shaping the story itself, not just following a predetermined path.</p>
+        
+                <h3>VR Makes Strides Towards the Mainstream:</h3>
+                <p>Virtual Reality technology is finally starting to shed its niche reputation. With the release of more affordable VR headsets and the development of more compelling VR experiences, VR is poised to become a more mainstream gaming platform in 2024. Imagine yourself transported to fantastical worlds, interacting with characters and environments in a way that traditional gaming simply can't replicate. The possibilities for VR are endless, and developers are only just beginning to scratch the surface. We can expect to see not just games designed specifically for VR, but also VR adaptations of popular titles, allowing players to experience beloved games in a whole new way.</p>
+            </div>
+        </article>
+        
+        <article>
+            <header>
+                <h2>Another Post Title</h2>
+                
+            </header>
+            <p>Here We update more</p>
+            <p>Last Updated 28-04-2024</p>
+        </article>
+    </section>
+
+    <!-- Recent Updates Section -->
+    <section class="recent-updates">
+        <h2>Recent Updates</h2>
+        <ul>
+            <li><a href="#">New Game Releases</a></li>
+            <li><a href="#">Software Updates</a></li>
+            <li><a href="#">Site Enhancements</a></li>
+            <!-- Add more recent updates as needed -->
+        </ul>
+    </section>
+    <footer>
+        <p>&copy; 2024 My Open Site All rights reserved.</p>
+        <div class="banner">
+            <h1>Powered By</h1>
+            <img src="Poweredby1.png" alt="Banner Image">
+        </div>
+    </footer>
+</body>
+</html>
