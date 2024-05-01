@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Site</title>
+  <link rel="stylesheet" href="stylesmusic.css">
+</head>
+<div id="loading-icon">
+    <div class="spinner"></div>
+    <p>Loading...</p>
+  </div>
+<body>
+  <header class="header-top">
+    <h1>Music Site</h1>
+    <nav class="navbar">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Explore</a></li>
+        <li><a href="#">Genres</a></li>
+        <li><a href="#">My Library</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <aside class="sidebar">
+    <nav class="sidebar-nav">
+      <ul>
+        <li><a href="#">Featured</a></li>
+        <li><a href="#">New Releases</a></li>
+        <li><a href="#">Playlists</a></li>
+        <li><a href="#">Charts</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <div class="container">
+    <!-- Content goes here -->
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('loading-icon').style.display = 'none';
+    });
+
+    window.addEventListener('load', function() {
+      document.getElementById('loading-icon').style.display = 'block';
+      setTimeout(function() {
+        window.location.href = 'thanksforshowinginterest.html'; // Replace 'other_page.html' with the URL of the page you want to redirect to
+      }, 2000); // 2000 milliseconds = 2 seconds
+    });
+  </script>
+</body>
+</html>
