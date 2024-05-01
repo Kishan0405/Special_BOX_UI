@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium Features</title>
+  <link rel="stylesheet" href="stylespremium.css">
+</head>
+<body>
+  <header>
+    <h1>Premium Features</h1>
+  </header>
+  <main>
+    <section>
+      <h2>Upgrade to Premium</h2>
+      <p>Unlock exclusive premium features to enhance your experience.</p>
+      <ul>
+        <li>Ad-free browsing</li>
+        <li>Unlimited access to advanced tools</li>
+        <li>Prioritized customer support</li>
+        <li>Exclusive content and updates</li>
+      </ul>
+      <p>Choose your plan:</p>
+      <div class="plans">
+        <div class="plan">
+          <h3>Basic Plan</h3>
+          <p>Price: Rupees 10/month</p>
+          <p>Includes: Ad-free services</p>
+          <!-- Button to initiate Google Pay for Basic Plan -->
+          <button onclick="purchasePlan('basic')">Purchase with Google Pay</button>
+        </div>
+        <div class="plan">
+          <h3>Mid-Range Plan</h3>
+          <p>Price: Rupees 20/month</p>
+          <p>Includes: Ad-free services, Supports Any devices</p>
+          <!-- Button to initiate Google Pay for Mid-Range Plan -->
+          <button onclick="purchasePlan('mid-range')">Purchase with Google Pay</button>
+        </div>
+      </div>
+    </section>
+    <aside>
+      <h3>Support</h3>
+      <p>If you have any questions or need assistance, please contact our support team:</p>
+      <ul>
+        <li>Email: support@example.com</li>
+        <li>Phone: +1234567890</li>
+      </ul>
+    </aside>
+  </main>
+  <footer>
+    <p>&copy; 2024 Your Company. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function purchasePlan(plan) {
+      // Construct the Google Pay deep link
+      const googlePayDeepLink = "https://pay.google.com/gp/v/pub/transact?action=BUY&sku=" + plan;
+
+      // Open the deep link in a new tab
+      window.open(googlePayDeepLink, '_blank');
+    }
+  </script>
+</body>
+</html>
