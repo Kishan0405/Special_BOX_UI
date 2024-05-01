@@ -5,60 +5,81 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Premium Features</title>
   <link rel="stylesheet" href="stylespremium.css">
+  <link rel="stylesheet" href="stylesloadingpremium.css"> <!-- Link to loading spinner CSS -->
 </head>
 <body>
-  <header>
-    <h1>Premium Features</h1>
-  </header>
   <main>
     <section>
       <h2>Upgrade to Premium</h2>
       <p>Unlock exclusive premium features to enhance your experience.</p>
       <ul>
-        <li>Ad-free browsing</li>
         <li>Unlimited access to advanced tools</li>
         <li>Prioritized customer support</li>
         <li>Exclusive content and updates</li>
       </ul>
+      <div class="separator"></div> <!-- Separator -->
       <p>Choose your plan:</p>
-      <div class="plans">
         <div class="plan">
           <h3>Basic Plan</h3>
-          <p>Price: Rupees 10/month</p>
-          <p>Includes: Ad-free services</p>
-          <!-- Button to initiate Google Pay for Basic Plan -->
-          <button onclick="purchasePlan('basic')">Purchase with Google Pay</button>
-        </div>
-        <div class="plan">
-          <h3>Mid-Range Plan</h3>
-          <p>Price: Rupees 20/month</p>
-          <p>Includes: Ad-free services, Supports Any devices</p>
-          <!-- Button to initiate Google Pay for Mid-Range Plan -->
-          <button onclick="purchasePlan('mid-range')">Purchase with Google Pay</button>
+          <p>Price: ₹ 0 LifeTime</p>
+          <p>Includes: Music Services</p>
+          <!-- Button to simulate payment for Basic Plan -->
+          <button onclick="simulatePayment('Basic', this)" id="basicButton" disabled>Purchase Basic Plan</button>
         </div>
       </div>
     </section>
-    <aside>
-      <h3>Support</h3>
-      <p>If you have any questions or need assistance, please contact our support team:</p>
-      <ul>
-        <li>Email: support@example.com</li>
-        <li>Phone: +1234567890</li>
-      </ul>
-    </aside>
+    <!-- Back button -->
+    <button onclick="goBack()" class="back-button">Back</button>
   </main>
   <footer>
-    <p>&copy; 2024 Your Company. All rights reserved.</p>
+    <h3>Support</h3>
+      <p>If you have any questions or need assistance, please contact our support team:</p>
+      <ul>
+        <li><a href="mailto:kishanbantakal@gmail.com">support@Here</a></li>
+        <li>Phone: Not Provided</li>
+      </ul>
+    <p>&copy; 2024 My Open Site All rights reserved.</p>
   </footer>
 
-  <script>
-    function purchasePlan(plan) {
-      // Construct the Google Pay deep link
-      const googlePayDeepLink = "https://pay.google.com/gp/v/pub/transact?action=BUY&sku=" + plan;
+  <div class="loader-container hidden"> <!-- Loading spinner container -->
+    <div class="loader"></div> <!-- Loading spinner -->
+  </div>
 
-      // Open the deep link in a new tab
-      window.open(googlePayDeepLink, '_blank');
+  <script>
+    // Enable buttons once the page has fully loaded
+    window.onload = function() {
+      document.getElementById('basicButton').disabled = false;
+    };
+
+    function simulatePayment(plan, button) {
+      // Disable the button to prevent multiple purchases
+      button.disabled = true;
+
+      // Show loading spinner
+      showLoading();
+
+      // Simulate payment delay
+      setTimeout(function() {
+        // Redirect to purchase success page
+        window.location.href = "paymentsucessful.html";
+      }, 2000); // Simulated payment delay of 2 seconds
+    }
+
+    function goBack() {
+      window.history.back();
+    }
+
+    // Function to show loading spinner
+    function showLoading() {
+      document.querySelector('.loader-container').classList.remove('hidden');
+    }
+
+    // Function to hide loading spinner
+    function hideLoading() {
+      document.querySelector('.loader-container').classList.add('hidden');
     }
   </script>
+
+  <script src="loading.js"></script> <!-- Script for loading spinner -->
 </body>
 </html>
