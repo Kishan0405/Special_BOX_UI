@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styleslogin.css">
+  <title>Login Page</title>
+  <h4>Admins Can Only login</h4>
+</head>
+<body>
+  <center>
+    <h3>Login Here</h3>
+    <form id="loginForm" action="https://formspree.io/f/mleqzrqb" method="post">
+      <img src="profile-photo.jpg" alt="Profile Photo" class="profile-photo">
+      <table>
+        <tr>
+          <td>Username:</td>
+          <td><input type="text" name="user" placeholder="Enter name Here"></td>
+        </tr>
+        <tr>
+          <td>Password:</td>
+          <td><input type="password" name="user_pass" placeholder="Enter Password Here"></td>
+        </tr>
+        
+        <tr>
+           <td><input type="submit" name="submit" value="Login"></td>
+           <td><p>Not yet a Member? <a href="signupaction.html">Register</a></p></td>
+        </tr>
+      </table>
+    </form>
+
+    <p>Or</p>
+  
+    <p>Don't have an account? <a href="signupaction.html">Sign Up</a></p>
+    
+    <!-- Back button -->
+    <button onclick="goBack()" class="back-button">Back</button>
+  </center>
+
+  <script>
+    // Function to go back to the previous page
+    function goBack() {
+      window.history.back();
+    }
+
+    // Form submission handling
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent the default form submission
+  
+      // Get the entered username and password
+      var username = document.getElementsByName("user")[0].value;
+      var password = document.getElementsByName("user_pass")[0].value;
+
+      // Check if the entered username and password match those of an admin
+      if (username === "opensite" && password === "opensite00") {
+        // Redirect to admin page
+        window.location.href = "linkedsite.html";
+      } else {
+        // Notify the user that only admins are allowed to login
+        alert("Only admins are allowed to login.");
+      }
+    });
+  </script>
+</body>
+</html>
