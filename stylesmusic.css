@@ -10,57 +10,73 @@ body {
     background-color: #f5f5f5;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* Header */
 .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: #000000;
     color: #fff;
-    padding: 20px 0;
-    text-align: center;
-    animation: fadeInDown 1s ease-in-out; /* Animation for header */
+    padding: 20px;
+    animation: slideDown 0.8s cubic-bezier(0.17, 0.67, 0.83, 0.33); /* Slower animation for header */
+    will-change: transform; /* Hint browser about animation */
 }
 
-.header-top h1 {
-    margin: 0;
-    font-size: 28px;
+.header-left {
+    flex: 1;
 }
 
-.navbar ul {
-    list-style-type: none;
-    margin-top: 20px;
+.header-right {
+    margin-left: 20px;
 }
 
-.navbar ul li {
-    display: inline;
-    margin: 0 10px;
-    animation: fadeInLeft 1s ease-in-out; /* Animation for navbar items */
-}
-
-.navbar ul li a {
+.header-right a {
     color: #fff;
     text-decoration: none;
 }
 
-.navbar ul li a:hover {
-    text-decoration: underline;
+.navbar {
+    background-color: #f2f2f2;
+    animation: fadeIn 0.6s ease-in-out; /* Slower animation for navbar */
+    will-change: transform;
 }
 
-/* Sidebar */
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    margin-left: 64px; /* Adjusted margin-left to shift the navbar to the right */
+    justify-content: space-around;
+}
+
+.navbar ul li {
+    display: inline;
+}
+
+.navbar ul li a {
+    display: inline-block;
+    color: #333;
+    text-decoration: none;
+    padding: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s cubic-bezier(0.17, 0.67, 0.83, 0.33); /* Smoother easing */
+}
+
+.navbar ul li a:hover {
+    background-color: #ddd;
+    transform: scale(1.1); /* Scale-up animation on hover */
+}
+
 .sidebar {
     background-color: #000000;
     width: 200px;
     position: fixed;
-    top: 80px;
+    top: 75px;
     bottom: 0;
     left: 0;
     overflow-y: auto;
     padding-top: 20px;
-    animation: slideInLeft 1s ease-in-out; /* Animation for sidebar */
+    animation: slideInLeft 0.6s ease-in-out; /* Slower animation for sidebar */
+    will-change: transform;
 }
 
 .sidebar-nav ul {
@@ -77,31 +93,62 @@ body {
     text-decoration: none;
     display: block;
     padding: 10px 20px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease, transform 0.3s cubic-bezier(0.17, 0.67, 0.83, 0.33); /* Smoother easing */
 }
 
 .sidebar-nav ul li a:hover {
     background-color: #333;
+    transform: scale(1.1); /* Scale-up animation on hover */
 }
 
 .container {
+    max-width: 1200px;
     margin-left: 220px;
-    animation: slideInRight 1s ease-in-out; /* Animation for content container */
-}
-
-/* Content */
-.content {
-    background-color: #fff;
     padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: slideInRight 0.6s ease-in-out; /* Slower animation for content container */
+    will-change: transform;
 }
 
-/* Animations */
-@keyframes fadeInDown {
+nav ul li a:hover {
+    background-color: #f0f0f0;
+    color: #007bff;
+    transform: translateY(-3px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* CSS for loading icon */
+#loading-icon {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    text-align: center;
+    z-index: 9999; /* Ensure it's on top */
+}
+
+.spinner {
+    border: 8px solid #f3f3f3; /* Light grey */
+    border-top: 8px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite; /* Rotate animation */
+}
+
+a:hover {
+    color: #ff6347; /* Change color to your desired hover color */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes slideDown {
     from {
         opacity: 0;
-        transform: translateY(-20px);
+        transform: translateY(-50px);
     }
     to {
         opacity: 1;
@@ -109,14 +156,12 @@ body {
     }
 }
 
-@keyframes fadeInLeft {
+@keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateX(-20px);
     }
     to {
         opacity: 1;
-        transform: translateX(0);
     }
 }
 
@@ -141,28 +186,3 @@ body {
         transform: translateX(0);
     }
 }
-/* CSS for loading icon */
-#loading-icon {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: none;
-    text-align: center;
-    z-index: 9999; /* Ensure it's on top */
-  }
-  
-  .spinner {
-    border: 8px solid #f3f3f3; /* Light grey */
-    border-top: 8px solid #3498db; /* Blue */
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    animation: spin 1s linear infinite; /* Rotate animation */
-  }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-  
