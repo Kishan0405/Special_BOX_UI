@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Payment Success</title>
+  <link rel="stylesheet" href="styles.css">
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -11,7 +12,6 @@
       margin: 0;
       padding: 0;
     }
-
     .container {
       max-width: 800px;
       margin: 100px auto;
@@ -21,37 +21,29 @@
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       text-align: center;
     }
-
     h2 {
       color: #007bff;
     }
-
     p {
       margin-bottom: 20px;
     }
-
     a {
       color: #007bff;
       text-decoration: none;
     }
-
     a:hover {
       text-decoration: underline;
     }
-
     /* Animation classes */
     .animate__animated {
       animation-duration: 1s;
     }
-
     .animate__bounceIn {
       animation-name: bounceIn;
     }
-
     .animate__fadeIn {
       animation-name: fadeIn;
     }
-
     @keyframes bounceIn {
       0% {
         transform: scale(0);
@@ -63,7 +55,6 @@
         transform: scale(1);
       }
     }
-
     @keyframes fadeIn {
       0% {
         opacity: 0;
@@ -72,7 +63,6 @@
         opacity: 1;
       }
     }
-
     .btn {
       background-color: #007bff;
       color: #fff;
@@ -81,7 +71,6 @@
       border-radius: 5px;
       cursor: pointer;
     }
-
     .btn:hover {
       background-color: #0056b3;
     }
@@ -90,12 +79,12 @@
 <body>
   <div class="container">
     <h2 class="animate__animated animate__bounceIn">Payment Successful!</h2>
-    <p class="animate__animated animate__fadeIn">Thank you for purchasing the Basic Plan. You now have access to Music services.</p>
-    <button onclick="goToHomePage()" class="btn animate__animated animate__fadeIn">Acess to Music</button> <!-- Button to go back to the main page -->  
+    <p class="animate__animated animate__fadeIn">Thank you for purchasing the Basic Plan. You now have access to Music Services.</p>
+    <button onclick="goToHomePage();" class="btn animate__animated animate__fadeIn">Back to Home</button> <!-- Button to go back to the main page -->
   </div>
   <script>
     function goToHomePage() {
-      window.location.href = "music.html"; // Change the URL to the main page
+      window.location.href = "login.html"; // Redirect to the Music Site page
     }
   </script>
 </body>
