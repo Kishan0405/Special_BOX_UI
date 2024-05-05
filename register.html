@@ -13,9 +13,10 @@
   <div class="main">    
     <input type="checkbox" id="chk" aria-hidden="true">
     <div class="signup">
-      <form id="registerForm" action="https://formspree.io/f/mrgnjazy" method="POST">
+      <form id="registerForm" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="b785cb1d-35aa-4cce-9e64-7b15566f4f67">
         <label for="chk" aria-hidden="true">Register Here</label>
-        <input type="text" name="txt" placeholder="User name" required="">
+        <input type="text" name="username" placeholder="User name" required="">
         <input type="email" name="email" placeholder="Email" required="">
         <input type="password" name="pswd" placeholder="Password" required="">
         <button type="submit" id="signupBtn">Submit</button>
@@ -38,7 +39,7 @@
       var formData = new FormData(this);
       
       // You can use Fetch API or XMLHttpRequest to submit form data
-      fetch("https://formspree.io/f/mrgnjazy", {
+      fetch("https://api.web3forms.com/submit", {
         method: "POST",
         body: formData
       })
@@ -52,7 +53,7 @@
           alert("Successfully Registered");
           // Reset the form
           document.getElementById("registerForm").reset();
-          // Reload the page
+          // Redirect to login page
           window.location.href = "login.html";
         } else {
           throw new Error("Network response was not ok.");
@@ -63,10 +64,7 @@
         // Hide the loading icon
         document.getElementById('loading-icon').style.display = 'none';
         // Handle error
-        alert("Error this action cannot be done");
-        alert("Check recent page");
-        // Reset the form
-        document.getElementById("registerForm").reset();
+        alert("Failed to register. Please try again later.");
       });
     });
   </script>
