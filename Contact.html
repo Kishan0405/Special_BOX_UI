@@ -7,9 +7,6 @@
     <link rel="stylesheet" href="stylescontact.css">
     <link rel="stylesheet" href="stylesbanner.css"> <!-- Import CSS for the banner -->
     <link rel="stylesheet" href="stylesrecents.css">
-    <style>
-        
-    </style>
 </head>
 <body>
     <nav>
@@ -24,7 +21,8 @@
     <section class="contact">
         <h2>Contact Me</h2>
         <p>If you have any questions or ideas for new projects, I'd love to hear from you! You can get in touch with me by email at <a href="mailto:krbantakal90@gmail.com">Click here</a>, or by using the form below.</p>
-        <form action="https://formspree.io/f/mleqzrqb" method="POST">
+        <form action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="b785cb1d-35aa-4cce-9e64-7b15566f4f67">
             <label for="name">Name:</label><br>
             <input type="text" id="name" name="name" required><br>
             <label for="email">Email:</label><br>
@@ -41,7 +39,32 @@
             <img src="Poweredby1.png" alt="Banner Image">
         </div>
     </footer>
-    </body>
-    </html>
-    
-
+    <script>
+        document.querySelector("form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent default form submission
+            
+            // Get form data
+            var formData = new FormData(this);
+            
+            // You can use Fetch API or XMLHttpRequest to submit form data
+            fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => {
+                // Handle success response
+                if (response.ok) {
+                    alert("Form submitted successfully!"); // Show success message
+                    this.reset(); // Reset form fields
+                } else {
+                    throw new Error("Network response was not ok.");
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                alert("An error occurred while submitting the form. Please try again later."); // Handle error
+            });
+        });
+    </script>
+</body>
+</html>
