@@ -12,6 +12,8 @@ header {
     align-items: center;
     background-color: #333;
     padding: 1rem;
+    text-align: center; /* Merged with the separate header text-align rule */
+    animation: slideDown 1s ease-in-out;
 }
 
 header h1,
@@ -22,7 +24,9 @@ header a {
 }
 
 nav {
+    text-align: left;
     background-color: #f2f2f2;
+    animation: fadeIn 1s ease-in-out;
 }
 
 nav ul {
@@ -30,8 +34,8 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-around;
+    flex-wrap: wrap; /* Ensure items wrap on smaller screens */
 }
 
 nav ul li {
@@ -43,14 +47,22 @@ nav ul li a {
     color: #333;
     text-decoration: none;
     padding: 1rem;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    border-radius: 5px; /* Merged border-radius property */
 }
 
-nav ul li a:hover,
+nav ul li a:hover {
+    background-color: #ddd;
+    transform: translateY(-3px); /* Combined transform transitions */
+}
+
 nav ul li a.selected {
-    background-color: #333;
     color: #fff;
+    background-color: #333;
+}
+
+nav ul li a.selected:hover {
+    background-color: #444;
 }
 
 .content {
@@ -124,16 +136,6 @@ a:hover {
     color: #ff6347;
 }
 
-header {
-    text-align: center;
-    animation: slideDown 1s ease-in-out;
-}
-
-nav {
-    text-align: left;
-    animation: fadeIn 1s ease-in-out;
-}
-
 @keyframes slideDown {
     from {
         opacity: 0;
@@ -174,8 +176,8 @@ nav {
 #signOutButton {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #dc3545; /* Red color for sign-out button */
-    color: #fff; /* White text color */
+    background-color: #dc3545;
+    color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -183,7 +185,7 @@ nav {
 }
 
 #signOutButton:hover {
-    background-color: #c82333; /* Darker red color on hover */
+    background-color: #c82333;
 }
 
 /* Media Queries */
