@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <a href="indexlogin.html" class="back-button">&lt; Back</a>
+    </header>
+    <main>
+        <div class="message-container">
+            <div class="message">
+                <h1>Thanks for showing interest!</h1>
+                <p>We appreciate your interest in our website.</p>
+            </div>
+        </div>
+    </main>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Set height to full viewport height */
+    animation: fadeIn 1s ease-in-out; /* Add fade-in animation to the body */
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure header is above other content */
+    animation: slideDown 1s ease-in-out; /* Add slide-down animation to the header */
+}
+
+header h1 {
+    color: #fff;
+    margin: 0;
+    animation: fadeIn 1s ease-in-out; /* Add fade-in animation to the header h1 */
+}
+
+header a {
+    color: #fff;
+    margin: 0;
+    text-decoration: none; /* Added to remove underline */
+    animation: fadeIn 1s ease-in-out; /* Add fade-in animation to the header link */
+}
+
+.message-container {
+    text-align: center;
+    animation: fadeIn 1s ease-in-out; /* Add fade-in animation to the message container */
+}
+
+.message {
+    display: inline-block; /* Allows centering with margin */
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 10px;
+    animation: slideUp 1s ease-in-out; /* Add slide-up animation to the message */
+}
+
+.message h1 {
+    font-size: 36px;
+    animation: fadeIn 1s ease-in-out; /* Add fade-in animation to the message h1 */
+}
+
+.message p {
+    font-size: 18px;
+    color: #666;
+    animation: fadeIn 1s ease-in-out; /* Add fade-in animation to the message paragraph */
+}
+
+.back-button {
+    background-color: #ccc;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.3s ease;
+    animation: fadeIn 1s ease-in-out; /* Add fade-in animation to the back button */
+}
+
+.back-button:hover {
+    background-color: #ddd;
+}
+
+/* Add animations for header and navigation */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+</style>
+</body>
+</html>

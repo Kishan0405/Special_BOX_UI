@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium Features</title>
+  <link rel="stylesheet" href="stylespremium.css">
+  <link rel="stylesheet" href="stylesloadingpremium.css"> <!-- Link to loading spinner CSS -->
+</head>
+<body>
+  <main>
+    <section>
+      <h2>Upgrade to Premium</h2>
+      <p>Unlock exclusive premium features to enhance your experience.</p>
+      <ul>
+        <li>Unlimited access to advanced tools</li>
+        <li>Prioritized customer support</li>
+        <li>Exclusive content and updates</li>
+      </ul>
+      <div class="separator"></div> <!-- Separator -->
+      <p>Choose your plan:</p>
+        <div class="plan">
+          <h3>Basic Plan</h3>
+          <p>Price: ₹ 0 LifeTime</p>
+          <p>Includes: E-Commerce Services</p>
+          <!-- Button to simulate payment for Basic Plan -->
+          <button onclick="simulatePayment('Basic', this)" id="basicButton" disabled>Purchase Basic Plan</button>
+        </div>
+      </div>
+    </section>
+    <!-- Back button -->
+    <button onclick="goBack()" class="back-button">Back</button>
+  </main>
+  <footer>
+    <h3>Support</h3>
+      <p>If you have any questions or need assistance, please contact our support team:</p>
+      <ul>
+        <li><a href="mailto:kishanbantakal@gmail.com">support@Here</a></li>
+        <li>Phone: Not Provided</li>
+      </ul>
+    <p>&copy; 2024 My Open Site All rights reserved.</p>
+  </footer>
+
+  <div class="loader-container hidden"> <!-- Loading spinner container -->
+    <div class="loader"></div> <!-- Loading spinner -->
+  </div>
+
+  <script>
+    // Enable buttons once the page has fully loaded
+    window.onload = function() {
+      document.getElementById('basicButton').disabled = false;
+    };
+
+    function simulatePayment(plan, button) {
+      // Disable the button to prevent multiple purchases
+      button.disabled = true;
+
+      // Show loading spinner
+      showLoading();
+
+      // Simulate payment delay
+      setTimeout(function() {
+        // Redirect to purchase success page
+        window.location.href = "paymentsucessful.html";
+      }, 2000); // Simulated payment delay of 2 seconds
+    }
+
+    function goBack() {
+      window.history.back();
+    }
+
+    // Function to show loading spinner
+    function showLoading() {
+      document.querySelector('.loader-container').classList.remove('hidden');
+    }
+
+    // Function to hide loading spinner
+    function hideLoading() {
+      document.querySelector('.loader-container').classList.add('hidden');
+    }
+  </script>
+
+  <script src="loading.js"></script> <!-- Script for loading spinner -->
+</body>
+</html>
