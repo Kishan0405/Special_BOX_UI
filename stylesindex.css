@@ -192,6 +192,10 @@ a:hover {
 @media (max-width: 600px) {
     header {
         flex-direction: column;
+        padding: 0.5rem; /* Reduced padding for smaller screens */
+    }
+    header h1 {
+        font-size: 1.5rem; /* Reduced font size for header title */
     }
     nav ul {
         flex-direction: column;
