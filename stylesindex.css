@@ -12,8 +12,6 @@ header {
     align-items: center;
     background-color: #333;
     padding: 1rem;
-    text-align: center; /* Merged with the separate header text-align rule */
-    animation: slideDown 1s ease-in-out;
 }
 
 header h1,
@@ -23,23 +21,17 @@ header a {
     text-decoration: none;
 }
 
-nav {
-    text-align: left;
-    background-color: #f2f2f2;
-    animation: fadeIn 1s ease-in-out;
-}
-
 nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    background-color: #f2f2f2;
     display: flex;
     justify-content: space-around;
-    flex-wrap: wrap; /* Ensure items wrap on smaller screens */
 }
 
 nav ul li {
-    margin: 0.5rem 0;
+    display: inline;
 }
 
 nav ul li a {
@@ -47,22 +39,11 @@ nav ul li a {
     color: #333;
     text-decoration: none;
     padding: 1rem;
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
-    border-radius: 5px; /* Merged border-radius property */
+    transition: background-color 0.3s ease;
 }
 
 nav ul li a:hover {
     background-color: #ddd;
-    transform: translateY(-3px); /* Combined transform transitions */
-}
-
-nav ul li a.selected {
-    color: #fff;
-    background-color: #333;
-}
-
-nav ul li a.selected:hover {
-    background-color: #444;
 }
 
 .content {
@@ -91,6 +72,15 @@ footer p {
     background-color: #ddd;
     border-radius: 5px;
     padding: 0.5rem;
+}
+
+nav ul li a.selected {
+    color: #fff;
+    background-color: #333;
+}
+
+nav ul li a.selected:hover {
+    background-color: #444;
 }
 
 @keyframes fadeInUp {
@@ -136,6 +126,32 @@ a:hover {
     color: #ff6347;
 }
 
+header {
+    text-align: center;
+    animation: slideDown 1s ease-in-out;
+}
+
+nav {
+    text-align: left;
+    animation: fadeIn 1s ease-in-out;
+}
+
+nav ul li a {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #f0f0f0;
+    color: #007bff;
+    transform: translateY(-3px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
 @keyframes slideDown {
     from {
         opacity: 0;
@@ -176,8 +192,8 @@ a:hover {
 #signOutButton {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #dc3545;
-    color: #fff;
+    background-color: #dc3545; /* Red color for sign-out button */
+    color: #fff; /* White text color */
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -185,25 +201,5 @@ a:hover {
 }
 
 #signOutButton:hover {
-    background-color: #c82333;
-}
-
-/* Media Queries */
-@media (max-width: 600px) {
-    header {
-        flex-direction: column;
-        padding: 0.5rem; /* Reduced padding for smaller screens */
-    }
-    header h1 {
-        font-size: 1.5rem; /* Reduced font size for header title */
-    }
-    nav ul {
-        flex-direction: column;
-    }
-    nav ul li {
-        margin: 0.5rem 0;
-    }
-    .content {
-        padding: 0 0.5rem;
-    }
+    background-color: #c82333; /* Darker red color on hover */
 }
