@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Hero</title>
+    <link rel="icon" type="image/png" href="mylogo.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 80%;
+            max-width: 600px;
+            margin: 20px 0;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        p {
+            color: #666;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 16px;
+        }
+        #output {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="intro">
+        <h1>Welcome to HTML Hero</h1>
+        <p>Embark on an epic adventure to master HTML and save the kingdom from darkness. Complete quests, solve puzzles, and become an HTML coding hero!</p>
+        <button onclick="startGame()">Start Game</button>
+    </div>
+
+    <div class="container hidden" id="tutorial1">
+        <h2>HTML Basics Tutorial</h2>
+        <p>In this tutorial, you'll learn about HTML tags and how to structure a simple web page.</p>
+        <p><strong>Task 1:</strong> Create a heading using the &lt;h1&gt; tag.</p>
+        <textarea id="codeInput1" placeholder="Type your HTML code here...">&lt;h1&gt;Hello, HTML Hero!&lt;/h1&gt;</textarea>
+        <button onclick="runCode('codeInput1', 'output1')">Run Code</button>
+        <div id="output1"></div>
+        <button onclick="nextTutorial('tutorial1', 'tutorial2')">Next Challenge</button>
+    </div>
+
+    <div class="container hidden" id="tutorial2">
+        <h2>HTML Basics Tutorial</h2>
+        <p>Great! Now, let's add a paragraph using the &lt;p&gt; tag.</p>
+        <p><strong>Task 2:</strong> Create a paragraph below your heading.</p>
+        <textarea id="codeInput2" placeholder="Type your HTML code here...">&lt;h1&gt;Hello, HTML Hero!&lt;/h1&gt;\n&lt;p&gt;This is a paragraph.&lt;/p&gt;</textarea>
+        <button onclick="runCode('codeInput2', 'output2')">Run Code</button>
+        <div id="output2"></div>
+        <button onclick="nextTutorial('tutorial2', 'tutorial3')">Next Challenge</button>
+    </div>
+
+    <div class="container hidden" id="tutorial3">
+        <h2>HTML Basics Tutorial</h2>
+        <p>Awesome! Next, let's add a link using the &lt;a&gt; tag.</p>
+        <p><strong>Task 3:</strong> Create a link to Google.</p>
+        <textarea id="codeInput3" placeholder="Type your HTML code here...">&lt;h1&gt;Hello, HTML Hero!&lt;/h1&gt;\n&lt;p&gt;This is a paragraph.&lt;/p&gt;\n&lt;a href=&quot;https://www.google.com&quot;&gt;Visit Google&lt;/a&gt;</textarea>
+        <button onclick="runCode('codeInput3', 'output3')">Run Code</button>
+        <div id="output3"></div>
+        <button onclick="nextTutorial('tutorial3', 'tutorial4')">Next Challenge</button>
+    </div>
+
+    <div class="container hidden" id="tutorial4">
+        <h2>HTML Basics Tutorial</h2>
+        <p>Great job! Finally, let's add an image using the &lt;img&gt; tag.</p>
+        <p><strong>Task 4:</strong> Add an image to your page.</p>
+        <textarea id="codeInput4" placeholder="Type your HTML code here...">&lt;h1&gt;Hello, HTML Hero!&lt;/h1&gt;\n&lt;p&gt;This is a paragraph.&lt;/p&gt;\n&lt;a href=&quot;https://www.google.com&quot;&gt;Visit Google&lt;/a&gt;\n&lt;img src=&quot;https://via.placeholder.com/150&quot; alt=&quot;Placeholder Image&quot;&gt;</textarea>
+        <button onclick="runCode('codeInput4', 'output4')">Run Code</button>
+        <div id="output4"></div>
+        <button onclick="nextTutorial('tutorial4', 'tutorial5')">Next Challenge</button>
+    </div>
+
+    <div class="container hidden" id="tutorial5">
+        <h2>HTML Basics Tutorial</h2>
+        <p>Well done! Now, let's learn about lists. First, let's create an unordered list using the &lt;ul&gt; and &lt;li&gt; tags.</p>
+        <p><strong>Task 5:</strong> Create an unordered list with three items.</p>
+        <textarea id="codeInput5" placeholder="Type your HTML code here...">&lt;ul&gt;\n  &lt;li&gt;First item&lt;/li&gt;\n  &lt;li&gt;Second item&lt;/li&gt;\n  &lt;li&gt;Third item&lt;/li&gt;\n&lt;/ul&gt;</textarea>
+        <button onclick="runCode('codeInput5', 'output5')">Run Code</button>
+        <div id="output5"></div>
+        <button onclick="nextTutorial('tutorial5', 'tutorial6')">Next Challenge</button>
+    </div>
+
+    <div class="container hidden" id="tutorial6">
+        <h2>HTML Basics Tutorial</h2>
+        <p>Great! Now let's create a table using the &lt;table&gt;, &lt;tr&gt;, &lt;th&gt;, and &lt;td&gt; tags.</p>
+        <p><strong>Task 6:</strong> Create a simple table with two rows and two columns.</p>
+        <textarea id="codeInput6" placeholder="Type your HTML code here...">&lt;table border=&quot;1&quot;&gt;\n  &lt;tr&gt;\n    &lt;th&gt;Header 1&lt;/th&gt;\n    &lt;th&gt;Header 2&lt;/th&gt;\n  &lt;/tr&gt;\n  &lt;tr&gt;\n    &lt;td&gt;Row 1, Cell 1&lt;/td&gt;\n    &lt;td&gt;Row 1, Cell 2&lt;/td&gt;\n  &lt;/tr&gt;\n  &lt;tr&gt;\n    &lt;td&gt;Row 2, Cell 1&lt;/td&gt;\n    &lt;td&gt;Row 2, Cell 2&lt;/td&gt;\n  &lt;/tr&gt;\n&lt;/table&gt;</textarea>
+        <button onclick="runCode('codeInput6', 'output6')">Run Code</button>
+        <div id="output6"></div>
+        <button onclick="nextTutorial('tutorial6', 'tutorial7')">Next Challenge</button>
+    </div>
+
+    <div class="container hidden" id="tutorial7">
+        <h2>HTML Basics Tutorial</h2>
+        <p>Excellent! Finally, let's create a form using the &lt;form&gt;, &lt;label&gt;, &lt;input&gt;, and &lt;button&gt; tags.</p>
+        <p><strong>Task 7:</strong> Create a simple form with a text input and a submit button.</p>
+        <textarea id="codeInput7" placeholder="Type your HTML code here...">&lt;form&gt;\n  &lt;label for=&quot;name&quot;&gt;Name:&lt;/label&gt;\n  &lt;input type=&quot;text&quot; id=&quot;name&quot; name=&quot;name&quot;&gt;\n  &lt;button type=&quot;submit&quot;&gt;Submit&lt;/button&gt;\n&lt;/form&gt;</textarea>
+        <button onclick="runCode('codeInput7', 'output7')">Run Code</button>
+        <div id="output7"></div>
+    </div>
+
+    <script>
+        function startGame() {
+            document.getElementById('intro').classList.add('hidden');
+            document.getElementById('tutorial1').classList.remove('hidden');
+        }
+
+        function runCode(inputId, outputId) {
+            const code = document.getElementById(inputId).value;
+            document.getElementById(outputId).innerHTML = code;
+        }
+
+        function nextTutorial(currentTutorialId, nextTutorialId) {
+            document.getElementById(currentTutorialId).classList.add('hidden');
+            document.getElementById(nextTutorialId).classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>

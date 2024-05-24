@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="icon" type="image/png" href="mylogo.png">
+</head>
+<body>
+  <div id="loader-container">
+    <div class="loader"></div>
+    <p id="loading-message">Loading</p>
+  </div>
+
+  <div id="message-container" style="display: none;">
+    <p id="message">It's Under Progress! We will notify our registered users if its  developed...</p>
+    <p id="message">Thanks for showing Interest</p>
+    <button id="back-button" onclick="goBack()">Back</button>
+  </div>
+
+  <script>
+    // Simulate a delay of 5 seconds
+    setTimeout(function() {
+      document.getElementById('loader-container').style.display = 'none';
+      document.getElementById('message-container').style.display = 'block';
+    }, 5000);
+
+    // Function to go back to the previous page
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+<style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+
+.loader-container {
+  text-align: center;
+}
+
+.loader {
+  border: 8px solid #f3f3f3; /* Light grey */
+  border-top: 8px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+p {
+  margin: 0;
+  font-size: 20px;
+  color: #333;
+}
+
+#message-container {
+  text-align: center;
+}
+
+#message {
+  font-size: 20px;
+  color: #ff0000; /* Red */
+}
+
+#back-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#back-button:hover {
+  background-color: #0056b3;
+}
+
+</style>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Commerce Store</title>
+  <link rel="stylesheet" href="Styles/stylesproductshome.css">
+  <link rel="icon" type="image/png" href="mylogo.png">
+</head>
+<body>
+  <div id="content">
+    <header class="header-top">
+      <div class="header-left">
+        <h1>E-Commerce Store</h1>
+      </div>
+      <div class="header-right">
+        <button id="signOutButton" onclick="signOut()">Sign Out</button>
+      </div>
+    </header>
+    <nav class="navbar">
+      <ul>
+        <li><a href="indexlogin.html">Home</a></li>
+        <li><a href="productshtml.html">Products</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="myaccount.html">My Account</a></li>
+      </ul>
+    </nav>
+    <div id="cartSection" class="cart-section">
+      <h3>Cart</h3>
+      <div id="cartItems"></div>
+      <div class="total-amount"></div>
+      <button id="submitButton" class="btn" style="display: none;" onclick="submitCartItems()">Buy</button>
+    </div>
+    <div class="container">
+      <h2>Available Products</h2>
+
+      <div class="product-container">
+        <div class="product">
+          <img src="Products/Oneplus Nord CE4.jpeg" alt="Product 1">
+          <div class="product-details">
+            <h2>Product 1</h2>
+            <p>Description of Product 1</p>
+            <p>Price: ₹ 24,999</p>
+            <div class="quantity-input">
+              <button onclick="decrementQuantity(event, 'quantity1')">-</button>
+              <input type="number" id="quantity1" value="1" min="1">
+              <button onclick="incrementQuantity(event, 'quantity1')">+</button>
+            </div>
+            <button class="btn" onclick="addToCart('Product 1', 24999, 'Description of Product 1', document.getElementById('quantity1'))">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product">
+          <img src="Products/Oneplus Nord CE4.jpeg" alt="Product 2">
+          <div class="product-details">
+            <h2>Product 2</h2>
+            <p>Description of Product 2</p>
+            <p>Price: ₹ 24,999</p>
+            <div class="quantity-input">
+              <button onclick="decrementQuantity(event, 'quantity2')">-</button>
+              <input type="number" id="quantity2" value="1" min="1">
+              <button onclick="incrementQuantity(event, 'quantity2')">+</button>
+            </div>
+            <button class="btn" onclick="addToCart('Product 2', 24999, 'Description of Product 2', document.getElementById('quantity2'))">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product">
+          <img src="Products/Oneplus Nord CE4.jpeg" alt="Product 3">
+          <div class="product-details">
+            <h2>Product 3</h2>
+            <p>Description of Product 3</p>
+            <p>Price: ₹ 24,999</p>
+            <div class="quantity-input">
+              <button onclick="decrementQuantity(event, 'quantity3')">-</button>
+              <input type="number" id="quantity3" value="1" min="1">
+              <button onclick="incrementQuantity(event, 'quantity3')">+</button>
+            </div>
+            <button class="btn" onclick="addToCart('Product 3', 24999, 'Description of Product 3', document.getElementById('quantity3'))">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product">
+          <img src="Products/Oneplus Nord CE4.jpeg" alt="Product 4">
+          <div class="product-details">
+            <h2>Product 4</h2>
+            <p>Description of Product 4</p>
+            <p>Price: ₹ 24,999</p>
+            <div class="quantity-input">
+              <button onclick="decrementQuantity(event, 'quantity4')">-</button>
+              <input type="number" id="quantity4" value="1" min="1">
+              <button onclick="incrementQuantity(event, 'quantity4')">+</button>
+            </div>
+            <button class="btn" onclick="addToCart('Product 4', 24999, 'Description of Product 4', document.getElementById('quantity4'))">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <img src="mylogo.png" alt="Banner Image">
+      <p>© 2024 E-Commerce Store. All rights reserved.</p>
+    </footer>
+  </div>
+  <script>
+    function signOut() {
+      sessionStorage.removeItem("loggedIn");
+      window.location.href = "login.html";
+    }
+
+    let cartItems = [];
+    let submitButton = document.getElementById("submitButton");
+
+    function addToCart(name, price, description, quantityInput) {
+      const quantity = quantityInput.value;
+      cartItems.push({ name, price, description, quantity });
+      displayCartItems();
+      submitButton.style.display = "block";
+    }
+
+    function decrementQuantity(event, quantityId) {
+      const quantityInput = document.getElementById(quantityId);
+      if (quantityInput.value > 1) {
+        quantityInput.value--;
+      }
+      event.target.disabled = quantityInput.value === 1;
+    }
+
+    function incrementQuantity(event, quantityId) {
+      const quantityInput = document.getElementById(quantityId);
+      quantityInput.value++;
+      event.target.previousElementSibling.disabled = false;
+    }
+    // ... (rest of the JavaScript code remains the same)
+
+    function displayCartItems() {
+      document.getElementById("cartItems").innerHTML = "";
+      let totalAmount = 0;
+
+      cartItems.forEach((item, index) => {
+        const cartItem = document.createElement("div");
+        cartItem.className = "cart-item";
+
+        const subtotal = item.price * item.quantity;
+        totalAmount += subtotal;
+
+        cartItem.innerHTML = `
+          <h3>${item.name}</h3>
+          <p><strong>Price:</strong> ₹ ${item.price}</p>
+          <p><strong>Quantity:</strong> ${item.quantity}</p>
+          <p><strong>Subtotal:</strong> ₹ ${subtotal}</p>
+          <button class="btn" onclick="removeFromCart(${index})">Remove from Cart</button>
+        `;
+
+        document.getElementById("cartItems").appendChild(cartItem);
+      });
+
+      document.querySelector(".total-amount").innerHTML = `<h3><strong>Total:</strong> ₹ ${totalAmount}</h3>`;
+    }
+
+    // ... (rest of the JavaScript code remains the same)
+
+    function submitCartItems() {
+      const WEB3_FORMS_API_URL = 'https://api.web3forms.com/submit';
+      const FORM_NONCE = 'b785cb1d-35aa-4cce-9e64-7b15566f4f67'; // Get your nonce from Web3Forms
+
+      const formData = new FormData();
+      formData.append('access_key', FORM_NONCE);
+      formData.append('subject', 'New Cart Item');
+      formData.append('message', `
+        Cart Items:
+        ${cartItems.map((item, index) => `
+          Item ${index + 1}:
+          Name: ${item.name}
+          Description: ${item.description}
+          Price: ₹ ${item.price}
+          Quantity: ${item.quantity}
+          Subtotal: ₹ ${item.price * item.quantity}
+        `).join('\n\n')}
+        Total: ₹ ${cartItems.reduce((total, item) => total + item.price * item.quantity, 0)}
+      `);
+
+      fetch(WEB3_FORMS_API_URL, {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Failed to submit the form');
+        }
+        return response.json();
+      })
+      .then(() => {
+        alert('Successfully Purchased');
+        cartItems = [];
+        submitButton.style.display = "none";
+        displayCartItems();
+      })
+      .catch(error => {
+        console.error('Error submitting the form:', error);
+        alert('Error submitting the form');
+      });
+    }
+
+    function removeFromCart(index) {
+      cartItems.splice(index, 1);
+      displayCartItems();
+
+      if (cartItems.length === 0) {
+        submitButton.style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html>
