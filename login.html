@@ -13,7 +13,7 @@
 <body>
   <center>
     <h3>Login Here</h3>
-    <form id="loginForm" action="https://formspree.io/f/mleqzrqb" method="post">
+    <form id="loginForm">
       <img src="profile-photo.jpg" alt="Profile Photo" class="profile-photo">
       <table>
         <tr>
@@ -26,7 +26,7 @@
         </tr>
         
         <tr>
-           <td><input type="submit" name="submit" value="Login"></td>
+           <td><input type="button" name="submit" value="Login" onclick="login()"></td>
            <td><p>Not yet a Member? <a href="register.html">Register</a></p></td>
         </tr>
       </table>
@@ -41,15 +41,8 @@
   </center>
 
   <script>
-    // Function to go back to the previous page
-    function goBack() {
-      window.history.back();
-    }
-
-    // Form submission handling
-    document.getElementById("loginForm").addEventListener("submit", function(event) {
-      event.preventDefault(); // Prevent the default form submission
-    
+    // Function to handle login
+    function login() {
       // Get the entered username and password
       var username = document.getElementsByName("user")[0].value;
       var password = document.getElementsByName("user_pass")[0].value;
@@ -66,7 +59,7 @@
           // Notify the user that only admins are allowed to login
           alert("Only admins are allowed to login.");
       }
-    });
+    }
 
     // Check if the user is already logged in
     window.onload = function() {
