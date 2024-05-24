@@ -13,7 +13,7 @@
 <body>
   <center>
     <h3>Login Here</h3>
-      <form id="loginForm" action="https://formspree.io/f/mleqzrqb" method="post">
+    <form id="loginForm" action="https://formspree.io/f/mleqzrqb" method="post">
       <img src="profile-photo.jpg" alt="Profile Photo" class="profile-photo">
       <table>
         <tr>
@@ -56,8 +56,8 @@
       
       // Check if the entered username and password match those of an admin
       if ((username === "opensite" && password === "opensite00") || 
-          (username === "kishan04" && password === "kishan04")) || 
-          (username === "abhi18" && password === "abhi18#")){
+          (username === "kishan04" && password === "kishan04")|| 
+          (username === "abhi18" && password === "abhi18#")) {
           // Store the logged-in state
           sessionStorage.setItem("loggedIn", true);
           // Redirect to home page
