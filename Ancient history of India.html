@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="styles/stylesindex.css">
+    <link rel="stylesheet" href="styles/stylesbanner.css">
+    <link rel="icon" type="image/png" href="mylogo.png">
+</head>
+<body>
+    <header>
+        <img src="mylogo.png" alt="Banner Image">
+    </header>
+    <nav>
+        <ul>
+            <li><a href="loading.html">Recents</a></li>
+            <li><a href="indexlogin.html">Home</a></li>
+            <li><a href="Contactlogin.html">Contact</a></li>
+            <li><a href="login.html">Buy Here</a></li>
+            <li><a href="Aboutlogin.html">About</a></li>
+        </ul>
+    </nav>
+    <section>
+        <div class="quiz-container">
+            <h1>Quiz on Ancient History of India</h1>
+            <div id="quiz"></div>
+            <div class="timer-container">
+                <div id="timer">Time Remaining: <span id="time"></span></div>
+            </div>
+            <button id="submit">Submit</button>
+            <div id="result"></div>
+        </div>
+        <script>
+            const questions = [
+                {
+                    question: "What is the name of one of the earliest and most influential civilizations in ancient India, known for its well-planned cities?",
+                    options: {
+                        a: "Gupta Empire",
+                        b: "Indus Valley Civilization",
+                        c: "Chola Dynasty",
+                        d: "Mughal Empire"
+                    },
+                    correct: "b"
+                },
+                {
+                    question: "The Rig Veda is a collection of hymns from which ancient Indian religious tradition?",
+                    options: {
+                        a: "Hinduism",
+                        b: "Buddhism",
+                        c: "Jainism",
+                        d: "Sikhism"
+                    },
+                    correct: "a"
+                },
+                {
+                    question: "Which powerful empire, under Ashoka the Great, promoted the spread of Buddhism across India?",
+                    options: {
+                        a: "Mauryan Empire",
+                        b: "Gupta Empire",
+                        c: "Chalukya Empire",
+                        d: "Pallava Dynasty"
+                    },
+                    correct: "a"
+                },
+                {
+                    question: "What social system divided people into different classes based on birth in ancient India?",
+                    options: {
+                        a: "Caste System",
+                        b: "Feudalism",
+                        c: "Guild System",
+                        d: "Monarchy"
+                    },
+                    correct: "a"
+                },
+                {
+                    question: "What are the four main goals of life according to Hinduism: Dharma, Artha, Kama, and...?",
+                    options: {
+                        a: "Peace",
+                        b: "Wealth",
+                        c: "Pleasure",
+                        d: "Moksha (Liberation)"
+                    },
+                    correct: "d"
+                },
+                {
+                    question: "What South Indian kingdoms are known for their rich literary works in the Tamil language, like Sangam poems?",
+                    options: {
+                        a: "Gupta Empire",
+                        b: "Chola Dynasty",
+                        c: "Maurya Empire",
+                        d: "Pallava Dynasty"
+                    },
+                    correct: "b"
+                },
+                {
+                    question: "True or False: The Indus Valley Civilization is known for its advanced drainage systems in their cities.",
+                    options: {
+                        a: "True",
+                        b: "False"
+                    },
+                    correct: "a"
+                },
+                {
+                    question: "Which Mauryan emperor famously converted to Buddhism and is known for his pillars with inscriptions?",
+                    options: {
+                        a: "Chandragupta Maurya",
+                        b: "Ashoka the Great",
+                        c: "Samudragupta",
+                        d: "Kanishka the Great"
+                    },
+                    correct: "b"
+                },
+                {
+                    question: "What epic poems are considered some of the most important texts in Hinduism, telling stories of gods, heroes, and duty?",
+                    options: {
+                        a: "Ramayana & Mahabharata",
+                        b: "Vedas",
+                        c: "Upanishads",
+                        d: "Arthashastra"
+                    },
+                    correct: "a"
+                },
+                {
+                    question: "What two major non-Hindu religions emerged in ancient India, focusing on achieving enlightenment?",
+                    options: {
+                        a: "Buddhism & Jainism",
+                        b: "Hinduism & Sikhism",
+                        c: "Hinduism & Buddhism",
+                        d: "Jainism & Sikhism"
+                    },
+                    correct: "a"
+                },
+                {
+                    question: "Which of the following is NOT a material commonly found in Indus Valley Civilization artifacts?",
+                    options: {
+                        a: "Terracotta",
+                        b: "Bronze",
+                        c: "Iron",
+                        d: "Gold"
+                    },
+                    correct: "c"
+                },
+                {
+                    question: "The Mauryan Empire, under Ashoka, is known for its emphasis on which of the following?",
+                    options: {
+                        a: "Military conquest",
+                        b: "Spread of Buddhism",
+                        c: "Expansion of trade routes",
+                        d: "Development of advanced weaponry"
+                    },
+                    correct: "b"
+                },
+                {
+                    question: "What is the name of the famous ancient Indian text that teaches moral lessons through fables and stories?",
+                    options: {
+                        a: "Rig Veda",
+                        b: "Arthashastra",
+                        c: "Panchatantra",
+                        d: "Mahabharata"
+                    },
+                    correct: "c"
+                },
+                {
+                    question: "Which South Indian dynasty is known for its magnificent temple architecture, like the Brihadisvara Temple?",
+                    options: {
+                        a: "Chola Dynasty",
+                        b: "Gupta Empire",
+                        c: "Maurya Empire",
+                        d: "Pallava Dynasty"
+                    },
+                    correct: "a"
+                },
+                {
+                    question: "True or False: The caste system in ancient India was a rigid social hierarchy with limited social mobility.",
+                    options: {
+                        a: "True",
+                        b: "False"
+                    },
+                    correct: "a"
+                },
+                {
+                    question: "What language is considered the classical language of Hinduism and is associated with the Vedas?",
+                    options: {
+                        a: "Tamil",
+                        b: "Sanskrit",
+                        c: "Pali",
+                        d: "Hindi"
+                    },
+                    correct: "b"
+                },
+                {
+                    question: "What is the name of the famous Gupta emperor who is considered a patron of the arts and sciences?",
+                    options: {
+                        a: "Chandragupta Maurya",
+                        b: "Ashoka the Great",
+                        c: "Chandragupta Vikramaditya",
+                        d: "Kanishka the Great"
+                    },
+                    correct: "c"
+                },
+                {
+                    question: "Which of the following empires is known for its advancements in mathematics and astronomy, including the concept of zero?",
+                    options: {
+                        a: "Indus Valley Civilization",
+                        b: "Mauryan Empire",
+                        c: "Gupta Empire",
+                        d: "Chola Dynasty"
+                    },
+                    correct: "c"
+                },
+                {
+                    question: "What is the name of the epic poem that tells the story of a prince's exile and his eventual return to his kingdom?",
+                    options: {
+                        a: "Ramayana",
+                        b: "Mahabharata",
+                        c: "Arthashastra",
+                        d: "Panchatantra"
+                    },
+                    correct: "a"
+                },
+                {
+                    question: "What is the philosophy of non-violence and respect for all living things associated with?",
+                    options: {
+                        a: "Hinduism",
+                        b: "Buddhism",
+                        c: "Jainism",
+                        d: "Sikhism"
+                    },
+                    correct: "b"
+                }
+            ];
+    
+            function shuffle(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+                return array;
+            }
+    
+            function shuffleOptions(options) {
+                const keys = Object.keys(options);
+                shuffle(keys);
+                const shuffledOptions = {};
+                keys.forEach(key => {
+                    shuffledOptions[key] = options[key];
+                });
+                return shuffledOptions;
+            }
+    
+            function renderQuiz() {
+                const quizContainer = document.getElementById('quiz');
+                const shuffledQuestions = shuffle(questions);
+                quizContainer.innerHTML = '';
+                shuffledQuestions.forEach((q, index) => {
+                    const questionNumber = index + 1;
+                    const shuffledOptions = shuffleOptions(q.options);
+                    const questionDiv = document.createElement('div');
+                    questionDiv.classList.add('question-container');
+                    questionDiv.innerHTML = `
+                        <p class="question">${questionNumber}. ${q.question}</p>
+                        ${Object.keys(shuffledOptions).map(key => `
+                            <label><input type="radio" name="q${questionNumber}" value="${key}"> ${shuffledOptions[key]}</label>
+                        `).join('')}
+                    `;
+                    quizContainer.appendChild(questionDiv);
+                });
+            }
+    
+            document.getElementById('submit').addEventListener('click', function() {
+                // Get all question containers
+                const questionContainers = document.querySelectorAll('.question-container');
+                
+                // Check if all questions are answered
+                let allQuestionsAnswered = true;
+                questionContainers.forEach((container, index) => {
+                    const questionNumber = index + 1;
+                    const selectedAnswer = document.querySelector(`input[name="q${questionNumber}"]:checked`);
+                    if (!selectedAnswer) {
+                        allQuestionsAnswered = false;
+                    }
+                });
+    
+                if (!allQuestionsAnswered) {
+                    alert('Please answer all questions before submitting.');
+                    return;
+                }
+                
+                clearInterval(timerInterval); // Stop the timer
+                let score = 0;
+                questions.forEach((q, index) => {
+                    const questionNumber = index + 1;
+                    const selectedAnswer = document.querySelector(`input[name="q${questionNumber}"]:checked`);
+                    if (selectedAnswer && selectedAnswer.value === q.correct) {
+                        score++;
+                    }
+                });
+                const result = document.getElementById('result');
+                result.textContent = `Your score is: ${score} out of ${questions.length}`;
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+    
+            renderQuiz();
+    
+            // Timer Logic
+            let timeRemaining = 300; // 5 minutes
+            let timerInterval; // Declare timerInterval variable outside the function
+    
+            function startTimer() {
+                const timerElement = document.getElementById('time');
+                timerInterval = setInterval(() => {
+                    const minutes = Math.floor(timeRemaining / 60);
+                    let seconds = timeRemaining % 60;
+                    if (seconds < 10) {
+                        seconds = `0${seconds}`;
+                    }
+                    timerElement.textContent = `${minutes}:${seconds}`;
+                    timeRemaining--;
+                    if (timeRemaining < 0) {
+                        clearInterval(timerInterval);
+                        document.getElementById('submit').click(); // Auto-submit quiz when time runs out
+                    }
+                }, 1000);
+            }
+    
+            startTimer();
+        </script>
+        <style>
+            /* Styles for the quiz container */
+#quiz {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles for each question container */
+.question-container {
+    margin-bottom: 20px;
+}
+
+/* Styles for the question text */
+.question {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Styles for the options */
+.question-container label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Styles for the radio buttons */
+.question-container input[type="radio"] {
+    margin-right: 10px;
+}
+
+/* Styles for the submit button */
+button {
+    display: block;
+    width: 50%;
+    padding: 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
+
+#submit:hover {
+    background-color: #b30000;
+}
+
+/* Styles for the result display */
+#result {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#timer {
+    position: fixed;
+    top: 50%;
+    left: 1300px;
+    transform: translateY(-50%);
+    width: 180px;
+    z-index: 999;
+  }
+  
+  #timer span {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .timer-container {
+    position: fixed;
+    top: 50%;
+    left: auto;
+    transform: translate(-50%, -50%);
+    width: 180px;
+    z-index: 999;
+  }
+  
+  #time {
+    font-size: 24px;
+    font-weight: bold;
+    color: #f00;
+  }
+
+        </style>
+    </section>
+    <footer>
+        <p>&copy; 2024 <a href="https://specialboxui.netlify.app/">Special BOX UI</a></p>
+    </footer>
+    <style>
+        .chatbase-footer {
+    display: none !important;
+}
+    </style>
+</body>
+</html>

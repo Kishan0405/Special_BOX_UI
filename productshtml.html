@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Commerce Store</title>
+  <link rel="stylesheet" href="Styles/stylesproductshtml.css">
+  <link rel="icon" type="image/png" href="mylogo.png">
+  <style>
+    /* Your existing styles here */
+  </style>
+</head>
+<body>
+  <div id="content">
+    <header class="header-top">
+      <div class="header-left">
+        <h1>E-Commerce Store</h1>
+      </div>
+      <div class="header-right">
+        <button id="signOutButton" onclick="signOut()">Sign Out</button>
+      </div>
+    </header>
+    <nav class="navbar">
+      <ul>
+        <li><a href="productshome.html">Home</a></li>
+        <li><a href="carts.html">Cart</a></li> <!-- Corrected Cart link -->
+        <li><a href="myaccount.html">My Account</a></li> <!-- Corrected My Account link -->
+      </ul>
+    </nav>
+    <div class="container">
+      <div class="categories-grid">
+        <a href="electronics.html" class="category-heading">Electronics</a>
+        <a href="fashion.html" class="category-heading">Fashion</a>
+        <a href="home-living.html" class="category-heading">Home & Living</a>
+        <a href="beauty-care.html" class="category-heading">Beauty</a>
+        <a href="all-categories.html" class="category-heading">All</a>
+      </div>
+    </div>
+    <div id="cartSection"></div> <!-- Added a div for displaying cart items -->
+    <footer>
+      <img src="mylogo.png" alt="Banner Image">
+      <p>&copy; 2024 E-Commerce Store. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    // Function to sign out
+    function signOut() {
+      // Remove the logged-in state
+      sessionStorage.removeItem("loggedIn");
+      // Redirect to the login page after sign out
+      window.location.href = "login.html";
+    }
+
+    // Initialize an empty cart array
+    const cartItems = [];
+
+    // Function to add product to cart
+    function addToCart() {
+        const productName = 'Product Name'; // Replace with actual product name
+        const productPrice = 100; // Replace with actual product price
+
+        // Create a cart item object
+        const cartItem = {
+            name: productName,
+            price: productPrice
+        };
+
+        // Add the item to the cart array
+        cartItems.push(cartItem);
+
+        // Update the cart display
+        updateCartDisplay();
+    }
+
+    // Function to update cart display
+    function updateCartDisplay() {
+        const cartSection = document.getElementById('cartSection');
+        cartSection.innerHTML = ''; // Clear existing cart items
+
+        // Display each cart item
+        cartItems.forEach(item => {
+            const cartItemElement = document.createElement('div');
+            cartItemElement.textContent = `${item.name} - $${item.price}`;
+            cartSection.appendChild(cartItemElement);
+        });
+    }
+  </script>
+</body>
+</html>
