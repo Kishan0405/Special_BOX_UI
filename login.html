@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <link rel="stylesheet" href="styles/styleslogin.css">
+  <link rel="icon" type="image/png" href="mylogo.png">
+  <title>Login Page</title>
+  <style>
+    h4, h6 {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h4>Login can be done after our review. The username and password are sent to your Email ID after review.</h4>
+  <h6>It takes only 1 Day to review</h6>
+  <center>
+    <h3>Login Here</h3>
+    <form id="loginForm" onsubmit="login(); return false;">
+      <img src="profile-photo.jpg" alt="Profile Photo" class="profile-photo">
+      <table>
+        <tr>
+          <td>Username:</td>
+          <td><input type="text" name="user" placeholder="Enter name Here"></td>
+        </tr>
+        <tr>
+          <td>Password:</td>
+          <td><input type="password" name="user_pass" placeholder="Enter Password Here"></td>
+        </tr>
+        <tr>
+          <td>
+            <button type="submit" class="submit" id="submit">Login</button>
+          </td>          
+          <td><p>Not yet a Member? <a href="register.html">Register</a></p></td>
+        </tr>
+      </table>
+    </form>
+
+    <p>Or</p>
+  
+    <p>Don't have an account? <a href="register.html">Sign Up</a></p>
+    
+    <!-- Back button -->
+    <button class="back-button" id="backButton" onclick="window.location.href='index.html'">Back</button>
+  </center>
+
+  <script>
+    // Function to handle login
+    function login() {
+      // Get the entered username and password
+      var username = document.getElementsByName("user")[0].value;
+      var password = document.getElementsByName("user_pass")[0].value;
+      
+      // Check if the entered username and password match those of an admin
+      if ((username === "opensite" && password === "opensite00") || 
+          (username === "kishan04" && password === "kishan04")|| 
+          (username === "abhi18" && password === "abhi18#")) {
+          // Store the logged-in state
+          sessionStorage.setItem("loggedIn", true);
+          // Redirect to home page
+          window.location.href = "indexlogin.html";
+      } else {
+          // Notify the user that only admins are allowed to login
+          alert("Only Registered or Successfully Reviewed users are allowed to login.");
+      }
+    }
+
+    // Check if the user is already logged in
+    window.onload = function() {
+      if (sessionStorage.getItem("loggedIn")) {
+        var loginLink = document.querySelector('a[href="register.html"]');
+        if (loginLink) {
+          loginLink.innerHTML = "Logout";
+          loginLink.setAttribute("href", "javascript:logout()"); // Set the logout action here
+        }
+      }
+    };
+
+    // Function to logout
+    function logout() {
+      sessionStorage.removeItem("loggedIn");
+      window.location.href = "indexlogin.html"; // Redirect to the login page after logout
+    }
+  </script>
+  <footer>
+    <img src="mylogo.png" textalign="center" alt="Banner Image">
+  </footer>
+</body>
+</html>

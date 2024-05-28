@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate Us</title>
+    <link rel="stylesheet" href="styles/stylescontact.css">
+    <link rel="stylesheet" href="styles/stylesbanner.css"> <!-- Import CSS for the banner -->
+    <link rel="stylesheet" href="styles/stylesrecents.css">
+    <link rel="icon" type="image/png" href="mylogo.png">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="loading.html">Recents</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="premium.html">Premium</a></li>
+            <li><a href="upload.html">Upload</a></li>
+        </ul>
+    </nav>
+    <section class="rating">
+        <h2>Rate Us</h2>
+        <p>We value your feedback! Please rate your experience with our service and leave a comment below.</p>
+        <form action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="b785cb1d-35aa-4cce-9e64-7b15566f4f67">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br>
+            <label for="rating">Rating:</label><br>
+            <select id="rating" name="rating" required>
+                <option value="1">1 - Poor</option>
+                <option value="2">2 - Fair</option>
+                <option value="3">3 - Good</option>
+                <option value="4">4 - Very Good</option>
+                <option value="5">5 - Excellent</option>
+            </select><br>
+            <label for="message">Any suggestions where we can improve? (Comment)</label><br>
+            <textarea id="message" name="message" rows="4" required></textarea><br>
+            <input type="submit" value="Submit Rating">
+        </form>
+    </section>
+    <footer>
+        <p>&copy; 2024 <a href="https://specialboxui.netlify.app/">Special BOX UI</a></p>
+        <div class="banner">
+            <h1>Powered By</h1>
+            <img src="mylogo.png" alt="Banner Image">
+        </div>
+    </footer>
+    <script>
+        document.querySelector("form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent default form submission
+            
+            // Get form data
+            var formData = new FormData(this);
+            
+            // You can use Fetch API or XMLHttpRequest to submit form data
+            fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => {
+                // Handle success response
+                if (response.ok) {
+                    alert("Submitted successfully!"); // Show success message
+                    this.reset(); // Reset form fields
+                } else {
+                    throw new Error("Network response was not ok.");
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                alert("An error occurred while submitting the form. Please try again later."); // Handle error
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+/* Added styles to center the quiz section */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Inherited styles from the provided markdown */
+/* Updated styles to enable scrolling */
+.quiz-container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: calc(100% - 200px);
+    max-width: 1500px;
+    max-height: 80vh; /* Set maximum height */
+    overflow-y: auto; /* Enable vertical scrolling */
+    box-sizing: border-box;
+    margin: 20px 0;
+    transition: transform 0.3s ease;
+    position: relative;
+}
+  
+  #timer {
+    position: fixed;
+    top: 50%;
+    left: 1100px;
+    transform: translateY(-50%);
+    width: 180px;
+    z-index: 999;
+  }
+  
+  #timer span {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .timer-container {
+    position: fixed;
+    top: 50%;
+    left: auto;
+    transform: translate(-50%, -50%);
+    width: 180px;
+    z-index: 999;
+  }
+  
+  #time {
+    font-size: 24px;
+    font-weight: bold;
+    color: #f00;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .question-container {
+    margin-bottom: 20px;
+  }
+  
+  .question {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #333;
+    font-weight: bold; /* Added font-weight property to make the questions bold */
+}
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #555;
+  }
+  
+  input[type="radio"] {
+    margin-right: 10px;
+  }
+  
+  button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #218838;
+  }
+  
+  #result {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    color: #17a2b8;
+  }
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 1rem;
+}
+
+header h1,
+header a {
+    color: #fff;
+    margin: 0;
+    text-decoration: none;
+}
