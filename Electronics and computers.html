@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>Home</title>
+    <link rel="stylesheet" href="Styles/stylesquizhome.css">
+    <link rel="stylesheet" href="styles/stylesbanner.css">
+    <link rel="icon" type="image/png" href="mylogo.png">
+</head>
+<body>
+    <header>
+        <img src="mylogo.png"  alt="Banner Image">    
+    </header>
+    <nav>
+        <ul>
+            <li><a href="loading.html" onclick="return confirm('Are you sure you want to leave the quiz?')">Recents</a></li>
+            <li><a href="indexlogin.html" onclick="return confirm('Are you sure you want to leave the quiz?')">Home</a></li>
+            <li><a href="Contactlogin.html" onclick="return confirm('Are you sure you want to leave the quiz?')">Contact</a></li>
+            <li><a href="undermaintainance.html" onclick="return confirm('Are you sure you want to leave the quiz?')">Buy Here</a></li>
+            <li><a href="Aboutlogin.html" onclick="return confirm('Are you sure you want to leave the quiz?')">About</a></li>
+        </ul>
+    </nav>
+    <section class="hide-contents">
+        <!-- quiz content here -->
+      </section>
+    <section>
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+          </div>
+          <div class="quiz-container">
+            <style>
+                h1{
+                  text-align: center;
+                }
+              </style>
+            <h1>Quiz on Electronics and Computers</h1>
+            <div id="quiz"></div>
+            <div class="timer-container">
+                <div id="timer">Time Remaining: <span id="time"></span></div>
+            </div>
+            <button id="submit">Submit</button>
+            <div id="result"></div>
+        </div>
+        <script>
+            const questions = [
+                {
+                    question: "A silicon solar cell operates based on which physical principle?",
+                    options: {
+                        a: "Photoconductivity",
+                        b: "Piezoelectricity",
+                        c: "Electromagnetism",
+                        d: "Superconductivity"
+                    },
+                    correct: "a"
+                },
+                {
+                    question: "In a multi-core processor, what is the primary challenge associated with cache coherence?",
+                    options: {
+                        a: "Insufficient cache size for each core",
+                        b: "Maintaining consistency of data across multiple caches",
+                        c: "High power consumption of individual cores",
+                        d: "Difficulty in task scheduling between cores"
+                    },
+                    correct: "b"
+                },
+                {
+                    question: "A negative resistance coefficient is a characteristic of which electronic component?",
+                    options: {
+                        a: "Resistor",
+                        b: "Capacitor",
+                        c: "Diode",
+                        d: "Tunnel diode"
+                    },
+                    correct: "d"
+                },
+                {
+                    question: "In a digital communication system, what is the Nyquist-Shannon sampling theorem concerned with?",
+                    options: {
+                        a: "Data encoding techniques for transmission",
+                        b: "Minimum sampling rate required to avoid aliasing",
+                        c: "Error correction methods for reliable data transfer",
+                        d: "Channel bandwidth allocation for multiple transmissions"
+                    },
+                    correct: "b"
+                },
+                {
+                    question: "In computer architecture, what is the primary advantage of pipelining in a processor?",
+                    options: {
+                        a: "Increased clock speed",
+                        b: "Improved instruction fetching efficiency",
+                        c: "Reduced power consumption",
+                        d: "Enhanced floating-point operation performance"
+                    },
+                    correct: "b"
+                },
+                {
+                    question: "In a virtualized environment, what is the primary responsibility of a hypervisor?",
+                    options: {
+                        a: "Managing physical memory allocation for guest operating systems",
+                        b: "Providing a platform for running multiple virtual machines",
+                        c: "Encrypting data traffic between virtual machines",
+                        d: "Optimizing resource utilization for containerized applications"
+                    },
+                    correct: "b"
+                },
+                {
+                    question: "A depletion-mode MOSFET (Metal-Oxide-Semiconductor Field-Effect Transistor) operates in which region by default?",
+                    options: {
+                        a: "Linear region",
+                        b: "Saturation region",
+                        c: "Cut-off region",
+                        d: "Triode region"
+                    },
+                    correct: "c"
+                },
+                {
+                    question: "In computer security, what is the primary weakness of a symmetric key encryption algorithm?",
+                    options: {
+                        a: "Susceptibility to brute-force attacks",
+                        b: "Difficulty in key management and distribution",
+                        c: "High computational cost for encryption/decryption",
+                        d: "Inability to achieve message authentication"
+                    },
+                    correct: "b"
+                },
+                {
+                    question: "In artificial intelligence, what is the primary advantage of a convolutional neural network (CNN) compared to a standard neural network?",
+                    options: {
+                        a: "Improved performance on image and video recognition tasks",
+                        b: "Ability to handle large datasets more efficiently",
+                        c: "Superior accuracy in text classification problems",
+                        d: "Reduced training time for complex models"
+                    },
+                    correct: "a"
+                },
+                {
+                    question: "In computer networking, what is the primary function of the Border Gateway Protocol (BGP)?",
+                    options: {
+                        a: "Routing traffic within a local area network (LAN)",
+                        b: "Establishing connections between individual devices",
+                        c: "Routing internet traffic between autonomous systems (ASes)",
+                        d: "Providing secure communication channels for data transfer"
+                    },
+                    correct: "c"
+                },
+            ];
+            function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
+function shuffleOptions(options) {
+    const keys = Object.keys(options);
+    shuffle(keys);
+    const shuffledOptions = {};
+    keys.forEach(key => {
+        shuffledOptions[key] = options[key];
+    });
+    return shuffledOptions;
+}
+
+function renderQuiz() {
+    const quizContainer = document.getElementById('quiz');
+    const shuffledQuestions = shuffle(questions);
+    quizContainer.innerHTML = '';
+    shuffledQuestions.forEach((q, index) => {
+        const questionNumber = index + 1;
+        const shuffledOptions = shuffleOptions(q.options);
+        const questionDiv = document.createElement('div');
+        questionDiv.classList.add('question-container');
+        questionDiv.innerHTML = `
+            <p class="question">${questionNumber}. ${q.question}</p>
+            ${Object.keys(shuffledOptions).map(key => `
+                <label><input type="radio" name="q${questionNumber}" value="${key}"> ${shuffledOptions[key]}</label>
+            `).join('')}
+        `;
+        quizContainer.appendChild(questionDiv);
+    });
+
+    setTimeout(() => {
+        document.getElementById('loading').style.display = 'none';
+        startTimer();
+    }, 1000); // 1000ms = 1 second
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    renderQuiz();
+});
+
+document.getElementById('submit').addEventListener('click', function() {
+    const questionContainers = document.querySelectorAll('.question-container');
+    let allQuestionsAnswered = true;
+    questionContainers.forEach((container, index) => {
+        const questionNumber = index + 1;
+        const selectedAnswer = document.querySelector(`input[name="q${questionNumber}"]:checked`);
+        if (!selectedAnswer) {
+            allQuestionsAnswered = false;
+        }
+    });
+
+    if (!allQuestionsAnswered) {
+        alert('Please answer all questions before submitting.');
+        return;
+    }
+    
+    clearInterval(timerInterval);
+    let score = 0;
+    questions.forEach((q, index) => {
+        const questionNumber = index + 1;
+        const selectedAnswer = document.querySelector(`input[name="q${questionNumber}"]:checked`);
+        if (selectedAnswer && selectedAnswer.value === q.correct) {
+            score++;
+        }
+    });
+    const result = document.getElementById('result');
+    result.textContent = `Your score is: ${score} out of ${questions.length}`;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+let timeRemaining = 180; // 5 minutes
+let timerInterval;
+
+// Function to reset all input values
+function resetQuiz() {
+    const inputs = document.querySelectorAll('input[type="radio"]');
+    inputs.forEach(input => {
+        input.checked = false;
+    });
+}
+
+// Update the startTimer function to call resetQuiz when the timer reaches 0.00
+function startTimer() {
+    const timerElement = document.getElementById('time');
+
+    timerInterval = setInterval(() => {
+        timeRemaining--;
+        const minutes = Math.floor(timeRemaining / 60);
+        let seconds = timeRemaining % 60;
+        if (seconds < 10) {
+            seconds = `0${seconds}`;
+        }
+
+        // Check if the time remaining is less than or equal to 15 seconds
+if (timeRemaining <= 15) {
+    // Change the timer color to red
+    timerElement.classList.remove('green'); // Remove green class
+    timerElement.style.color = '#f00';
+} else {
+    // Change the timer color to green
+    timerElement.classList.add('green'); // Add green class
+    timerElement.style.color = 'green';
+}
+
+        
+
+        // Check if the time is up
+        if (timeRemaining < 0) {
+            clearInterval(timerInterval);
+            resetQuiz(); // Reset all input values
+            document.getElementById('submit').click();
+        } else {
+            timerElement.textContent = `${minutes}:${seconds}`;
+        }
+    }, 1000);
+}
+
+
+window.onload = function() {
+    // Check if the user is logged in
+    if (sessionStorage.getItem("loggedIn")) {
+        // Show the sign out button
+        document.getElementById('signOutButton').style.display = 'block';
+    }
+
+    // Add event listener to the sign out button
+    document.getElementById("signOutButton").addEventListener("click", function() {
+        // Show a confirmation message
+        if (confirm("Are you sure you want to leave the quiz?")) {
+            // Display alert message asynchronously
+            setTimeout(function() {
+                alert("You have successfully logged out.");
+            }, 0);
+
+            logout(); // Call the logout function
+        }
+    });
+
+    // Add the navigation menu
+    var navMenu = `
+        <ul>
+            <li><a href="loading.html" onclick="return confirm('Are you sure you want to leave the quiz?')">Recents</a></li>
+            <li><a href="indexlogin.html" onclick="return confirm('Are you sure you want to leave the quiz?')">Home</a></li>
+            <li><a href="Contactlogin.html" onclick="return confirm('Are you sure you want to leave the quiz?')">Contact</a></li>
+            <li><a href="undermaintainance.html" onclick="return confirm('Are you sure you want to leave the quiz?')">Buy Here</a></li>
+            <li><a href="Aboutlogin.html" onclick="return confirm('Are you sure you want to leave the quiz?')">About</a></li>
+        </ul>`;
+    document.querySelector('nav').innerHTML = navMenu;
+};
+
+// Function to logout
+function logout() {
+    sessionStorage.removeItem("loggedIn");
+    window.location.href = "login.html"; // Redirect to the login page after logout
+}
+
+
+        </script>
+        <style>
+            /* Styles for the quiz container */
+            /* Styles for the quiz container */
+#quiz {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Make the quiz container responsive */
+@media (max-width: 768px) {
+  #quiz {
+    width: 100%;
+  }
+}
+
+            /* Styles for each question container */
+            .question-container {
+                margin-bottom: 20px;
+            }
+
+            /* Styles for the question text */
+            /* Styles for the quiz questions */
+.question-container {
+  margin-bottom: 20px;
+}
+
+.question {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.question-container label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.question-container input[type="radio"] {
+  margin-right: 10px;
+}
+
+/* Make the quiz questions responsive */
+@media (max-width: 768px) {
+  .question {
+    font-size: 16px;
+  }
+
+  .question-container label {
+    font-size: 14px;
+  }
+}
+            /* Styles for the submit button */
+           /* Styles for the submit button */
+button {
+  display: block;
+  margin: 0 auto; /* Center the button horizontally */
+  padding: 15px;
+  width: 25%;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+/* Make the submit button responsive */
+@media (max-width: 768px) {
+  button {
+    width: 100%; /* Make the button take up the full width of the screen */
+  }
+}
+
+            #submit:hover {
+                background-color: #b30000;
+            }
+
+            /* Styles for the result display */
+            #result {
+                margin-top: 20px;
+                font-size: 20px;
+                font-weight: bold;
+                text-align: center;
+            }
+
+            #timer {
+                position: fixed;
+                top: 50%;
+                right: 30px;
+                transform: translateY(-50%);
+                width: 180px;
+                z-index: 999;
+            }
+
+            #timer span {
+                font-weight: bold;
+                color: #333;
+            }
+
+            .timer-container {
+                position: fixed;
+                top: 50%;
+                right: 30px;
+                transform: translate(-50%, -50%);
+                width: 180px;
+                z-index: 999;
+            }
+
+            #time {
+                font-size: 24px;
+                font-weight: bold;
+                color: #f00;
+            }
+
+            .chatbase-footer {
+                display: none !important;
+            }
+            /* Styles for the navigation menu */
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li {
+  margin: 0;
+}
+
+nav ul li a {
+  display: inline-block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #4285f4;
+}
+
+/* Make the navigation menu responsive */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+}
+
+            /* Add styles for the loading animation */
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #efefefea;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 10px solid #ccc;
+  border-top: 10px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+            .hide-contents {
+  opacity: 0;
+  pointer-events: none;
+}
+
+        </style>
+    </section>
+    <footer>
+        <p>&copy; 2024 <a href="https://specialboxui.netlify.app/">Special BOX UI</a></p>
+    </footer>
+</body>
+</html>
