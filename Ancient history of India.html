@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
     <title>Home</title>
     <link rel="stylesheet" href="Styles/stylesquizhome.css">
     <link rel="stylesheet" href="styles/stylesbanner.css">
@@ -10,15 +10,15 @@
 </head>
 <body>
     <header>
-        <img src="mylogo.png" alt="Banner Image">
-        <!-- Add a button for sign out -->
-        <button id="signOutButton" style="display: none;" onclick="logout()">Sign Out</button>
+        <img src="mylogo.png"  alt="Banner Image">    
     </header>
     <nav>
         <ul>
-            <li><a href="loading.html">Recents</a></li>
-            <li><a href="indexlogin.html">Home</a></li>
-            <li><a href="Contactlogin.html">Contact</a></li>
+            <li><a href="loading.html" onclick="return confirm('Are you sure you want to leave the quiz?')">Recents</a></li>
+            <li><a href="indexlogin.html" onclick="return confirm('Are you sure you want to leave the quiz?')">Home</a></li>
+            <li><a href="Contactlogin.html" onclick="return confirm('Are you sure you want to leave the quiz?')">Contact</a></li>
+            <li><a href="undermaintainance.html" onclick="return confirm('Are you sure you want to leave the quiz?')">Buy Here</a></li>
+            <li><a href="Aboutlogin.html" onclick="return confirm('Are you sure you want to leave the quiz?')">About</a></li>
         </ul>
     </nav>
     <section class="hide-contents">
@@ -391,7 +391,7 @@ window.onload = function() {
             <li><a href="loading.html" onclick="return confirm('Are you sure you want to leave the quiz?')">Recents</a></li>
             <li><a href="indexlogin.html" onclick="return confirm('Are you sure you want to leave the quiz?')">Home</a></li>
             <li><a href="Contactlogin.html" onclick="return confirm('Are you sure you want to leave the quiz?')">Contact</a></li>
-            <li><a href="login.html" onclick="return confirm('Are you sure you want to leave the quiz?')">Buy Here</a></li>
+            <li><a href="undermaintainance.html" onclick="return confirm('Are you sure you want to leave the quiz?')">Buy Here</a></li>
             <li><a href="Aboutlogin.html" onclick="return confirm('Are you sure you want to leave the quiz?')">About</a></li>
         </ul>`;
     document.querySelector('nav').innerHTML = navMenu;
@@ -407,15 +407,23 @@ function logout() {
         </script>
         <style>
             /* Styles for the quiz container */
-            #quiz {
-                max-width: 800px;
-                margin: 0 auto;
-                padding: 20px;
-                border: 1px solid #ccc;
-                border-radius: 10px;
-                background-color: #f9f9f9;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            }
+            /* Styles for the quiz container */
+#quiz {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Make the quiz container responsive */
+@media (max-width: 768px) {
+  #quiz {
+    width: 100%;
+  }
+}
 
             /* Styles for each question container */
             .question-container {
@@ -423,39 +431,65 @@ function logout() {
             }
 
             /* Styles for the question text */
-            .question {
-                font-size: 18px;
-                font-weight: bold;
-                margin-bottom: 10px;
-            }
+            /* Styles for the quiz questions */
+.question-container {
+  margin-bottom: 20px;
+}
 
-            /* Styles for the options */
-            .question-container label {
-                display: block;
-                margin-bottom: 8px;
-                font-size: 16px;
-                cursor: pointer;
-            }
+.question {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
 
-            /* Styles for the radio buttons */
-            .question-container input[type="radio"] {
-                margin-right: 10px;
-            }
+.question-container label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
 
+.question-container input[type="radio"] {
+  margin-right: 10px;
+}
+
+/* Make the quiz questions responsive */
+@media (max-width: 768px) {
+  .question {
+    font-size: 16px;
+  }
+
+  .question-container label {
+    font-size: 14px;
+  }
+}
             /* Styles for the submit button */
-            button {
-                display: block;
-                width: 50%;
-                padding: 15px;
-                background-color: #28a745;
-                color: white;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-                font-size: 18px;
-                font-weight: 600;
-                transition: background-color 0.3s ease;
-            }
+           /* Styles for the submit button */
+button {
+  display: block;
+  margin: 0 auto; /* Center the button horizontally */
+  padding: 15px;
+  width: 25%;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+/* Make the submit button responsive */
+@media (max-width: 768px) {
+  button {
+    width: 100%; /* Make the button take up the full width of the screen */
+  }
+}
 
             #submit:hover {
                 background-color: #b30000;
@@ -501,6 +535,44 @@ function logout() {
             .chatbase-footer {
                 display: none !important;
             }
+            /* Styles for the navigation menu */
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li {
+  margin: 0;
+}
+
+nav ul li a {
+  display: inline-block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #4285f4;
+}
+
+/* Make the navigation menu responsive */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+}
 
             /* Add styles for the loading animation */
 .loading {
