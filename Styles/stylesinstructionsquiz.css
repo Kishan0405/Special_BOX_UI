@@ -7,9 +7,9 @@ body {
 }
 
 .instructions {
-  max-width: 600px;
-  margin: 40px auto;
-  font-size: 18px;
+  max-width: 90%; /* Adjusted for smaller screens */
+  margin: 20px auto; /* Increased margin */
+  font-size: 16px; /* Reduced font size for better readability on mobile */
   padding: 20px;
   background-color: #fff;
   border: 1px solid #ddd;
@@ -19,7 +19,7 @@ body {
 
 ol {
   margin-bottom: 20px;
-  padding: 0 20px;
+  padding: 0 10px; /* Reduced padding */
 }
 
 li {
@@ -33,10 +33,11 @@ button {
   color: #fff;
   border: none;
   border-radius: 4px;
-  padding: 10px 20px;
+  padding: 14px 24px; /* Increased padding for easier tapping */
   cursor: pointer;
   transition: background-color 0.3s ease;
   animation: fadeIn 1s ease-in-out;
+  font-size: 16px; /* Adjusted font size */
 }
 
 button:hover {
@@ -53,10 +54,11 @@ button:hover {
   color: #fff;
   border: none;
   border-radius: 4px;
-  padding: 10px 20px;
+  padding: 14px 24px; /* Increased padding for easier tapping */
   cursor: pointer;
   transition: background-color 0.3s ease;
   animation: fadeIn 1s ease-in-out;
+  font-size: 16px; /* Adjusted font size */
 }
 
 #back-button:hover {
