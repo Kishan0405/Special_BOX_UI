@@ -8,10 +8,29 @@
   <link rel="icon" type="image/png" href="mylogo.png">
   <title>Sign Up</title>
   <style>
-    
+    body.loading {
+      pointer-events: none;
+    }
   </style>
 </head>
 <body>
+  <div id="loading-icon-first">
+    <div class="spinner-first"></div>
+    <p>Loading...</p>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      document.body.classList.add('loading');
+      document.getElementById('loading-icon-first').style.display = 'block';
+
+      setTimeout(function() {
+        document.getElementById('loading-icon-first').style.display = 'none';
+        document.body.classList.remove('loading');
+      }, 3000); // Adjust this timeout as needed
+    });
+  </script>
+
   <div class="register-container">
     <h3>Register Here</h3>
     <h6>Review process takes approximately 1 day.</h6>
@@ -41,11 +60,6 @@
         </div>
       </form>
     </div>
-  </div>
-
-  <div id="loading-icon">
-    <div class="spinner"></div>
-    <p>Loading...</p>
   </div>
 
   <button class="back-button" id="backButton" onclick="window.location.href='login.html'">Back</button>
@@ -88,7 +102,7 @@
         if (response.ok) {
           alert("Successfully Registered");
           document.getElementById("registerForm").reset();
-          window.location.href = "login.html";
+          window.location.href= "login.html";
         } else {
           throw new Error("Network response was not ok.");
         }
@@ -102,7 +116,7 @@
   </script>
   <footer>
     <div class="banner"></div>
-    <img src="mylogo.png" alt="Banner Image" style="display: block; margin: 0 auto;">
+    <h2 style="display: box; text-align: center;">Register Here</h2>
   </footer>
 </body>
 </html>
