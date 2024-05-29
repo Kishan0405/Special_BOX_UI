@@ -3,31 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Home</title>
-    <link rel="stylesheet" href="styles/stylesindexlogin.css">
+    <link rel="stylesheet" href="styles/stylesindex.css">
     <link rel="stylesheet" href="styles/stylesbanner.css">
     <link rel="icon" type="image/png" href="mylogo.png">
 </head>
 <body>
     <header>
         <img src="mylogo.png" alt="Banner Image">
-        <!-- Add a button for sign out -->
-        <button id="signOutButton" style="display: none;" onclick="logout()">Sign Out</button>
+        <h4><a href="login.html">Login</a></h4>
     </header>
     <nav>
         <ul>
             <li><a href="loading.html">Recents</a></li>
-            <li><a href="Contactlogin.html">Contact</a></li>
-            <li><a href="undermaintainance.html">Buy Here</a></li>
-            <li><a href="Aboutlogin.html">About</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+            <li><a href="login.html">Buy Here</a></li>
+            <li><a href="undermaintainance.html">Special BOX AI</a></li>
+            <li><a href="premium.html">Premium</a></li>
+            <li><a href="About.html">About</a></li>
         </ul>
     </nav>
     <section>
 
         <h2>Contents/Posts</h2>
         <ul>
-            <p><li><a href="instructionsquiz.html">Quiz on Ancient Historyof India</a></li></p>
-            <p><li><a href="loading.html">Post 2</a></li></p>
+            <p><li><a href="login.html">Quiz on Ancient Historyof India</a></li></p>
+            <p><li><a href="login.html">Quiz on Electronics and Computers</a></li></p>
             <p><li><a href="loading.html">Post 3</a></li></p>
             <p><li><a href="loading.html">Post 4</a></li></p>
             <p><li><a href="loading.html">Post 5</a></li></p>
@@ -42,21 +44,5 @@
             <img src="mylogo.png" alt="Banner Image">
         </div>
     </footer>
-
-    <script>
-        // Check if the user is logged in
-        window.onload = function() {
-            if (sessionStorage.getItem("loggedIn")) {
-                // Show the sign out button
-                document.getElementById('signOutButton').style.display = 'block';
-            }
-        };
-
-        // Function to logout
-        function logout() {
-            sessionStorage.removeItem("loggedIn");
-            window.location.href = "login.html"; // Redirect to the login page after logout
-        }
-    </script>
 </body>
 </html>
