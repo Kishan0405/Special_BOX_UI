@@ -11,9 +11,29 @@
     h4, h6 {
       text-align: center;
     }
+    body.loading {
+      opacity: 100%;
+      pointer-events: none;
+    }
   </style>
 </head>
 <body>
+  <div id="loading-icon-first">
+    <div class="spinner-first"></div>
+    <p>Loading...</p>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        document.body.classList.add('loading');
+        document.getElementById('loading-icon-first').style.display = 'block';
+  
+        setTimeout(function() {
+          document.getElementById('loading-icon-first').style.display = 'none';
+          document.body.classList.remove('loading');
+        }, 3000); // Adjust this timeout as needed
+      });
+    </script>
+  </div>
   <h4>Login can be done after our review. The username and password are sent to your Email ID after review.</h4>
   <h6>It takes only 1 Day to review</h6>
   <center>
