@@ -2,59 +2,92 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Register</title>
-  <link rel="stylesheet" href="Styles/stylesregister.css">
-  <link rel="stylesheet" type="text/css" href="slide-navbar-style.css"> <!-- Adjust the path to your CSS file -->
-  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <link rel="stylesheet" href="styles/stylesregister.css">
   <link rel="icon" type="image/png" href="mylogo.png">
+  <title>Sign Up Page</title>
   <style>
+    
   </style>
 </head>
 <body>
-  <div class="main">    
-    <input type="checkbox" id="chk" aria-hidden="true">
-    <div class="signup">
+  <div class="register-container">
+    <h3>Register Here</h3>
+    <h6>Review process takes approximately 1 day.</h6>
+    <div class="center-container">
       <form id="registerForm" action="https://api.web3forms.com/submit" method="POST">
         <input type="hidden" name="access_key" value="b785cb1d-35aa-4cce-9e64-7b15566f4f67">
-        <label for="chk" aria-hidden="true">Register Here</label>
-        <input type="text" name="username" placeholder="User name" required="">
-        <input type="email" name="email" placeholder="Email(Optional)">
-        <input type="password" name="pswd" placeholder="Password" required="">
-        <button type="submit" id="signupBtn">Submit</button>
+        <img src="profile-photo.jpg" alt="Profile Photo" class="profile-photo">
+        <div class="input-field">
+          <label for="username">Username</label>
+          <input type="text" placeholder="Username" name="username" required>
+        </div>
+        <div class="input-field">
+          <label for="pswd">Password</label>
+          <input type="password" placeholder="Password" id="pswd" name="pswd" required>
+        </div>
+        <div class="input-field">
+          <label for="pswd_confirm">Confirm Password</label>
+          <input type="password" placeholder="Confirm Password" id="pswd_confirm" name="pswd_confirm" required>
+        </div>
+        <div class="input-field">
+          <label for="email">Email (Optional)</label>
+          <input type="email" placeholder="Email (Optional)" name="email">
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="submit" id="signupBtn" onclick="return validatePasswords()">Submit</button>
+          <p class="already-member">Already a Member? <a href="login.html">Login</a></p>
+        </div>
       </form>
     </div>
   </div>
+
   <div id="loading-icon">
     <div class="spinner"></div>
     <p>Loading...</p>
   </div>
-  
-  <script>
-    document.getElementById("registerForm").addEventListener("submit", function(event) {
-      event.preventDefault(); // Prevent default form submission
-      
-      // Show the loading icon
-      document.getElementById('loading-icon').style.display = 'block';
 
-      // Get form data
+  <button class="back-button" id="backButton" onclick="window.location.href='login.html'">Back</button>
+
+  <script>
+    function validatePasswords() {
+      var password = document.getElementById("pswd").value;
+      var confirmPassword = document.getElementById("pswd_confirm").value;
+
+      if (password !== confirmPassword) {
+        alert("The passwords do not match. Please try again.");
+        return false;
+      }
+
+      return true;
+    }
+
+    function showLoading() {
+      document.getElementById('loading-icon').style.display = 'block';
+    }
+
+    document.getElementById("registerForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      if (!validatePasswords()) {
+        return;
+      }
+
+      showLoading();
+
       var formData = new FormData(this);
-      
-      // You can use Fetch API or XMLHttpRequest to submit form data
-      fetch("https://api.web3forms.com/submit", {
-        method: "POST",
+
+      fetch(this.action, {
+        method: this.method,
         body: formData
       })
       .then(response => {
-        // Hide the loading icon
         document.getElementById('loading-icon').style.display = 'none';
 
-        // Handle success response
         if (response.ok) {
-          // Show alert message
           alert("Successfully Registered");
-          // Reset the form
           document.getElementById("registerForm").reset();
-          // Redirect to login page
           window.location.href = "login.html";
         } else {
           throw new Error("Network response was not ok.");
@@ -62,14 +95,14 @@
       })
       .catch(error => {
         console.error("Error:", error);
-        // Hide the loading icon
         document.getElementById('loading-icon').style.display = 'none';
-        // Handle error
         alert("Failed to register. Please try again later.");
       });
     });
   </script>
-<!-- Back button -->
-<button class="backbutton" id="backButton" onclick="window.location.href='login.html'" >Back</button>
+  <footer>
+    <div class="banner"></div>
+    <img src="mylogo.png" alt="Banner Image" style="display: block; margin: 0 auto;">
+  </footer>
 </body>
 </html>
