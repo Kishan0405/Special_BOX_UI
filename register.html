@@ -62,6 +62,11 @@
     </div>
   </div>
 
+  <div id="loading-icon">
+    <div class="spinner"></div>
+    <p>Loading...</p>
+  </div>
+
   <button class="back-button" id="backButton" onclick="window.location.href='login.html'">Back</button>
 
   <script>
@@ -81,36 +86,38 @@
       document.getElementById('loading-icon').style.display = 'block';
     }
 
-    document.getElementById("registerForm").addEventListener("submit", function(event) {
-      event.preventDefault();
+    document.addEventListener("DOMContentLoaded", function() {
+      var registerForm = document.getElementById("registerForm");
 
-      if (!validatePasswords()) {
-        return;
-      }
+      registerForm.addEventListener("submit", function(event) {
+        event.preventDefault();
 
-      showLoading();
+        if (!validatePasswords()) {
+          return;
+        }showLoading();
 
-      var formData = new FormData(this);
+        var formData = new FormData(this);
 
-      fetch(this.action, {
-        method: this.method,
-        body: formData
-      })
-      .then(response => {
-        document.getElementById('loading-icon').style.display = 'none';
+        fetch(this.action, {
+          method: this.method,
+          body: formData
+        })
+        .then(response => {
+          document.getElementById('loading-icon').style.display = 'none';
 
-        if (response.ok) {
-          alert("Successfully Registered");
-          document.getElementById("registerForm").reset();
-          window.location.href= "login.html";
-        } else {
-          throw new Error("Network response was not ok.");
-        }
-      })
-      .catch(error => {
-        console.error("Error:", error);
-        document.getElementById('loading-icon').style.display = 'none';
-        alert("Failed to register. Please try again later.");
+          if (response.ok) {
+            alert("Successfully Registered");
+            document.getElementById("registerForm").reset();
+            window.location.href = "login.html";
+          } else {
+            throw new Error("Network response was not ok.");
+          }
+        })
+        .catch(error => {
+          console.error("Error:", error);
+          document.getElementById('loading-icon').style.display = 'none';
+          alert("Failed to register. Please try again later.");
+        });
       });
     });
   </script>
