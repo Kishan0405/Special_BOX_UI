@@ -220,6 +220,9 @@ document.getElementById('submit').addEventListener('click', function() {
     result.textContent = `Your score is: ${score} out of ${questions.length}`;
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+window.onbeforeunload = function() {
+            return "Are you sure you want to leave the quiz?";
+        };
 
 let timeRemaining = 180; // 5 minutes
 let timerInterval;
