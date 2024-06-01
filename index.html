@@ -7,42 +7,80 @@
     <title>Home</title>
     <link rel="stylesheet" href="styles/stylesindex.css">
     <link rel="stylesheet" href="styles/stylesbanner.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="icon" type="image/png" href="mylogo.png">
+    <style>
+        
+    </style>
 </head>
 <body>
     <header>
+        <nav>
+            <input type="checkbox" id="click">
+            <label for="click">
+              <i class="fas fa-bars"></i>
+            </label>
+            <div class="sidenav">
+                <label for="closebtn">
+              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+                </label>
+              <ul>
+                <li><a href="loading.html">Recents</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+                <li><a href="login.html">Buy Here</a></li>
+                <li><a href="undermaintainance.html">Special BOX AI</a></li>
+                <li><a href="premium.html">Premium</a></li>
+                <li><a href="About.html">About</a></li>
+              </ul>
+            </div>
+          </nav>
         <img src="mylogo.png" alt="Banner Image">
         <h4><a href="login.html">Login</a></h4>
     </header>
-    <nav>
-        <ul>
-            <li><a href="loading.html">Recents</a></li>
-            <li><a href="Contact.html">Contact</a></li>
-            <li><a href="login.html">Buy Here</a></li>
-            <li><a href="undermaintainance.html">Special BOX AI</a></li>
-            <li><a href="premium.html">Premium</a></li>
-            <li><a href="About.html">About</a></li>
-        </ul>
-    </nav>
-    <section>
-
+    <section id="main-content">
         <h2>Contents/Posts</h2>
         <ul>
             <p><li><a href="login.html">Quiz on Ancient Historyof India</a></li></p>
             <p><li><a href="login.html">Quiz on Electronics and Computers</a></li></p>
-            <p><li><a href="loading.html">Post 3</a></li></p>
-            <p><li><a href="loading.html">Post 4</a></li></p>
-            <p><li><a href="loading.html">Post 5</a></li></p>
-            <p><li><a href="loading.html">Post 6</a></li></p>
+            <p><li><a href="loading.html"></a></li></p>
+            <p><li><a href="loading.html"></a></li></p>
+            <p><li><a href="loading.html"></a></li></p>
+            <p><li><a href="loading.html"></a></li></p>
             <!-- Add more links to your other pages as needed -->
         </ul>
     </section>
     <footer>
-        <p>&copy; 2024 <a href="https://specialboxui.netlify.app/">Special BOX UI</a></p>
+        <p>&copy; 2024 <a href="index.html">Special BOX UI</a></p>
         <div class="banner">
             <h1>Powered By</h1>
             <img src="mylogo.png" alt="Banner Image">
         </div>
     </footer>
+    <script>
+        function closeNav() {
+            document.getElementById("click").checked = false;
+            const sidenav = document.querySelector('.sidenav');
+            const mainContent = document.querySelector('#main-content');
+            sidenav.style.transform = 'translateX(-200px)';
+            mainContent.style.marginLeft = '0px';
+        }
+        document.getElementById('click').addEventListener('change', function() {
+            const sidenav = document.querySelector('.sidenav');
+            const mainContent = document.querySelector('#main-content');
+
+            if (this.checked) {
+                sidenav.style.transform = 'translateX(0px)';
+                mainContent.style.marginLeft = '243px'; // Update the margin to push the content to the right
+            } else {
+                sidenav.style.transform = 'translateX(-200px)';
+                mainContent.style.marginLeft = '0px';
+            }
+        });
+        window.addEventListener('pageshow', function(event) {
+    if (event.persisted && document.referrer.includes(['loading.html', 'Contact.html', 'login.html', 'undermaintainance.html', 'premium.html', 'About.html'])) {
+      window.location.reload();
+    }
+  });
+    </script>
 </body>
 </html>
