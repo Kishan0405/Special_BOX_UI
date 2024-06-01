@@ -27,7 +27,7 @@ nav ul {
     padding: 0;
     background-color: #f2f2f2;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start; /* Align items to the left */
 }
 
 nav ul li {
@@ -76,12 +76,72 @@ footer p {
 
 nav ul li a.selected {
     color: #fff;
-    background-color: #333;
+    background-color: #007bff;
 }
 
 nav ul li a.selected:hover {
     background-color: #444;
 }
+.sidenav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
+  }
+  
+  .sidenav li {
+    margin-bottom: 10px;
+  }
+  
+  .sidenav a {
+    display: block;
+    text-decoration: none;
+    color: #818181;
+  }
+  
+  .sidenav a:hover {
+    color: #007bff;
+  }
+  
+  .sidenav {
+    position: fixed;
+    top: 108.3px;
+    left: 0;
+    width: auto;
+    height: 52.3dvh;
+    background-color: #333;
+    padding: 20px;
+    color: #fff;
+    display: none;
+  }
+    #main-content {
+        transition: margin-left 0.5s; /* Add a transition to the margin-left property */
+        transition: margin-right 0.5s;
+    }
+   .sidenav {
+        width: 200px; /* Increase the width of the navigation menu */
+        background-color: #f0f0f0; /* Add a background color to the navigation menu */
+        padding: 20px; /* Add some padding to the navigation menu */
+        font-size: 18px; /* Increase the font size of the navigation menu items */
+    }
+   .sidenav ul {
+        list-style: none; /* Remove the bullet points from the navigation menu items */
+        padding: 0; /* Remove the padding from the navigation menu items */
+        margin: 0; /* Remove the margin from the navigation menu items */
+    }
+   .sidenav li {
+        margin-bottom: 10px; /* Add some margin between the navigation menu items */
+    }
+   .sidenav a {
+        text-decoration: none; /* Remove the underline from the navigation menu items */
+        color: #333; /* Change the text color of the navigation menu items */
+    }
+   .sidenav a:hover {
+        background-color: #ccc; /* Add a hover effect to the navigation menu items */
+    }
+  #click:checked ~ .sidenav {
+    display: block;
+  }
 
 @keyframes fadeInUp {
     from {
@@ -123,7 +183,7 @@ a {
 }
 
 a:hover {
-    color: #ff6347;
+    color: #f76e52;
 }
 
 header {
@@ -173,7 +233,7 @@ nav ul li a:hover {
 }
 
 .recent-updates {
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: hsla(0, 0%, 100%, 0.6);
     padding: 20px;
     border-radius: 10px;
 }
@@ -189,20 +249,6 @@ nav ul li a:hover {
     margin-left: 20px;
 }
 
-#signOutButton {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #dc3545; /* Red color for sign-out button */
-    color: #fff; /* White text color */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-#signOutButton:hover {
-    background-color: #c82333; /* Darker red color on hover */
-}
 header {
     display: flex;
     justify-content: space-between;
@@ -230,3 +276,21 @@ header {
     margin: 0;
     font-size: 14px;
 }
+/* Style the checkbox to be hidden */
+#click {
+    display: none;
+}
+
+/* Style the label */
+label[for="click"] {
+    cursor: pointer;
+    display: inline-block;
+    margin-bottom: 0%;
+    font-size: 25px; /* Increase the size of the icon */
+    color: #ffffff; /* Color of the icon */
+}
+#main-content {
+    transition: margin-left 0.5s; /* Add a transition to the margin-left property */
+    transition: margin-right 0.5s;
+}
+
