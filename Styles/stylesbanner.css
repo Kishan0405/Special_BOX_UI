@@ -8,10 +8,10 @@
 }
 
 .banner img {
-    width: 10%; /* Makes the image fit the width of the banner */
+    width: auto; /* Makes the image fit the width of the banner */
     height: auto; /* Makes the image adjust its height based on its width */
     position: absolute; /* Positions the image on top of the background color */
     top: 60%; /* Positions the image vertically at 50% of the banner's height */
-    left: 50%; /* Positions the image horizontally at 50% of the banner's width */
+    align-items: center; /* Positions the image horizontally at 50% of the banner's width */
     transform: translate(-50%, -50%); /* Centers the image both vertically and horizontally */
 }
