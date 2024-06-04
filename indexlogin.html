@@ -56,6 +56,14 @@ if (!sessionStorage.getItem("loggedIn") || !allowedReferers.includes(referer)) {
 } else {
     console.log("User is logged in and came from an authorized referer.");
 }
+
+// Check if the user came from the correct site
+if (!allowedReferers.includes(referer)) {
+    console.log("User came from an unauthorized referer. Redirecting to login page.");
+    window.location.href = "https://specialboxuihelpserver.000webhostapp.com/"; // Redirect to the login page if came from an unauthorized referer
+} else {
+    console.log("User came from an authorized referer.");
+}
     
         // Function to logout
         function logout() {
