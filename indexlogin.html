@@ -5,10 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <script>
+    // Check if the user is logged in
     if (!localStorage.getItem('isLoggedIn')) {
-      window.location.href = 'https://specialboxuihelpserver.000webhostapp.com/';
+        // Check the referrer URL
+        var referrer = document.referrer;
+        
+        // Allow access if the referrer is 'https://specialboxuihelpserver.000webhostapp.com/'
+        if (referrer === 'https://specialboxuihelpserver.000webhostapp.com/') {
+            // Allow access to the content
+        } else {
+            // Redirect to the login page
+            window.location.href = 'https://specialboxuihelpserver.000webhostapp.com/';
+        }
     }
-  </script>
+</script>
     <link rel="stylesheet" href="styles/stylesindexlogin.css">
     <link rel="stylesheet" href="styles/stylesbanner.css">
     <link rel="icon" type="image/png" href="mylogo.png">
