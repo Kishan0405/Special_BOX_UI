@@ -45,14 +45,17 @@
 
     <script>
         console.log("Page loaded");
-    
-        // Check if the user is logged in
-        if (!sessionStorage.getItem("loggedIn")) {
-            console.log("User is not logged in. Redirecting to login page.");
-            window.location.href = "https://specialboxuihelpserver.000webhostapp.com/"; // Redirect to the login page if not logged in
-        } else {
-            console.log("User is logged in.");
-        }
+
+// Get the referrer URL
+const referrer = document.referrer;
+
+// Check if the user is logged in and came from the correct site
+if (!sessionStorage.getItem("loggedIn") || referrer !== "https://specialboxuihelpserver.000webhostapp.com/") {
+    console.log("User is not logged in or did not come from the correct site. Redirecting to login page.");
+    window.location.href = "https://specialboxuihelpserver.000webhostapp.com/"; // Redirect to the login page if not logged in or came from a different site
+} else {
+    console.log("User is logged in and came from the correct site.");
+}
     
         // Function to logout
         function logout() {
