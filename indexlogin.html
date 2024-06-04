@@ -1,3 +1,4 @@
+<!-- Second code -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,9 +11,9 @@
 </head>
 <body>
     <header>
-        <img src="mylogo.png" alt="Banner Image">
+        <imgsrc="mylogo.png" alt="Banner Image">
         <!-- Add a button for sign out -->
-        <button id="signOutButton" style="display: none;" onclick="logout()">Sign Out</button>
+        <button id="signOutButton" onclick="logout()">Sign Out</button>
     </header>
     <nav>
         <ul>
@@ -45,18 +46,16 @@
 
     <script>
         // Check if the user is logged in
-        window.onload = function() {
-            if (sessionStorage.getItem("loggedIn")) {
-                // Show the sign out button
-                document.getElementById('signOutButton').style.display = 'block';
-            }
-        };
+        if (!sessionStorage.getItem("loggedIn")) {
+            window.location.href = "https://specialboxuihelpserver.000webhostapp.com/"; // Redirect to the login page if not logged in
+        }
 
         // Function to logout
         function logout() {
             sessionStorage.removeItem("loggedIn");
-            window.location.href = "login.html"; // Redirect to the login page after logout
+            window.location.href = "https://specialboxuihelpserver.000webhostapp.com/"; // Redirect to the login page after logout
         }
     </script>
+    
 </body>
 </html>
