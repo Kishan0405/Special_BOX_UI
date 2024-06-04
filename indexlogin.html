@@ -44,16 +44,21 @@
     </footer>
 
     <script>
+        console.log("Page loaded");
+    
         // Check if the user is logged in
         if (!sessionStorage.getItem("loggedIn")) {
+            console.log("User is not logged in. Redirecting to login page.");
             window.location.href = "https://specialboxui.netlify.app/indexlogin.html"; // Redirect to the login page if not logged in
         } else {
-            console.log("User is logged in");
+            console.log("User is logged in.");
         }
-
+    
         // Function to logout
         function logout() {
+            console.log("Logout button clicked.");
             sessionStorage.removeItem("loggedIn");
+            console.log("Logged out. Redirecting to login page.");
             window.location.href = "https://specialboxui.netlify.app/indexlogin.html"; // Redirect to the login page after logout
         }
     </script>
