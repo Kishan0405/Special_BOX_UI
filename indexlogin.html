@@ -46,15 +46,15 @@
     <script>
         console.log("Page loaded");
 
-// Get the referrer URL
-const referrer = document.referrer;
-
 // Check if the user is logged in and came from the correct site
-if (!sessionStorage.getItem("loggedIn") || referrer !== "https://specialboxuihelpserver.000webhostapp.com/login.php") {
-    console.log("User is not logged in or did not come from the correct site. Redirecting to login page.");
-    window.location.href = "https://specialboxuihelpserver.000webhostapp.com/"; // Redirect to the login page if not logged in or came from a different site
+const allowedReferers = ["https://specialboxuihelpserver.000webhostapp.com/", "https://specialboxuihelpserver.000webhostapp.com/login.php"];
+const referer = document.referrer;
+
+if (!sessionStorage.getItem("loggedIn") || !allowedReferers.includes(referer)) {
+    console.log("User is not logged in or came from an unauthorized referer. Redirecting to login page.");
+    window.location.href = "https://specialboxuihelpserver.000webhostapp.com/"; // Redirect to the login page if not logged in or came from an unauthorized referer
 } else {
-    console.log("User is logged in and came from the correct site.");
+    console.log("User is logged in and came from an authorized referer.");
 }
     
         // Function to logout
