@@ -50,7 +50,7 @@
 const referrer = document.referrer;
 
 // Check if the user is logged in and came from the correct site
-if (!sessionStorage.getItem("loggedIn") || referrer !== "https://specialboxuihelpserver.000webhostapp.com/") {
+if (!sessionStorage.getItem("loggedIn") || referrer !== "https://specialboxuihelpserver.000webhostapp.com/login.php") {
     console.log("User is not logged in or did not come from the correct site. Redirecting to login page.");
     window.location.href = "https://specialboxuihelpserver.000webhostapp.com/"; // Redirect to the login page if not logged in or came from a different site
 } else {
