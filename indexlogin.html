@@ -46,31 +46,23 @@
     <script>
         console.log("Page loaded");
 
-// Check if the user is logged in and came from the correct site
-const allowedReferers = ["https://specialboxuihelpserver.000webhostapp.com/", "https://specialboxuihelpserver.000webhostapp.com/login.php"];
-const referer = document.referrer;
+        // Check if the user is logged in and came from the correct site
+        const allowedReferers = ["https://specialboxuihelpserver.000webhostapp.com/", "https://specialboxuihelpserver.000webhostapp.com/login.php"];
+        const referer = document.referrer;
 
-if (!sessionStorage.getItem("loggedIn") || !allowedReferers.includes(referer)) {
-    console.log("User is not logged in or came from an unauthorized referer. Redirecting to login page.");
-    window.location.href = "https://specialboxuihelpserver.000webhostapp.com/"; // Redirect to the login page if not logged in or came from an unauthorized referer
-} else {
-    console.log("User is logged in and came from an authorized referer.");
-}
+        if (!sessionStorage.getItem("loggedIn") || !allowedReferers.includes(referer)) {
+            console.log("User is not logged in or came from an unauthorized referer. Redirecting to login page.");
+            window.location.href = "https://specialboxuihelpserver.000webhostapp.com/"; // Redirect to the login page if not logged in or came from an unauthorized referer
+        } else {
+            console.log("User is logged in and came from an authorized referer.");
+        }
 
-// Check if the user came from the correct site
-if (!allowedReferers.includes(referer)) {
-    console.log("User came from an unauthorized referer. Redirecting to login page.");
-    window.location.href = "https://specialboxuihelpserver.000webhostapp.com/"; // Redirect to the login page if came from an unauthorized referer
-} else {
-    console.log("User came from an authorized referer.");
-}
-    
         // Function to logout
         function logout() {
             console.log("Logout button clicked.");
             sessionStorage.removeItem("loggedIn");
             console.log("Logged out. Redirecting to login page.");
-            window.location.href = "https://specialboxui.netlify.app/"; // Redirect to the login page after logout
+            window.location.href = "https://specialboxuihelpserver.000webhostapp.com/"; // Redirect to the login page after logout
         }
     </script>
     
