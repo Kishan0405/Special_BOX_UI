@@ -43,17 +43,6 @@
     </footer>
 
     <script>
-        console.log("Page loaded");
-
-        // Check if the user is logged in and came from the correct site
-        const allowedReferers = ["https://specialboxuihelpserver.000webhostapp.com/", "https://specialboxuihelpserver.000webhostapp.com/login.php"];
-        const referer = document.referrer;
-
-        if (!sessionStorage.getItem("loggedIn") || !allowedReferers.includes(referer)) {
-            console.log("User is not logged in or came from an unauthorized referer. Redirecting to login page.");
-            window.location.href = "https://specialboxuihelpserver.000webhostapp.com/"; // Redirect to the login page if not logged in or came from an unauthorized referer
-        }
-
         // Function to logout
         function logout() {
             console.log("Logout button clicked.");
