@@ -1,4 +1,3 @@
-<!-- Second code -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,6 +47,8 @@
         // Check if the user is logged in
         if (!sessionStorage.getItem("loggedIn")) {
             window.location.href = "https://specialboxui.netlify.app/indexlogin.html"; // Redirect to the login page if not logged in
+        } else {
+            console.log("User is logged in");
         }
 
         // Function to logout
