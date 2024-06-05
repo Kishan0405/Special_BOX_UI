@@ -316,6 +316,9 @@ document.getElementById('submit').addEventListener('click', function() {
     result.textContent = `Your score is: ${score} out of ${questions.length}`;
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+window.onbeforeunload = function() {
+            return "Are you sure you want to leave the quiz?";
+        };
 
 let timeRemaining = 300; // 5 minutes
 let timerInterval;
@@ -341,7 +344,7 @@ function startTimer() {
         }
 
         // Check if the time remaining is less than or equal to 15 seconds
-if (timeRemaining <= 15) {
+        if (timeRemaining <= 15) {
     // Change the timer color to red
     timerElement.classList.remove('green'); // Remove green class
     timerElement.style.color = '#f00';
@@ -349,6 +352,23 @@ if (timeRemaining <= 15) {
     // Change the timer color to green
     timerElement.classList.add('green'); // Add green class
     timerElement.style.color = 'green';
+}
+
+// Check if the time is up
+if (timeRemaining < 0) {
+    clearInterval(timerInterval);
+    resetQuiz(); // Reset all input values
+    document.getElementById('submit').click();
+} else {
+    timerElement.textContent = `${minutes}:${seconds}`;
+
+    // Display the alert message with an OK button that refreshes the page
+    if (timeRemaining === 0) {
+        alert('Time is up! The quiz will be automatically submitted and the page will be refreshed.');
+        setTimeout(function() {
+            window.location.reload();
+        }, 0);
+    }
 }
 
         
@@ -390,6 +410,7 @@ window.addEventListener('beforeunload', function(event) {
     event.returnValue = 'Are you sure you want to leave the quiz?';
 });
 
+
     // Add the navigation menu
     var navMenu = `
         <ul>
@@ -407,7 +428,6 @@ function logout() {
     sessionStorage.removeItem("loggedIn");
     window.location.href = "login.html"; // Redirect to the login page after logout
 }
-
 
         </script>
         <style>
