@@ -2,7 +2,23 @@
 <html>
   <head>
     <title>Instructions for this Quiz</title>
+    <script>
+      // Check if the user is logged in
+      if (!localStorage.getItem('isLoggedIn')) {
+          // Check the referrer URL
+          var referrer = document.referrer;
+          
+          // Allow access if the referrer is 'https://specialboxuihelpserver.000webhostapp.com/'
+          if (referrer === 'https://specialboxui.netlify.app/indexlogin') {
+              // Allow access to the content
+          } else {
+              // Redirect to the login page
+              window.location.href = 'https://specialboxuihelpserver.000webhostapp.com/';
+          }
+      }
+  </script>
     <link rel="stylesheet" href="Styles/stylesinstructionsquiz.css">
+    <link rel="icon" type="image/png" href="mylogo.png">
     <style>
     </style>
   </head>
@@ -59,12 +75,12 @@
       document.getElementById("start-quiz-button").addEventListener("click", function() {
         // Show an alert message
         if (confirm("Are you sure you want to start the quiz?")) {
-          window.location.href = "Ancient history of india.html"; // Replace "quiz.html" with the path to your quiz page
+          window.location.href = "https://specialboxui.netlify.app/ancient%20history%20of%20india"; // Replace "quiz.html" with the path to your quiz page
         }
       });
       
       document.getElementById("back-button").addEventListener("click", function() {
-        window.location.href = "indexlogin.html"; // Go back to the previous page
+        window.location.href = "https://specialboxui.netlify.app/indexlogin"; // Go back to the previous page
       });
     </script>
   </body>
