@@ -384,6 +384,11 @@ window.onload = function() {
             logout(); // Call the logout function
         }
     });
+    // Add event listener for beforeunload event
+window.addEventListener('beforeunload', function(event) {
+    // Display the confirmation message
+    event.returnValue = 'Are you sure you want to leave the quiz?';
+});
 
     // Add the navigation menu
     var navMenu = `
