@@ -5,52 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <script>
-    // Check if the user is logged in
-    if (!localStorage.getItem('isLoggedIn')) {
-        // Check the referrer URL
-        var referrer = document.referrer;
-        
-        // Allow access if the referrer is 'https://specialboxuihelpserver.000webhostapp.com/'
-        if (referrer === 'https://specialboxuihelpserver.000webhostapp.com/') {
-            // Allow access to the content
-        } else {
-            // Redirect to the login page
-            window.location.href = 'https://specialboxuihelpserver.000webhostapp.com/';
+        // Check if the user is logged in
+        if (!localStorage.getItem('isLoggedIn')) {
+            // Check the referrer URL
+            var referrer = document.referrer;
+            
+            // Allow access if the referrer is 'https://specialboxuihelpserver.000webhostapp.com/'
+            if (referrer === 'https://specialboxuihelpserver.000webhostapp.com/') {
+                // Allow access to the content
+            } else {
+                // Redirect to the login page
+                window.location.href = 'https://specialboxuihelpserver.000webhostapp.com/';
+            }
         }
-    }
-</script>
+    </script>
     <link rel="stylesheet" href="styles/stylesindexlogin.css">
     <link rel="stylesheet" href="styles/stylesbanner.css">
     <link rel="icon" type="image/png" href="mylogo.png">
 </head>
 <body>
     <header>
-        <img src="mylogo.png" alt="Banner Image">
+        <imgsrc="mylogo.png" alt="Banner Image">
         <!-- Add a button for sign out -->
         <button id="signOutButton" onclick="logout()">Sign Out</button>
     </header>
     <nav>
         <ul>
-            <li><a href="loading.html">Recents</a></li>
-            <li><a href="Contactlogin.html">Contact</a></li>
+            <li><a href="https://specialboxui.netlify.app/recentslogin">Recents</a></li>            
+            <li><a href="https://specialboxui.netlify.app/contactlogin">Contact</a></li>
             <li><a href="undermaintainance.html">Buy Here</a></li>
-            <li><a href="Aboutlogin.html">About</a></li>
+            <li><a href="https://specialboxui.netlify.app/aboutlogin">About</a></li>
         </ul>
     </nav>
     <section>
+
         <h2>Contents/Posts</h2>
         <ul>
-            <p><li><a href="instructionsquiz.html">Quiz on Ancient History of India</a></li></p>
-            <p><li><a href="instructionsquiz2.html">Quiz on Electronics and Computers</a></li></p>
-            <p><li><a href="loading.html"></a></li></p>
-            <p><li><a href="loading.html"></a></li></p>
-            <p><li><a href="loading.html"></a></li></p>
-            <p><li><a href="loading.html"></a></li></p>
+            <p><li><a href="https://specialboxui.netlify.app/instructionsquiz">Quiz on Ancient Historyof India</a></li></p>
+            <p><li><a href="https://specialboxui.netlify.app/instructionsquiz2">Quiz on Electronics and Computers</a></li></p>
+            <p><li><a href="https://specialboxui.netlify.app/loading"></a></li></p>
+            <p><li><a href="https://specialboxui.netlify.app/loading"></a></li></p>
+            <p><li><a href="https://specialboxui.netlify.app/loading"></a></li></p>
+            <p><li><a href="https://specialboxui.netlify.app/loading"></a></li></p>
             <!-- Add more links to your other pages as needed -->
         </ul>
     </section>
     <footer>
-        <p>&copy; 2024 <a href="https://specialboxui.netlify.app/">Special BOX UI</a></p>
+        <p>&copy; 2024 <a href="https://specialboxui.netlify.app/indexlogin">Special BOX UI</a></p>
         <div class="banner">
             <h1>Powered By</h1>
             <img src="mylogo.png" alt="Banner Image">
@@ -58,12 +59,22 @@
     </footer>
 
     <script>
+        console.log("Page loaded");
+    
+        // Check if the user is logged in
+        if (!sessionStorage.getItem("loggedIn")) {
+            console.log("User is not logged in. Redirecting to login page.");
+            window.location.href = "https://specialboxuihelpserver.000webhostapp.com/"; // Redirect to the login page if not logged in
+        } else {
+            console.log("User is logged in.");
+        }
+    
         // Function to logout
         function logout() {
             console.log("Logout button clicked.");
             sessionStorage.removeItem("loggedIn");
             console.log("Logged out. Redirecting to login page.");
-            window.location.href = "https://specialboxuihelpserver.000webhostapp.com/"; // Redirect to the login page after logout
+            window.location.href = "https://specialboxui.netlify.app/indexlogin.html"; // Redirect to the login page after logout
         }
     </script>
     
