@@ -3,155 +3,243 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Release Notes for Current Channel</title>
+    <title>Recent Updates</title>
+    <link rel="stylesheet" href="styles/stylesindex.css"> <!-- Import CSS for the banner -->
+    <link rel="stylesheet" href="styles/stylesbanner.css"> <!-- Import CSS for the banner -->
+    <link rel="stylesheet" href="styles/stylesposts.css"> <!-- Import CSS for the banner -->
+    <link rel="icon" type="image/png" href="mylogo.png">
+    <body>
+        <!-- Your HTML content goes here -->
+    
+        <!-- Back button -->
+        </script>
+    </body>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            background-color: #1e1e1e;
-            color: #dcdcdc;
-        }
-        .sidebar {
-            width: 250px;
-            background-color: #2d2d2d;
-            padding: 20px;
-            box-sizing: border-box;
-            overflow-y: auto;
-            height: 100vh;
-            position: fixed;
-        }
-        .sidebar h2 {
-            color: #ffffff;
-            font-size: 18px;
-            margin-top: 0;
-        }
-        .sidebar a {
-            color: #9f9f9f;
-            text-decoration: none;
-            display: block;
-            padding: 10px 0;
-            font-size: 14px;
-            transition: color 0.3s;
-        }
-        .sidebar a:hover {
-            color: #ffffff;
-        }
-        .sidebar button {
-            width: 100%;
-            padding: 10px;
-            background-color: #0078d4;
-            color: #ffffff;
-            border: none;
-            cursor: pointer;
-            font-size: 14px;
-            margin-top: 20px;
-            transition: background-color 0.3s;
-        }
-        .sidebar button:hover {
-            background-color: #005a9e;
-        }
-        .content {
-            flex: 1;
-            padding: 20px;
-            margin-left: 270px; /* Adjusted to make space for the fixed sidebar */
-            box-sizing: border-box;
-        }
-        .content h1 {
-            color: #ffffff;
-            font-size: 24px;
-        }
-        .content p, .content ul, .content li, .content a {
-            color: #dcdcdc;
-        }
-        .content h3 {
-            color: #ffffff;
-            font-size: 18px;
-        }
-        .content .note {
-            background-color: #5c2d91;
-            padding: 15px;
-            border-radius: 5px;
-            color: #dcdcdc;
-            margin-top: 20px;
-        }
-        .content .note p {
-            margin: 0;
-        }
-        .content .note a {
-            color: #9f9f9f;
-            text-decoration: underline;
-        }
-        .content .note a:hover {
-            color: #ffffff;
-        }
-        ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        ul li {
-            margin-bottom: 10px;
-        }
-        ul li a {
-            color: #0078d4;
-            text-decoration: none;
-        }
-        ul li a:hover {
-            text-decoration: underline;
-        }
+        
     </style>
+    <header>
+        <h3>Recent updates</h3>
+        <img src="mylogo.png" alt="Banner Image" style="align-items: center;">
+    </header>
 </head>
 <body>
-    <div class="sidebar">
-        <h2>Special BOX UI</h2>
-        <a href="#">Solutions and architecture</a>
-        <a href="#">Apps and services</a>
-        <a href="#">Training</a>
-        <a href="#">Resources</a>
-        <hr>
-        <h2>Release information</h2>
-        <a href="#">Security updates</a>
-        <a href="#">Special BOX UI Apps for Windows</a>
-        <div style="padding-left: 10px;">
-            <a href="#">Update history (by date)</a>
-            <a href="#">Update sizes</a>
-            <a href="#">Current Channel</a>
-            <div style="padding-left: 10px;">
-                <a href="#">Release Notes</a>
-                <a href="#">Archived Release Notes</a>
+    <article>
+        
+        <div class="content">
+            <!-- Game cards -->
+
+            <div class="game">
+                <h3>Version 1.0</h3>
+                <h4>Release Date: June 5, 2024</h4>
+                <h4>Update Summary:</h4>
+                <p>
+                    <ol>
+                        <p>Enhancements to the 'Recent' page with notifications for newly added features and resolved issues.<p>
+                        <p>Fixed login system errors that previously displayed 'Invalid login' even with correct credentials.<p>
+                        <p>If you experience difficulties accessing the login page, please attempt to access it at a later time.<p>
+                    </ol>
+                </p>
+                <a href="https://specialboxui.netlify.app/login" target="_blank">Explore the Updated Login System</a>
+            </div>            
+            
+            <div class="game">
+                <h3>Version 0.9</h3>
+                <h4>Release Date: June 3, 2024</h4>
+                <h4>Update Summary:</h4>
+                <p>
+                    <ol>
+                        <p>The login system has been streamlined; admin review is no longer required. Note: Users previously registered may need to create a new account due to database updates.<p>
+                        <p>If you encounter issues accessing the login page, please try again later.<p>
+                        <p>The alert message for exiting the quiz has been redesigned for better user communication.<p>
+                    </ol>
+                </p>
+                <a href="https://specialboxui.netlify.app/login" target="_blank">Explore the New Login System</a>
+            </div>            
+
+            <div class="game">
+                <h3>Version 0.8</h3>
+                <h4>Release Date: June 1, 2024</h4>
+                <h4>Update Summary:</h4>
+                <p>
+                    <ol>
+                        <p>Complete redesign of the main page with a new side menu bar for enhanced navigation.<p>
+                        <p>Introduction of new files to resolve issues related to quiz accessibility.<p>
+                        <p>Comprehensive quiz instructions have been added—please review them before starting the quiz.<p>
+                        <p>An alert message has been implemented to notify users when exiting the quiz prematurely.<p>
+                        <p>Significant improvements to the main page for a more intuitive and user-friendly interface.<p>
+                    </ol>
+                </p>
+                <a href="https://specialboxui.netlify.app" target="_blank">Explore the Quiz and Main Page</a>
+            </div>                        
+
+            <div class="game">
+                <h3>Version 0.7</h3>
+                <h4>Release Date: May 29, 2024</h4>
+                <h4>Update Summary:</h4>
+                <p>
+                    <ol>
+                        <p>Quiz updates will no longer be announced in the 'Recent Updates' section.<p>
+                        <p>The contents in recent section were removed and new recent section is in development stage<p>
+                        <p>The contact form has undergone a comprehensive redesign for better user experience.<p>
+                        <p>The upload system has advanced to Beta-2 stage, indicating further refinement.<p>
+                        <p>Improvements have been made to the login system for enhanced security and usability.<p>
+                        <p>The main page has received significant enhancements for a more intuitive interface.<p>
+                        <p>Additional bug fixes have been implemented to ensure smoother operation.<p>
+                    </ol>
+                </p>
+                <a href="https://specialboxui.netlify.app" target="_blank">Explore the Site</a>
+            </div>                        
+
+            <div class="game">
+                <h3>Version 0.6</h3>
+                <h4>Release Date: May 27, 2024</h4>
+                <h4>Update Summary:</h4>
+                <p>
+                    <ol>
+                        <p>Transition from traditional posts to an interactive quiz feature.<p>
+                        <p>Introducing Special BOX AI, currently in development stage.<p>
+                        <p>Currently in development; optimal experience on PC or Desktop interfaces.<p>
+                        <p>Quizzes are fully offline, allowing flexible access without database connectivity.<p>
+                        <p>Login system enhancements implemented based on user feedback.<p>
+                        <p>Comprehensive redesign of the registration page for improved usability.<p>
+                        <p>Streamlining of system files for better performance.<p>
+                    </ol>
+                </p>
+                <a href="https://specialboxui.netlify.app/login" target="_blank">Explore the Enhanced Admin Login System</a>
+            </div>            
+
+            <div class="game">
+                <h3>Version 0.5</h3>
+                <h4>Release Date: May 5, 2024</h4>
+                <h4>Current State:</h4>
+                <p>
+                    <ol>
+                        <p>Introduction of the inaugural admin-based login system. This system in Beta-1 stage.<p>
+                        <p>Content access now requires user authentication.<p>
+                        <p>The registration process is subject to a review period of up to one day. Post-review, approved users will gain login capabilities.<p>
+                        <p>If the login page is not responsive, please attempt to access it later.<p>
+                        <p>Don't worry if you can't login.<p>
+                        <p>Resolution of various internal bugs for enhanced system stability.<p>
+                    </ol>
+                </p>
+                <a href="https://specialboxui.netlify.app/login" target="_blank">Discover Admin based login system</a>
+            </div>            
+
+            <div class="game">
+                <h3>Version 0.4</h3>
+                <h4>Release Date: May 1, 2024</h4>
+                <h4>Recent Updates:</h4>
+                <p>
+                    <ol>
+                        <p>Comprehensive major updates have been implemented.<p>
+                        <p>New loading animations have been added for an engaging user experience.<p>
+                        <p>The 'Premium' feature is now launched and available at no additional cost.<p>
+                        <p>User navigation has been enhanced with a redesigned 'Back' button in the 'Uploads' section and a 'Menu' bar across all pages for streamlined interaction.<p>
+                        <p>Navigation is currently limited to 'Post 1' exclusively.<p>
+                        <p>Animations for the 'Recent', 'Post 1', 'Contact', and 'About' sections have been significantly improved.<p>
+                        <p>Addressed various bugs and optimized system performance for reliability and speed.<p>
+                    </ol>
+                </p>
+                <a href="https://specialboxui.netlify.app/premium" target="_blank">Explore the Premium Features</a>
+            </div>            
+
+            <div class="game">
+                <h3>Version 0.3</h3>
+                <h4>Release Date: April 30, 2024</h4>
+                <h4>Update Highlights:</h4>
+                <p>
+                    <ol>
+                        <p>Major updates have been applied to 'My Open Site'.<p>
+                        <p>Significant improvements have been made to enhance overall performance.<p>
+                        <p>The 'Upload' feature has progressed to Beta-1 testing. Note: Users may encounter intermittent issues during this phase.<p>
+                        <p>User interface has been refined with a new 'Back' button in the 'Uploads' section and a 'Menu' bar added for improved navigation.<p>
+                        <p>Access is currently limited to 'Post 1' only.<p>
+                        <p>Animations in the 'Recent', 'Post 1', 'Contact', and 'About' sections have been enhanced for a superior visual experience.<p>
+                        <p>Various bugs have been resolved, and system optimizations have been implemented.<p>
+                    </ol>
+                </p>
+                <a href="https://specialboxui.netlify.app/uploads" target="_blank">Discover the New Uploads Feature</a>
+            </div>            
+
+            <div class="game">
+                <h3>Version 0.2</h3>
+                <h4>Release Date: April 27, 2024</h4>
+                <h4>Update Highlights:</h4>
+                <p>
+                    <ol>
+                        <p>Major enhancements have been deployed to 'My Open Site'.</p>
+                        <p>Extensive improvements and updates to internal systems have been completed.</p>
+                        <p>A new 'Upload' feature is now in beta testing. Users may experience intermittent issues during this phase.</p>
+                        <p>User navigation has been refined with the introduction of a 'Back' button in the 'Uploads' section and a 'Menu' bar in each area for improved user interaction.</p>
+                        <p>Currently, navigation is restricted to 'Post 1' only.</p>
+                        <p>Animations in the 'Recent', 'Post 1', 'Contact', and 'About' sections have been upgraded for a superior visual experience.</p>
+                        <p>Various bugs have been addressed, and system performance has been optimized.</p>
+                    </ol>
+                </p>
+                <a href="https://specialboxui.netlify.app/uploads" target="_blank">Discover the New Uploads Feature</a>
             </div>
-            <a href="#">Monthly Enterprise Channel</a>
-            <a href="#">Semi-Annual Enterprise Channel</a>
-            <a href="#">Semi-Annual Enterprise Channel (Preview)</a>
-            <a href="#">Special BOX UI Insider Program</a>
-            <a href="#">Update history on Windows 7</a>
-            <a href="#">ODT release history</a>
+            
+            
+
+            <div class="game">
+                <h3>Version 0.1</h3>
+                <h4>Release Date: April 25, 2024</h4>
+                <h4>Release Notes:</h4>
+                <p>
+                    <ol>
+                        <p>Minor updates implemented on 'My Open Site'.</p>
+                        <p>Updates and source code are now available on our GitHub repository, courtesy of our development team.</p>
+                        <p>Enhancements in the 'Contact' section include resolved issues pertaining to feedback delivery to the administration.</p>
+                        <p>Navigation is currently limited to 'Post 1' in this version.</p>
+                        <p>Animations within the 'Recent', 'Post 1', 'Contact', and 'About' sections have been refined for a smoother user experience.</p>
+                        <p>Additional bug fixes and performance optimizations.</p>
+                    </ol>
+                </p>
+                <a href="https://specialboxui.netlify.app/contact" target="_blank">Access the Updated Contact Page</a>
+            </div>
+
+            <div class="game">
+                <h3>Version 0.0</h3>
+                <h4>Release Date: April 24, 2024</h4>
+                <h4>Changelog:</h4>
+                <p>
+                    <ol>
+                        <p>Official launch of 'My Open Site'.</p>
+                        <p>Repository created on GitHub Pages.</p>
+                        <p>Current release features recent and upcoming game releases, along with 'Post 1', 'Contact', and 'About' sections.</p>
+                        <p>Navigation restricted to 'Post 1' only in this release.</p>
+                        <p>Enhanced user experience with new animations for the 'Recent', 'Post 1', 'Contact', and 'About' sections.</p>
+                        <p>General improvements and bug resolutions.</p>
+                    </ol>
+                </p>
+                <a href="https://specialboxui.netlify.app/" target="_blank">Explore the Website</a>
+            </div>
+            
+            
         </div>
-        <a href="#">Special BOX UI for Mac</a>
-        <a href="#">Special BOX UI for Windows (perpetual versions)</a>
-        <a href="#">Teams</a>
-        <a href="#">Special BOX UI Mobile</a>
-        <a href="#">Special BOX UI server products</a>
-        <button>Download PDF</button>
-    </div>
-    <div class="content">
-        <h1>Release notes for Current Channel</h1>
-        <p><em>Article • 05/31/2024 • 17 contributors</em></p>
-        <h3>In this article</h3>
-        <ul>
-            <li><a href="#">Version 2405: May 30</a></li>
-            <li><a href="#">Version 2404: May 14</a></li>
-            <li><a href="#">Version 2404: May 07</a></li>
-            <li><a href="#">Version 2404: May 01</a></li>
-            <li><a href="#">Show 53 more</a></li>
-        </ul>
-        <p>These release notes provide information about new features and non-security updates that are included in Current Channel updates for Special BOX UI for enterprise, Special BOX UI for business, and the subscription versions of the desktop apps for Project and Vision.</p>
-        <div class="note">
-            <p>Note:</p>
-            <p>We often roll out features to Current Channel over a period of time. This allows us to ensure that things are working smoothly before releasing the feature to a wider audience. If you don't see something described below, you'll get it eventually.</p>
-            <p>Special BOX UI Teams Admin features can be found <a href="#">here</a>.</p>
+    </article>
+
+    <!-- Banner -->
+    <footer>
+        <p>&copy; 2024 <a href="https://specialboxui.netlify.app/">Special BOX UI</a></p>
+        <div class="banner">
+            <h1>Powered By</h1>
+            <img src="mylogo.png" alt="Banner Image">
         </div>
-    </div>
+    </footer>
+
+    <!-- Additional code snippet -->
+    <!-- JavaScript for smooth scrolling -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
