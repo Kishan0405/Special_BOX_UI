@@ -3,7 +3,9 @@ body {
   background-color: #f0f0f0;
   margin: 0;
   padding: 0;
+  -webkit-animation: fadeIn 1s ease-in-out;
   animation: fadeIn 1s ease-in-out;
+  -webkit-font-smoothing: antialias; /* Optimize font rendering */
 }
 
 .instructions {
@@ -14,6 +16,7 @@ body {
   background-color: #fff;
   border: 1px solid #ddd;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  -webkit-animation: slideInFromTop 1s ease-in-out;
   animation: slideInFromTop 1s ease-in-out;
 }
 
@@ -33,11 +36,13 @@ button {
   color: #fff;
   border: none;
   border-radius: 4px;
-  padding: 14px 24px; /* Increased padding for easier tapping */
+  padding: 18px 30px; /* Increased padding for easier tapping */
   cursor: pointer;
+  -webkit-transition: background-color 0.3s ease;
   transition: background-color 0.3s ease;
+  -webkit-animation: fadeIn 1s ease-in-out;
   animation: fadeIn 1s ease-in-out;
-  font-size: 16px; /* Adjusted font size */
+  font-size: 18px; /* Increased font size for better readability */
 }
 
 button:hover {
@@ -54,11 +59,13 @@ button:hover {
   color: #fff;
   border: none;
   border-radius: 4px;
-  padding: 14px 24px; /* Increased padding for easier tapping */
+  padding: 18px 30px; /* Increased padding for easier tapping */
   cursor: pointer;
+  -webkit-transition: background-color 0.3s ease;
   transition: background-color 0.3s ease;
+  -webkit-animation: fadeIn 1s ease-in-out;
   animation: fadeIn 1s ease-in-out;
-  font-size: 16px; /* Adjusted font size */
+  font-size: 18px; /* Increased font size for better readability */
 }
 
 #back-button:hover {
@@ -76,6 +83,8 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  -webkit-animation: fadeIn 1s ease-in-out 0.5s; /* Add a 0.5s delay to the animation */
+  animation: fadeIn 1s ease-in-out 0.5s;
 }
 
 .spinner {
@@ -84,7 +93,17 @@ button:hover {
   border: 10px solid #ccc;
   border-top: 10px solid #3498db;
   border-radius: 50%;
+  -webkit-animation: spin 1s linear infinite;
   animation: spin 1s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
 }
 
 @keyframes spin {
@@ -97,12 +116,30 @@ button:hover {
 }
 
 /* Animations */
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
   }
   to {
     opacity: 1;
+  }
+}
+
+@-webkit-keyframes slideInFromTop {
+  from {
+    -webkit-transform: translateY(-100%);
+  }
+  to {
+    -webkit-transform: translateY(0);
   }
 }
 
