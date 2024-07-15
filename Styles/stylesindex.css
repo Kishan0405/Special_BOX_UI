@@ -11,7 +11,11 @@ header {
     justify-content: space-between;
     align-items: center;
     background-color: #333;
+    color: #fff;
     padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 header h1,
@@ -25,25 +29,34 @@ nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    background-color: #f2f2f2;
     display: flex;
-    justify-content: flex-start; /* Align items to the left */
 }
 
 nav ul li {
-    display: inline;
+    margin-right: 20px;
 }
 
 nav ul li a {
     display: inline-block;
-    color: #333;
+    color: #3498db;
     text-decoration: none;
     padding: 1rem;
-    transition: background-color 0.3s ease;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 nav ul li a:hover {
     background-color: #ddd;
+    transform: translateY(-3px);
+}
+
+nav ul li a.selected {
+    color: #fff;
+    background-color: #007bff;
+}
+
+nav ul li a.selected:hover {
+    background-color: #0056b3;
 }
 
 .content {
@@ -61,87 +74,145 @@ article p {
     margin-bottom: 1rem;
 }
 
-footer p {
-    text-align: center;
-    padding: 1rem;
-    background-color: #f2f2f2;
-    margin: 0;
-}
-
-.selected {
-    background-color: #ddd;
-    border-radius: 5px;
-    padding: 0.5rem;
-}
-
-nav ul li a.selected {
-    color: #fff;
-    background-color: #007bff;
-}
-
-nav ul li a.selected:hover {
-    background-color: #444;
-}
-.sidenav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+/* Add styles for the loading animation */
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #efefefea;
+    display: flex;
     flex-direction: column;
-  }
-  
-  .sidenav li {
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 10px solid #ccc;
+    border-top: 10px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-text {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #555;
+}
+
+.hide-contents {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    font-size: 14px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: auto;
+    margin-bottom: auto;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-links a {
+    color: #fff;
     margin-bottom: 10px;
-  }
-  
-  .sidenav a {
-    display: block;
     text-decoration: none;
-    color: #818181;
-  }
-  
-  .sidenav a:hover {
-    color: #007bff;
-  }
-  
-  .sidenav {
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.social-icons {
+    display: flex;
+    align-items: center;
+}
+
+.social-icons a {
+    color: #fff;
+    margin-right: 15px;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.social-icons a:hover {
+    color: #3498db;
+}
+
+.sidenav {
     position: fixed;
     top: 108.3px;
     left: 0;
-    width: auto;
-    height: 52.3dvh;
-    background-color: #333;
+    width: 200px;
+    height: 52.3vh;
+    background-color: rgba(240, 240, 240, 0.8); /* Adjust transparency here */
     padding: 20px;
-    color: #fff;
+    color: #333;
     display: none;
-  }
-    #main-content {
-        transition: margin-left 0.5s; /* Add a transition to the margin-left property */
-        transition: margin-right 0.5s;
-    }
-   .sidenav {
-        width: 200px; /* Increase the width of the navigation menu */
-        background-color: #f0f0f0; /* Add a background color to the navigation menu */
-        padding: 20px; /* Add some padding to the navigation menu */
-        font-size: 18px; /* Increase the font size of the navigation menu items */
-    }
-   .sidenav ul {
-        list-style: none; /* Remove the bullet points from the navigation menu items */
-        padding: 0; /* Remove the padding from the navigation menu items */
-        margin: 0; /* Remove the margin from the navigation menu items */
-    }
-   .sidenav li {
-        margin-bottom: 10px; /* Add some margin between the navigation menu items */
-    }
-   .sidenav a {
-        text-decoration: none; /* Remove the underline from the navigation menu items */
-        color: #333; /* Change the text color of the navigation menu items */
-    }
-   .sidenav a:hover {
-        background-color: #ccc; /* Add a hover effect to the navigation menu items */
-    }
-  #click:checked ~ .sidenav {
+    transition: display 0.3s ease;
+}
+
+.sidenav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidenav li {
+    margin-bottom: 10px;
+}
+
+.sidenav a {
     display: block;
-  }
+    text-decoration: none;
+    color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.sidenav a:hover {
+    background-color: #ccc;
+}
+
+#click:checked ~ .sidenav {
+    display: block;
+}
+
+#main-content {
+    transition: margin-left 0.5s, margin-right 0.5s;
+}
 
 @keyframes fadeInUp {
     from {
@@ -184,32 +255,6 @@ a {
 
 a:hover {
     color: #f76e52;
-}
-
-header {
-    text-align: center;
-    animation: slideDown 1s ease-in-out;
-}
-
-nav {
-    text-align: left;
-    animation: fadeIn 1s ease-in-out;
-}
-
-nav ul li a {
-    display: inline-block;
-    padding: 10px 20px;
-    color: #333;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-}
-
-nav ul li a:hover {
-    background-color: #f0f0f0;
-    color: #007bff;
-    transform: translateY(-3px);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 @keyframes slideDown {
@@ -276,21 +321,15 @@ header {
     margin: 0;
     font-size: 14px;
 }
-/* Style the checkbox to be hidden */
+
 #click {
     display: none;
 }
 
-/* Style the label */
 label[for="click"] {
     cursor: pointer;
     display: inline-block;
-    margin-bottom: 0%;
-    font-size: 25px; /* Increase the size of the icon */
-    color: #ffffff; /* Color of the icon */
+    font-size: 25px;
+    color: #ffffff;
+    margin-bottom: 0;
 }
-#main-content {
-    transition: margin-left 0.5s; /* Add a transition to the margin-left property */
-    transition: margin-right 0.5s;
-}
-
