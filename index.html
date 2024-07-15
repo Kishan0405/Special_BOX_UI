@@ -10,37 +10,43 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="icon" type="image/png" href="mylogo.png">
     <style>
-        
+        /* Add your updated styles here */
     </style>
 </head>
 <body>
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <div class="loading-text">Loading, please wait...</div>
+    </div>
     <header>
         <nav>
             <input type="checkbox" id="click">
             <label for="click">
-              <i class="fas fa-bars"></i>
+                <i class="fas fa-bars"></i>
             </label>
             <div class="sidenav">
-                <label for="closebtn">
-              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+                <label for="closebtn" id="closebtn">
+                    <i class="fas fa-times"></i>
                 </label>
-              <ul>
-                <li><a href="https://specialboxui.netlify.app/recents">Recents</a></li>
-                <li><a href="https://specialboxui.netlify.app/contact">Contact</a></li>
-                <li><a href="https://specialboxuihelpserver.000webhostapp.com">Buy Here</a></li>
-                <li><a href="https://specialboxui.netlify.app/undermaintainance">Special BOX AI</a></li>
-                <li><a href="https://specialboxui.netlify.app/premium">Premium</a></li>
-                <li><a href="https://specialboxui.netlify.app/about">About</a></li>
-              </ul>
+                <ul>
+                    <li><a href="https://specialboxui.netlify.app/recents">Recents</a></li>
+                    <li><a href="https://specialboxui.netlify.app/contact">Contact</a></li>
+                    <li><a href="https://specialboxuihelpserver.000webhostapp.com">Buy Here</a></li>
+                    <li><a href="https://specialboxui.netlify.app/undermaintainance">Special BOX AI</a></li>
+                    <li><a href="https://specialboxuihelpserver.000webhostapp.com">Premium</a></li>
+                    <li><a href="https://specialboxui.netlify.app/about">About</a></li>
+                    <li><a href="https://specialboxui.netlify.app/pagenotfound">Careers</a></li>
+                    <li><a href="https://specialboxui.netlify.app/pagenotfound">Blog</a></li>
+                </ul>
             </div>
-          </nav>
+        </nav>
         <img src="mylogo.png" alt="Banner Image">
         <h4><a href="https://specialboxuihelpserver.000webhostapp.com">Login</a></h4>
     </header>
     <section id="main-content">
         <h2>Contents/Posts</h2>
         <ul>
-            <p><li><a href="https://specialboxuihelpserver.000webhostapp.com">Quiz on Ancient Historyof India</a></li></p>
+            <p><li><a href="https://specialboxuihelpserver.000webhostapp.com">Quiz on Ancient History of India</a></li></p>
             <p><li><a href="https://specialboxuihelpserver.000webhostapp.com">Quiz on Electronics and Computers</a></li></p>
             <p><li><a href="https://specialboxuihelpserver.000webhostapp.com"></a></li></p>
             <p><li><a href="https://specialboxuihelpserver.000webhostapp.com"></a></li></p>
@@ -48,39 +54,91 @@
             <p><li><a href="https://specialboxuihelpserver.000webhostapp.com"></a></li></p>
             <!-- Add more links to your other pages as needed -->
         </ul>
+    </section>
     <footer>
-        <p>&copy; 2024 <a href="https://specialboxui.netlify.app">Special BOX UI</a></p>
-        <div class="banner">
-            <h1>Powered By</h1>
-            <img src="mylogo.png" alt="Banner Image">
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="https://specialboxui.netlify.app/about">About Us</a>
+                <a href="https://specialboxui.netlify.app/pagenotfound">Careers</a>
+                <a href="https://specialboxui.netlify.app/pagenotfound">Vendors</a>
+                <a href="https://specialboxui.netlify.app/pagenotfound">Blog</a>
+                <a href="https://specialboxui.netlify.app/pagenotfound">View All Categories</a>
+            </div>
+            <div class="footer-links">
+                <a href="https://specialboxui.netlify.app/userterms">User Terms</a>
+                <a href="https://specialboxui.netlify.app/pagenotfound">Vendor Terms</a>
+                <a href="https://specialboxui.netlify.app/pagenotfound">Community Guidelines</a>
+                <a href="https://specialboxui.netlify.app/pagenotfound">Content Policy</a>
+                <a href="https://specialboxui.netlify.app/pagenotfound">Content Policy FAQs</a>
+            </div>
+            <div class="footer-links">
+                <a href="https://specialboxui.netlify.app/pagenotfound">Cookie Policy</a>
+                <a href="https://specialboxui.netlify.app/pagenotfound">Privacy Policy</a>
+                <a href="https://specialboxui.netlify.app/pagenotfound">Data Protection Agreement</a>
+            </div>
+            <div class="social-icons">
+                <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+                <a href="https://facebook.com"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://linkedin.com"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy;2024 Special BOX UI</p>
         </div>
     </footer>
-    </section>
     <script>
-        function closeNav() {
-            document.getElementById("click").checked = false;
-            const sidenav = document.querySelector('.sidenav');
-            const mainContent = document.querySelector('#main-content');
-            sidenav.style.transform = 'translateX(-200px)';
-            mainContent.style.marginLeft = '0px';
-        }
-        document.getElementById('click').addEventListener('change', function() {
-            const sidenav = document.querySelector('.sidenav');
-            const mainContent = document.querySelector('#main-content');
+        function openNav() {
+    document.getElementById("click").checked = true;
+    const sidenav = document.querySelector('.sidenav');
+    const mainContent = document.querySelector('#main-content');
+    sidenav.style.transform = 'translateX(0px)';
+    mainContent.style.marginLeft = '241px'; // Update the margin to push the content to the right
+}
 
-            if (this.checked) {
-                sidenav.style.transform = 'translateX(0px)';
-                mainContent.style.marginLeft = '241px'; // Update the margin to push the content to the right
-            } else {
-                sidenav.style.transform = 'translateX(-200px)';
-                mainContent.style.marginLeft = '0px';
-            }
-        });
-        window.addEventListener('pageshow', function(event) {
-    if (event.persisted && document.referrer.includes(['loading.html', 'Contact.html', 'login.html', 'undermaintainance.html', 'premium.html', 'About.html'])) {
-      window.location.reload();
+function closeNav() {
+    document.getElementById("click").checked = false;
+    const sidenav = document.querySelector('.sidenav');
+    const mainContent = document.querySelector('#main-content');
+    sidenav.style.transform = 'translateX(-200px)';
+    mainContent.style.marginLeft = '0px';
+}
+
+document.getElementById('click').addEventListener('click', function() {
+    if (this.checked) {
+        openNav();
+    } else {
+        closeNav();
     }
-  });
+});
+
+document.getElementById('closebtn').addEventListener('click', function() {
+    closeNav();
+    document.getElementById('click').checked = false;
+});
+
+// Close the sidebar when clicking outside of it
+document.addEventListener('click', function(event) {
+    const sidenav = document.querySelector('.sidenav');
+    const checkbox = document.getElementById('click');
+    if (checkbox.checked && !sidenav.contains(event.target) && !event.target.matches('#click, #click *')) {
+        closeNav();
+    }
+});
+
+window.addEventListener('pageshow', function(event) {
+    if (event.persisted && document.referrer.includes(['loading.html', 'Contact.html', 'login.html', 'undermaintainance.html', 'premium.html', 'About.html'])) {
+        window.location.reload();
+    }
+});
+
+window.addEventListener('load', function() {
+    const loading = document.getElementById('loading');
+    setTimeout(() => {
+        loading.style.display = 'none';
+        document.body.classList.remove('hide-contents');
+    }, 3000); // Adjust the duration (3000ms for 3 seconds or 4000ms for 4 seconds)
+});
     </script>
 </body>
 </html>
