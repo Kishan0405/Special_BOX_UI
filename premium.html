@@ -3,42 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Special BOX UI Premium</title>
+  <title>Donate us</title>
   <link rel="stylesheet" href="styles/stylespremium.css">
   <link rel="stylesheet" href="styles/stylesloadingpremium.css"> <!-- Link to loading spinner CSS -->
   <link rel="icon" type="image/png" href="mylogo.png">
+  <!-- Include the Google Pay script -->
+  <script src="https://pay.google.com/gp/p/js/pay.js" async></script>
 </head>
 <body>
   <main>
     <section>
-      <h2>Upgrade to Premium</h2>
-      <p>Unlock exclusive premium features to enhance your experience.</p>
-      <ul>
-        <li>Unlimited access to advanced tools</li>
-        <li>Prioritized customer support</li>
-        <li>Exclusive content and updates</li>
-      </ul>
-      <div class="separator"></div> <!-- Separator -->
-      <p>Choose your plan:</p>
+        <h2>Donate Us</h2>
+        <p>Donate Us if you like our website</p>
+        <ul>
+            <li>Give feedback</li>
+            <li>Customer support</li>
+            <li>Exclusive content and updates</li>
+        </ul>
+        <div class="separator"></div> <!-- Separator -->
+        <p>Choose your plan:</p>
         <div class="plan">
-          <h3>Basic Plan</h3>
-          <p>Price: ₹ 0 LifeTime</p>
-          <p>Includes: E-Commerce Services</p>
-          <!-- Button to simulate payment for Basic Plan -->
-          <button onclick="simulatePayment('Basic', this)" id="basicButton" disabled>Purchase Basic Plan</button>
+            <h3>Donate and Support</h3>
+            <p>Price: ₹ 0 LifeTime</p>
+            <!-- Button to simulate payment for Donate and Support -->
+            <button onclick="simulateGPayPayment()" id="donateButton">Donate and Support</button>
         </div>
-      </div>
     </section>
     <!-- Back button -->
     <button onclick="goBack()" class="back-button">Back</button>
   </main>
   <footer>
     <h3>Support</h3>
-      <p>If you have any questions or need assistance, please contact our support team:</p>
-      <ul>
-        <li><a href="mailto:kishanbantakal@gmail.com">support@Here</a></li>
-        <li>Phone: Not Provided</li>
-      </ul>
+    <p>If you have any questions or need assistance, please contact our support team:</p>
+    <ul>
+      <li><a href="mailto:kishanbantakal@gmail.com">kishanbantakal@gmail.com</a></li>
+      <li>Phone: +91 7338323960</li>
+    </ul>
     <p>&copy; 2024 Special BOX UI All rights reserved.</p>
     <img src="mylogo.png" alt="Banner Image">
   </footer>
@@ -48,23 +48,72 @@
   </div>
 
   <script>
-    // Enable buttons once the page has fully loaded
-    window.onload = function() {
-      document.getElementById('basicButton').disabled = false;
-    };
-
-    function simulatePayment(plan, button) {
-      // Disable the button to prevent multiple purchases
-      button.disabled = true;
-
+    // Function to simulate GPay payment
+    function simulateGPayPayment() {
       // Show loading spinner
       showLoading();
 
-      // Simulate payment delay
-      setTimeout(function() {
-        // Redirect to purchase success page
-        window.location.href = "paymentsucessful.html";
-      }, 2000); // Simulated payment delay of 2 seconds
+      const paymentDataRequest = {
+        apiVersion: 2,
+        apiVersionMinor: 0,
+        allowedPaymentMethods: [{
+          type: 'CARD',
+          parameters: {
+            allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
+            allowedCardNetworks: ['AMEX', 'DISCOVER', 'JCB', 'MASTERCARD', 'VISA']
+          },
+          tokenizationSpecification: {
+            type: 'PAYMENT_GATEWAY',
+            parameters: {
+              gateway: 'example',
+              gatewayMerchantId: '3833-3377-3236'
+            }
+          }
+        }],
+        merchantInfo: {
+          merchantId: '3833-3377-3236',
+          merchantName: 'Example Merchant'
+        },
+        transactionInfo: {
+          totalPriceStatus: 'FINAL',
+          totalPrice: '0.00',
+          currencyCode: 'INR',
+          countryCode: 'IN'
+        }
+      };
+
+      const paymentsClient = new google.payments.api.PaymentsClient({ environment: 'TEST' });
+
+      paymentsClient.isReadyToPay({
+        apiVersion: 2,
+        apiVersionMinor: 0,
+        allowedPaymentMethods: paymentDataRequest.allowedPaymentMethods
+      }).then(function(response) {
+        if (response.result) {
+          paymentsClient.loadPaymentData(paymentDataRequest)
+            .then(function(paymentData) {
+              console.log(paymentData);
+              // Simulate a delay to show the loading spinner
+              setTimeout(function() {
+                // Redirect to payment success page
+                window.location.href = "paymentsucessful.html";
+              }, 2000); // Simulated payment delay of 2 seconds
+            }).catch(function(err) {
+              console.error(err);
+              // Hide loading spinner on error
+              hideLoading();
+              alert('Payment failed. Please try again.');
+            });
+        } else {
+          console.log('Google Pay is not available.');
+          hideLoading();
+          alert('Google Pay is not available.');
+        }
+      }).catch(function(err) {
+        console.error(err);
+        hideLoading();
+        alert('Error checking Google Pay availability.');
+      });
     }
 
     function goBack() {
