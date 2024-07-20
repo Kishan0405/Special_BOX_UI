@@ -3,42 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
-    <link rel="stylesheet" href="styles/stylesrecents.css">
-    <link rel="stylesheet" href="styles/stylesbanner.css">
+    <title>About & Resume</title>
+    <link rel="stylesheet" href="styles/stylesindex.css">
     <link rel="icon" type="image/png" href="mylogo.png">
+    <style>
+        .about {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .about h2 {
+            text-align: center;
+        }
+        .resume-container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .profile-photo {
+            display: block;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+        .content .section {
+            margin-top: 20px;
+        }
+        .section h2 {
+            font-size: 1.5em;
+            color: #333;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        .section p,
+        .section ul {
+            margin: 5px 0;
+            font-size: 1em;
+            color: #666;
+        }
+        .section ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+    </style>
 </head>
-<nav>
-    <ul>
-        <li><a href="https://specialboxui.netlify.app/recents">Recents</a></li>
-        <li><a href="https://specialboxui.netlify.app">Home</a></li>
-        <li><a href="https://specialboxui.netlify.app/contact">Contact</a></li>
-        <li><a href="https://specialboxui.netlify.app/premium">Premium</a></li>
-    </ul>
-</nav>
-<section>
-    <!-- Add your content for the section here -->
-</section>
-
 <body>
+    <nav>
+        <ul>
+            <li><a href="https://specialboxui.netlify.app/recents">Recents</a></li>
+            <li><a href="https://specialboxui.netlify.app">Home</a></li>
+            <li><a href="https://specialboxui.netlify.app/contact">Contact</a></li>
+            <li><a href="https://specialboxui.netlify.app/premium">Premium</a></li>
+        </ul>
+    </nav>
     <section class="about">
         <h2>About Me</h2>
         <p>
-            Hi there! I'm the creator for this site. I'm a passionate web developer with a love for all things code. I am Student at the N M A M Institute of Technology, Nitte, Nitte University.
+            Hi there! I'm the creator of this site. I'm a passionate web developer with a love for all things code. I am a student at the N M A M Institute of Technology, Nitte, Nitte University.
         </p>
         <p>
-          In my free time, I enjoy learn and playing video games. I'm always looking for new and exciting projects to practice, so feel free to get in touch if you have any ideas!
+            In my free time, I enjoy learning and playing video games. I'm always looking for new and exciting projects to practice, so feel free to get in touch if you have any ideas!
         </p>
     </section>
+    <div class="resume-container">
+        <div class="header">
+            <img src="myphoto.jpg" alt="Your Photo" class="profile-photo">
+            <h1>Kishan Raj</h1>
+            <p>Student | B.Tech Biotechnology</p>
+        </div>
+        <div class="content">
+            <section class="section">
+                <h2>Contact Information</h2>
+                <p>Email: kishanbantakal@gmail.com</p>
+                <p>Phone: +91 7338323960</p>
+                <p>Address: 1-138 Kishan Nilaya, Podamale, Bantakal, Udupi, Karnataka, India. Zip:574115</p>
+            </section>
+            <section class="section">
+                <h2>Education</h2>
+                <p><strong>NITTE UNIVERSITY</strong> - Mangalore, Karnataka</p>
+                <p><strong>NMAM Institute of Technology Nitte, Karkala Taluk, Udupi - 574110</strong></p>
+                <p>Major: Bachelor of Technology in Biotechnology</p>
+                <p>Expected Graduation: May 2027</p>
+            </section>
+            <section class="section">
+                <h2>Experience</h2>
+                <div id="content-to-hide">
+                <p><strong>Job Title</strong> - Company Name</p>
+                    <p>Month Year - Present</p>
+                    <ul>
+                      <li>Responsibility or achievement</li>
+                      <li>Responsibility or achievement</li>
+                    </ul>
+                </div>
+            </section>
+            <section class="section">
+                <h2>Skills</h2>
+                <div id="content-to-hide-1">
+                <ul>
+                    <li>Skill 1</li>
+                    <li>Skill 2</li>
+                    <li>Skill 3</li>
+                </ul>
+                </div>
+            </section>
+            <section class="section">
+                <h2>Projects</h2>
+                <div id="content-to-hide-2">
+                <p><strong>Project Title</strong></p>
+                <p>Description of the project and what you did.</p>
+                </div>
+            </section>
+        </div>
+    </div>
     <footer>
-      <p>&copy; 2024 <a href="https://specialboxui.netlify.app/">Special BOX UI</a></p>
-      <div class="banner">
-          <h1>Powered By</h1>
-          <img src="mylogo.png" alt="Banner Image">
-      </div>
-  </footer>
-  <style>
-    
-  </style>
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="about.html">About Us</a>
+                <a href="careers.html">Careers</a>
+                <a href="blog.html">Blog</a>
+                <a href="viewallcategories.html">View All Categories</a>
+            </div>
+            <div class="footer-links">
+                <a href="userterms.html">User Terms</a>
+                <a href="communityguidelines.html">Community Guidelines</a>
+                <a href="contentpolicy.html">Content Policy</a>
+                <a href="contentpolicyfaqs.html">Content Policy FAQs</a>
+            </div>
+            <div class="footer-links">
+                <a href="cookiepolicy.html">Cookie Policy</a>
+                <a href="privacypolicy.html">Privacy Policy</a>
+                <a href="dataprotectionagreement">Data Protection Agreement</a>
+            </div>
+            <div class="social-icons">
+                <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+                <a href="https://facebook.com"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://linkedin.com"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy;2024 Special BOX UI</p>
+        </div>
+    </footer>
+    <script>
+        document.getElementById("content-to-hide").style.display = "none";
+        document.getElementById("content-to-hide-1").style.display = "none";
+        document.getElementById("content-to-hide-2").style.display = "none";
+    </script>
 </body>
 </html>
