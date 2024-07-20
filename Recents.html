@@ -19,8 +19,27 @@
         
     </style>
     <header>
-        <h3>Recent updates</h3>
-        <img src="mylogo.png" alt="Banner Image" style="align-items: center;">
+        <nav>
+            <input type="checkbox" id="click">
+            <label for="click">
+                <i class="fas fa-bars"></i>
+            </label>
+            <div class="sidenav">
+                <label for="closebtn" id="closebtn">
+                    <i class="fas fa-times"></i>
+                </label>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="login.html">Buy Here</a></li>
+                    <li><a href="undermaintainance.html">Special BOX AI</a></li>
+                    <li><a href="login.html">Premium</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="pagenotfound.html">Careers</a></li>
+                </ul>
+            </div>
+        </nav>
+        <img src="mylogo.png" a href="index.html"alt="Banner Image" style="align-items: center;">
         <h4><a href="https://specialboxuihelpserver.000webhostapp.com/">Login</a></h4>
     </header>
 </head>
@@ -223,10 +242,33 @@
 
     <!-- Banner -->
     <footer>
-        <p>&copy; 2024 <a href="https://specialboxui.netlify.app/">Special BOX UI</a></p>
-        <div class="banner">
-            <h1>Powered By</h1>
-            <img src="mylogo.png" alt="Banner Image">
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="about.html">About Us</a>
+                <a href="careers.html">Careers</a>
+                <a href="blog.html">Blog</a>
+                <a href="viewallcategories.html">View All Categories</a>
+            </div>
+            <div class="footer-links">
+                <a href="userterms.html">User Terms</a>
+                <a href="communityguidelines.html">Community Guidelines</a>
+                <a href="contentpolicy.html">Content Policy</a>
+                <a href="contentpolicyfaqs.html">Content Policy FAQs</a>
+            </div>
+            <div class="footer-links">
+                <a href="cookiepolicy.html">Cookie Policy</a>
+                <a href="privacypolicy.html">Privacy Policy</a>
+                <a href="dataprotectionagreement">Data Protection Agreement</a>
+            </div>
+            <div class="social-icons">
+                <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+                <a href="https://facebook.com"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://linkedin.com"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy;2024 Special BOX UI</p>
         </div>
     </footer>
 
@@ -242,6 +284,20 @@
                 });
             });
         });
+        // Close the sidebar when clicking outside of it
+document.addEventListener('click', function(event) {
+    const sidenav = document.querySelector('.sidenav');
+    const checkbox = document.getElementById('click');
+    if (checkbox.checked && !sidenav.contains(event.target) && !event.target.matches('#click, #click *')) {
+        closeNav();
+    }
+});
+
+window.addEventListener('pageshow', function(event) {
+    if (event.persisted && document.referrer.includes(['loading.html', 'Contact.html', 'login.html', 'undermaintainance.html', 'premium.html', 'About.html'])) {
+        window.location.reload();
+    }
+});
     </script>
 </body>
 </html>
