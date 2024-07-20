@@ -137,6 +137,13 @@ footer {
     margin-bottom: auto;
 }
 
+.footer-bottom{
+    text-align: center;
+    font-size: 15px;
+    font-weight: 20;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .footer-links {
     display: flex;
     flex-direction: column;
@@ -173,7 +180,7 @@ footer {
     top: 108.3px;
     left: 0;
     width: 200px;
-    height: 52.3vh;
+    height: auto;
     background-color: rgba(240, 240, 240, 0.8); /* Adjust transparency here */
     padding: 20px;
     color: #333;
