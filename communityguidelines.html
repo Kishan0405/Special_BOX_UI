@@ -3,21 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Home</title>
-    <link rel="stylesheet" href="styles/stylesindex.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-    <link rel="icon" type="image/png" href="mylogo.png">
-    <style>
-        /* Add your updated styles here */
-    </style>
-</head>
-<body>
-    <div class="loading" id="loading">
-        <div class="spinner"></div>
-        <div class="loading-text">Loading, please wait...</div>
-    </div>
     <header>
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <div class="loading-text">Loading, please wait...</div>
+        </div>
         <nav>
             <input type="checkbox" id="click">
             <label for="click">
@@ -28,9 +18,9 @@
                     <i class="fas fa-times"></i>
                 </label>
                 <ul>
-                    <li><a href="recents.html">Recents</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="https://specialboxui.free.nf/login.html?i=1">Buy Here</a></li>
+                    <li><a href="login.html">Buy Here</a></li>
                     <li><a href="undermaintainance.html">Special BOX AI</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="pagenotfound.html">Careers</a></li>
@@ -39,20 +29,75 @@
             </div>
         </nav>
         <img src="mylogo.png" a href="index.html"alt="Banner Image" style="align-items: center;">
-        <h4><a href="https://specialboxui.free.nf/login.html?i=1">Login</a></h4>
+        <h4><a href="login.html">Login</a></h4>
     </header>
-    <section id="main-content">
-        <h2>Contents/Posts</h2>
-        <ul>
-            <p><li><a href="https://specialboxui.free.nf/login.html?i=1">Quiz on Ancient History of India</a></li></p>
-            <p><li><a href="https://specialboxui.free.nf/login.html?i=1">Quiz on Electronics and Computers</a></li></p>
-            <p><li><a href="https://specialboxui.free.nf/login.html?i=1"></a></li></p>
-            <p><li><a href="https://specialboxui.free.nf/login.html?i=1"></a></li></p>
-            <p><li><a href="https://specialboxui.free.nf/login.html?i=1"></a></li></p>
-            <p><li><a href="https://specialboxui.free.nf/login.html?i=1"></a></li></p>
-            <!-- Add more links to your other pages as needed -->
-        </ul>
-    </section>
+    <title>Community Guidelines</title>
+    <link rel="stylesheet" href="styles/stylesindex.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="icon" type="image/png" href="mylogo.png">
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.5;
+        margin: 0;
+        padding: 0px;
+        background-color: #f4f4f4;
+    }
+    body.no-scroll {
+        overflow: hidden;
+    }   
+    h1, h2, h3 {
+        color: #333;
+    }
+    h1 {
+        border-bottom: 0px solid #333;
+        padding-bottom: 10px;
+        text-align: center;
+        font-size: 20px;
+    }
+    p {
+        margin: 0 0 10px;
+    }
+    .section {
+        margin-bottom: 20px;
+        padding: 20px;
+        background: #fff;
+        border-radius: 5px;
+    }
+    .section h2 {
+        margin-top: 0;
+    }
+</style>
+<body>
+    <div class="content">
+        <article>
+            <header>
+                <h1>Community Guidelines</h1>
+            </header>
+            <p>Welcome to Special BOX UI! Our goal is to create a safe and enjoyable environment for everyone. Please adhere to the following guidelines while participating in our community.</p>
+
+            <section class="guidelines">
+                <h2>Respect Others</h2>
+                <p>Always treat others with respect. Harassment, discrimination, and hate speech will not be tolerated.</p>
+            </section>
+
+            <section class="guidelines">
+                <h2>Stay On Topic</h2>
+                <p>Keep discussions relevant to the quiz topics. Off-topic posts may be removed.</p>
+            </section>
+
+            <section class="guidelines">
+                <h2>No Cheating</h2>
+                <p>Do not share answers or attempt to cheat. Let's keep the quizzes fair and fun for everyone.</p>
+            </section>
+
+            <section class="guidelines">
+                <h2>Report Issues</h2>
+                <p>If you encounter any issues or see someone breaking the rules, please report it to the moderators.</p>
+            </section>
+        </article>
+    </div>
     <footer>
         <div class="footer-container">
             <div class="footer-links">
@@ -63,7 +108,6 @@
             </div>
             <div class="footer-links">
                 <a href="userterms.html">User Terms</a>
-                <a href="communityguidelines.html">Community Guidelines</a>
                 <a href="contentpolicy.html">Content Policy</a>
                 <a href="contentpolicyfaqs.html">Content Policy FAQs</a>
             </div>
@@ -123,16 +167,19 @@ document.addEventListener('click', function(event) {
 });
 
 window.addEventListener('pageshow', function(event) {
-    if (event.persisted && document.referrer.includes(['loading.html', 'Contact.html', 'https://specialboxui.free.nf/login.html?i=1', 'undermaintainance.html', 'premium.html', 'About.html'])) {
+    if (event.persisted && document.referrer.includes(['loading.html', 'Contact.html', 'login.html', 'undermaintainance.html', 'premium.html', 'About.html'])) {
         window.location.reload();
     }
 });
 
+
 window.addEventListener('load', function() {
     const loading = document.getElementById('loading');
+    document.body.classList.add('no-scroll'); // Disable scrolling
+
     setTimeout(() => {
         loading.style.display = 'none';
-        document.body.classList.remove('hide-contents');
+        document.body.classList.remove('no-scroll'); // Enable scrolling
     }, 2000); // Adjust the duration (2000ms for 2 seconds)
 });
     </script>

@@ -1,19 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="./removeBanner.js"></script>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles/stylesregister.css">
+  <link rel="stylesheet" href="Styles/stylesregister.css">
   <link rel="icon" type="image/png" href="mylogo.png">
   <title>Sign Up</title>
   <style>
-    body.loading {
-      pointer-events: none;
-    }
-    #loading-icon, #loading-icon-first {
-      display: none;
-    }
+    
   </style>
 </head>
 <body>
@@ -24,10 +20,15 @@
 
   <div class="register-container">
     <h3>Register Here</h3>
-    <h6>Review process takes approximately 1 day.</h6>
+    <h4>This website respects your privacy and does not collect or share your personal information with third parties. Additionally, it is free of any malicious content or software.</h4>
+    <h5 style="text-align: center;">Remember the username and password during registration and login.</h5>
     <div class="center-container">
-      <form action="connect.php" method="POST" onsubmit="return handleSubmit(event)">
-        <img src="profile-photo.jpg" alt="Profile Photo" class="profile-photo">
+      <form id="registerForm" action="connect.php" method="POST" enctype="multipart/form-data" onsubmit="return handleSubmit(event)">
+        <div class="input-field profile-photo-container">
+          <img src="profile-photo.jpg" alt="Profile Photo" class="profile-photo" id="profilePhoto">
+          <input type="file" id="profile_image" name="profile_image" accept="image/*" onchange="previewImage(event)">
+          <label for="profile_image" class="edit-icon">&#9998;</label> <!-- Brush icon (pencil) -->
+        </div>
         <div class="input-field">
           <label for="username">Username</label>
           <input type="text" placeholder="Username" id="username" name="username" required>
@@ -57,7 +58,7 @@
     <p>Loading...</p>
   </div>
 
-  <button class="back-button" id="backButton" onclick="window.location.href='login.html'">Back</button>
+  <button class="back-button" id="backButton" onclick="window.location.href='https://specialboxuihelpserver.000webhostapp.com'">Back</button>
 
   <script>
     function validatePasswords() {
@@ -121,6 +122,15 @@
         document.body.classList.remove('loading');
       }, 3000);
     });
+
+    function previewImage(event) {
+      const reader = new FileReader();
+      reader.onload = function() {
+        const output = document.getElementById('profilePhoto');
+        output.src = reader.result;
+      }
+      reader.readAsDataURL(event.target.files[0]);
+    }
   </script>
   <footer>
     <div class="banner"></div>

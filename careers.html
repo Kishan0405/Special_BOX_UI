@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Home</title>
+    <title>Careers</title>
+    <link rel="stylesheet" href="styles/stylescareer.css">
     <link rel="stylesheet" href="styles/stylesindex.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="icon" type="image/png" href="mylogo.png">
-    <style>
-        /* Add your updated styles here */
-    </style>
+    
 </head>
 <body>
     <div class="loading" id="loading">
@@ -28,7 +26,7 @@
                     <i class="fas fa-times"></i>
                 </label>
                 <ul>
-                    <li><a href="recents.html">Recents</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="contact.html">Contact</a></li>
                     <li><a href="https://specialboxui.free.nf/login.html?i=1">Buy Here</a></li>
                     <li><a href="undermaintainance.html">Special BOX AI</a></li>
@@ -41,23 +39,39 @@
         <img src="mylogo.png" a href="index.html"alt="Banner Image" style="align-items: center;">
         <h4><a href="https://specialboxui.free.nf/login.html?i=1">Login</a></h4>
     </header>
-    <section id="main-content">
-        <h2>Contents/Posts</h2>
-        <ul>
-            <p><li><a href="https://specialboxui.free.nf/login.html?i=1">Quiz on Ancient History of India</a></li></p>
-            <p><li><a href="https://specialboxui.free.nf/login.html?i=1">Quiz on Electronics and Computers</a></li></p>
-            <p><li><a href="https://specialboxui.free.nf/login.html?i=1"></a></li></p>
-            <p><li><a href="https://specialboxui.free.nf/login.html?i=1"></a></li></p>
-            <p><li><a href="https://specialboxui.free.nf/login.html?i=1"></a></li></p>
-            <p><li><a href="https://specialboxui.free.nf/login.html?i=1"></a></li></p>
-            <!-- Add more links to your other pages as needed -->
-        </ul>
-    </section>
+    <main>
+        <section class="intro">
+            <h2>Why Work With Us?</h2>
+            <p>We are committed to creating a diverse and inclusive work environment where everyone feels valued and respected. Join us to be a part of an innovative team that is shaping the future.</p>
+        </section>
+
+        <section class="job-listings">
+            <h2>Current Openings</h2>
+            <div class="job">
+                <h3>Software Engineer</h3>
+                <p>Location: Udupi, Karnataka</p>
+                <p>We are looking for a software engineer with experience in developing quality software solutions.</p>
+                <p>Experience: 0-1years</p>
+                <p>Students can apply</p>
+                <p>Last Date -- On or Before September 30 2024</p>
+                <button onclick="location.href='https://specialboxui.free.nf/apply.html'">Apply Now</button>
+            </div>
+            <div class="job">
+                <h3>Organizer</h3>
+                <p>Location: Udupi,Karnataka</p>
+                <p>Seeking a organizer with a passion for innovation and a knack for solving complex problems.</p>
+                <p>Experience: 0-1years</p>
+                <p>Students can apply</p>
+                <p>Last Date -- On or Before September 30 2024</p>
+                <button onclick="location.href='https://specialboxui.free.nf/apply.html'">Apply Now</button>
+            </div>
+        </section>
+    </main>
+
     <footer>
         <div class="footer-container">
             <div class="footer-links">
                 <a href="about.html">About Us</a>
-                <a href="careers.html">Careers</a>
                 <a href="blog.html">Blog</a>
                 <a href="viewallcategories.html">View All Categories</a>
             </div>
@@ -123,16 +137,19 @@ document.addEventListener('click', function(event) {
 });
 
 window.addEventListener('pageshow', function(event) {
-    if (event.persisted && document.referrer.includes(['loading.html', 'Contact.html', 'https://specialboxui.free.nf/login.html?i=1', 'undermaintainance.html', 'premium.html', 'About.html'])) {
+    if (event.persisted && document.referrer.includes(['loading.html', 'Contact.html', 'login.html', 'undermaintainance.html', 'premium.html', 'About.html'])) {
         window.location.reload();
     }
 });
 
+
 window.addEventListener('load', function() {
     const loading = document.getElementById('loading');
+    document.body.classList.add('no-scroll'); // Disable scrolling
+
     setTimeout(() => {
         loading.style.display = 'none';
-        document.body.classList.remove('hide-contents');
+        document.body.classList.remove('no-scroll'); // Enable scrolling
     }, 2000); // Adjust the duration (2000ms for 2 seconds)
 });
     </script>
