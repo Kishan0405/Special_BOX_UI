@@ -5,8 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About & Resume</title>
     <link rel="stylesheet" href="styles/stylesindex.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="icon" type="image/png" href="mylogo.png">
     <style>
+        body.no-scroll {
+            overflow: hidden;
+        }
         .about {
             max-width: 800px;
             margin: 20px auto;
@@ -54,15 +58,35 @@
         }
     </style>
 </head>
-<body>
-    <nav>
-        <ul>
-            <li><a href="https://specialboxui.netlify.app/recents">Recents</a></li>
-            <li><a href="https://specialboxui.netlify.app">Home</a></li>
-            <li><a href="https://specialboxui.netlify.app/contact">Contact</a></li>
-            <li><a href="https://specialboxui.netlify.app/premium">Premium</a></li>
-        </ul>
-    </nav>
+<body class="no-scroll">
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <div class="loading-text">Loading, please wait...</div>
+    </div>
+    <header>
+        <nav>
+            <input type="checkbox" id="click">
+            <label for="click">
+                <i class="fas fa-bars"></i>
+            </label>
+            <div class="sidenav">
+                <label for="closebtn" id="closebtn">
+                    <i class="fas fa-times"></i>
+                </label>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="https://specialboxui.free.nf/login.html?i=1">Buy Here</a></li>
+                    <li><a href="undermaintainance.html">Special BOX AI</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="pagenotfound.html">Careers</a></li>
+                    <li><a href="premium.html">Donate & Support Us</a></li>
+                </ul>
+            </div>
+        </nav>
+        <img src="mylogo.png" a href="index.html"alt="Banner Image" style="align-items: center;">
+        <h4><a href="https://specialboxui.free.nf/login.html?i=1">Login</a></h4>
+    </header>
     <section class="about">
         <h2>About Me</h2>
         <p>
@@ -95,29 +119,29 @@
             <section class="section">
                 <h2>Experience</h2>
                 <div id="content-to-hide">
-                <p><strong>Job Title</strong> - Company Name</p>
+                    <p><strong>Job Title</strong> - Company Name</p>
                     <p>Month Year - Present</p>
                     <ul>
-                      <li>Responsibility or achievement</li>
-                      <li>Responsibility or achievement</li>
+                        <li>Responsibility or achievement</li>
+                        <li>Responsibility or achievement</li>
                     </ul>
                 </div>
             </section>
             <section class="section">
                 <h2>Skills</h2>
                 <div id="content-to-hide-1">
-                <ul>
-                    <li>Skill 1</li>
-                    <li>Skill 2</li>
-                    <li>Skill 3</li>
-                </ul>
+                    <ul>
+                        <li>Skill 1</li>
+                        <li>Skill 2</li>
+                        <li>Skill 3</li>
+                    </ul>
                 </div>
             </section>
             <section class="section">
                 <h2>Projects</h2>
                 <div id="content-to-hide-2">
-                <p><strong>Project Title</strong></p>
-                <p>Description of the project and what you did.</p>
+                    <p><strong>Project Title</strong></p>
+                    <p>Description of the project and what you did.</p>
                 </div>
             </section>
         </div>
@@ -156,6 +180,58 @@
         document.getElementById("content-to-hide").style.display = "none";
         document.getElementById("content-to-hide-1").style.display = "none";
         document.getElementById("content-to-hide-2").style.display = "none";
+        
+        function openNav() {
+            document.getElementById("click").checked = true;
+            const sidenav = document.querySelector('.sidenav');
+            const mainContent = document.querySelector('#main-content');
+            sidenav.style.transform = 'translateX(0px)';
+            mainContent.style.marginLeft = '241px'; // Update the margin to push the content to the right
+        }
+
+        function closeNav() {
+            document.getElementById("click").checked = false;
+            const sidenav = document.querySelector('.sidenav');
+            const mainContent = document.querySelector('#main-content');
+            sidenav.style.transform = 'translateX(-200px)';
+            mainContent.style.marginLeft = '0px';
+        }
+
+        document.getElementById('click').addEventListener('click', function() {
+            if (this.checked) {
+                openNav();
+            } else {
+                closeNav();
+            }
+        });
+
+        document.getElementById('closebtn').addEventListener('click', function() {
+            closeNav();
+            document.getElementById('click').checked = false;
+        });
+
+        // Close the sidebar when clicking outside of it
+        document.addEventListener('click', function(event) {
+            const sidenav = document.querySelector('.sidenav');
+            const checkbox = document.getElementById('click');
+            if (checkbox.checked && !sidenav.contains(event.target) && !event.target.matches('#click, #click *')) {
+                closeNav();
+            }
+        });
+
+        window.addEventListener('pageshow', function(event) {
+            if (event.persisted && document.referrer.includes(['loading.html', 'Contact.html', 'https://specialboxui.free.nf/login.html?i=1', 'undermaintainance.html', 'premium.html', 'About.html'])) {
+                window.location.reload();
+            }
+        });
+
+        window.addEventListener('load', function() {
+            const loading = document.getElementById('loading');
+            setTimeout(() => {
+                loading.style.display = 'none';
+                document.body.classList.remove('no-scroll');
+            }, 2000); // Adjust the duration (2000ms for 2 seconds)
+        });
     </script>
 </body>
 </html>
