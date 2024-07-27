@@ -340,3 +340,21 @@ label[for="click"] {
     color: #ffffff;
     margin-bottom: 0;
 }
+body.no-scroll {
+    overflow: hidden;
+}
+
+#signOutButton {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #dc3545; /* Red color for sign-out button */
+    color: #fff; /* White text color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#signOutButton:hover {
+    background-color: #c82333; /* Darker red color on hover */
+}
