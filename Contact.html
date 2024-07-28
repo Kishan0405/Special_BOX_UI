@@ -220,9 +220,11 @@
         document.querySelector("form").addEventListener("submit", function(event) {
     event.preventDefault(); // Prevent default form submission
 
-    // Show the loading spinner
+    // Show the loading spinner in the middle
     const loading = document.getElementById('loading');
-    loading.style.display = 'block';
+    loading.style.display = 'flex';
+    loading.style.alignItems = 'center';
+    loading.style.justifyContent = 'center';
     document.body.classList.add('no-scroll'); // Disable scrolling
 
     // Get form data
@@ -255,7 +257,6 @@
         alert("An error occurred while submitting the form. Please try again later."); // Handle error
     });
 });
-
     </script>
 </body>
 </html>
