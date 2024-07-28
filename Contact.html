@@ -218,30 +218,44 @@
     </script>
     <script>
         document.querySelector("form").addEventListener("submit", function(event) {
-            event.preventDefault(); // Prevent default form submission
+    event.preventDefault(); // Prevent default form submission
 
-            // Get form data
-            var formData = new FormData(this);
+    // Show the loading spinner
+    const loading = document.getElementById('loading');
+    loading.style.display = 'block';
+    document.body.classList.add('no-scroll'); // Disable scrolling
 
-            // You can use Fetch API or XMLHttpRequest to submit form data
-            fetch("https://api.web3forms.com/submit", {
-                method: "POST",
-                body: formData
-            })
-            .then(response => {
-                // Handle success response
-                if (response.ok) {
-                    alert("Thank you for your valuable feedback. Your submission was successful!"); // Show success message
-                    this.reset(); // Reset form fields
-                } else {
-                    throw new Error("Network response was not ok.");
-                }
-            })
-            .catch(error => {
-                console.error("Error:", error);
-                alert("An error occurred while submitting the form. Please try again later."); // Handle error
-            });
-        });
+    // Get form data
+    var formData = new FormData(this);
+
+    // You can use Fetch API or XMLHttpRequest to submit form data
+    fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => {
+        // Hide the loading spinner
+        loading.style.display = 'none';
+        document.body.classList.remove('no-scroll'); // Enable scrolling
+
+        // Handle success response
+        if (response.ok) {
+            alert("Thank you for your valuable feedback. Your submission was successful!"); // Show success message
+            this.reset(); // Reset form fields
+        } else {
+            throw new Error("Network response was not ok.");
+        }
+    })
+    .catch(error => {
+        // Hide the loading spinner
+        loading.style.display = 'none';
+        document.body.classList.remove('no-scroll'); // Enable scrolling
+
+        console.error("Error:", error);
+        alert("An error occurred while submitting the form. Please try again later."); // Handle error
+    });
+});
+
     </script>
 </body>
 </html>
