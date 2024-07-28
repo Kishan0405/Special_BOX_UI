@@ -5,20 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rate Us</title>
     <link rel="stylesheet" href="styles/stylescontact.css">
-    <link rel="stylesheet" href="styles/stylesbanner.css"> <!-- Import CSS for the banner -->
-    <link rel="stylesheet" href="styles/stylesrecents.css">
+    <link rel="stylesheet" href="styles/stylesindex.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="icon" type="image/png" href="mylogo.png">
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="https://specialboxui.netlify.app/recents">Recents</a></li>
-            <li><a href="https://specialboxui.netlify.app">Home</a></li>
-            <li><a href="https://specialboxui.netlify.app/about">About</a></li>
-            <li><a href="https://specialboxui.netlify.app/premium">Premium</a></li>
-            <li><a href="https://specialboxuihelpserver.000webhostapp.com/">Upload</a></li>
-        </ul>
-    </nav>
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <div class="loading-text">Loading, please wait...</div>
+    </div>
+    <header>
+        <nav>
+            <input type="checkbox" id="click">
+            <label for="click">
+                <i class="fas fa-bars"></i>
+            </label>
+            <div class="sidenav">
+                <label for="closebtn" id="closebtn">
+                    <i class="fas fa-times"></i>
+                </label>
+                <ul>
+                    <li><a href="recents.html">Recents</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="https://tinyurl.com/asadsdsadsaf">Buy Here</a></li>
+                    <li><a href="undermaintainance.html">Special BOX AI</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="pagenotfound.html">Careers</a></li>
+                    <li><a href="premium.html">Donate & Support Us</a></li>
+                </ul>
+            </div>
+        </nav>
+        <img src="mylogo.png" a href="index.html"alt="Banner Image" style="align-items: center;">
+        <h4><a href="https://tinyurl.com/asadsdsadsaf">Login</a></h4>
+    </header>
     <section class="rating">
         <h2>Rate Us</h2>
         <p>We value your feedback! Please rate your experience with our service and leave a comment below.</p>
@@ -28,26 +47,180 @@
             <input type="text" id="name" name="name" required><br>
             <label for="email">Email:</label><br>
             <input type="email" id="email" name="email" required><br>
-            <label for="rating">Rating:</label><br>
-            <select id="rating" name="rating" required>
-                <option value="1">1 - Poor</option>
-                <option value="2">2 - Fair</option>
-                <option value="3">3 - Good</option>
-                <option value="4">4 - Very Good</option>
-                <option value="5">5 - Excellent</option>
-            </select><br>
+            <form>
+                <form>
+                    <label for="satisfaction">How satisfied are you with our service/product?</label><br>
+                    <select id="satisfaction" name="satisfaction" required>
+                        <option value="very_dissatisfied">Very dissatisfied</option>
+                        <option value="dissatisfied">Dissatisfied</option>
+                        <option value="neutral">Neutral</option>
+                        <option value="satisfied">Satisfied</option>
+                        <option value="very_satisfied">Very satisfied</option>
+                    </select><br><br>
+                
+                    <label for="experience">How would you rate your overall experience with us?</label><br>
+                    <select id="experience" name="experience" required>
+                        <option value="very_poor">Very poor</option>
+                        <option value="poor">Poor</option>
+                        <option value="average">Average</option>
+                        <option value="good">Good</option>
+                        <option value="excellent">Excellent</option>
+                    </select><br><br>
+                
+                    <label for="expectations">The service met my expectations.</label><br>
+                    <select id="expectations" name="expectations" required>
+                        <option value="strongly_disagree">Strongly disagree</option>
+                        <option value="disagree">Disagree</option>
+                        <option value="neutral">Neutral</option>
+                        <option value="agree">Agree</option>
+                        <option value="strongly_agree">Strongly agree</option>
+                    </select><br><br>
+                
+                    <label for="recommend">How likely are you to recommend our service/product to others?</label><br>
+                    <select id="recommend" name="recommend" required>
+                        <option value="extremely_unlikely">Extremely unlikely</option>
+                        <option value="unlikely">Unlikely</option>
+                        <option value="neutral">Neutral</option>
+                        <option value="likely">Likely</option>
+                        <option value="extremely_likely">Extremely likely</option>
+                    </select><br><br>
+                
+                    <label for="ease_of_use">How easy was it to use our website/application?</label><br>
+                    <select id="ease_of_use" name="ease_of_use" required>
+                        <option value="very_difficult">Very difficult</option>
+                        <option value="difficult">Difficult</option>
+                        <option value="neutral">Neutral</option>
+                        <option value="easy">Easy</option>
+                        <option value="very_easy">Very easy</option>
+                    </select><br><br>
+                
+                    <label for="navigation">How would you rate the navigation of our website/application?</label><br>
+                    <select id="navigation" name="navigation" required>
+                        <option value="very_poor">Very poor</option>
+                        <option value="poor">Poor</option>
+                        <option value="average">Average</option>
+                        <option value="good">Good</option>
+                        <option value="excellent">Excellent</option>
+                    </select><br><br>
+                
+                    <label for="quality">How would you rate the quality of our product/service?</label><br>
+                    <select id="quality" name="quality" required>
+                        <option value="very_poor">Very poor</option>
+                        <option value="poor">Poor</option>
+                        <option value="average">Average</option>
+                        <option value="good">Good</option>
+                        <option value="excellent">Excellent</option>
+                    </select><br><br>
+                
+                    <label for="value">How would you rate the value for money of our product/service?</label><br>
+                    <select id="value" name="value" required>
+                        <option value="very_poor">Very poor</option>
+                        <option value="poor">Poor</option>
+                        <option value="average">Average</option>
+                        <option value="good">Good</option>
+                        <option value="excellent">Excellent</option>
+                    </select><br><br>
+                
+                    <label for="liked_most">What did you like most about our service/product?</label><br>
+                    <textarea id="liked_most" name="liked_most" rows="4" cols="50"></textarea><br><br>
+                
+                    <label for="improvements">What can we improve to serve you better?</label><br>
+                    <textarea id="improvements" name="improvements" rows="4" cols="50"></textarea><br><br>
+            
+                <label for="message">What did you like most about our service/product?</label><br>
+                <textarea id="message" name="message" rows="4" cols="50"></textarea><br><br>
+            
+                <label for="message">What can we improve to serve you better?</label><br>
+                <textarea id="message" name="message" rows="4" cols="50"></textarea><br><br>
+                
             <label for="message">Any suggestions where we can improve? (Comment)</label><br>
             <textarea id="message" name="message" rows="4" required></textarea><br>
             <input type="submit" value="Submit Rating">
         </form>
     </section>
     <footer>
-        <p>&copy; 2024 <a href="https://specialboxui.netlify.app/">Special BOX UI</a></p>
-        <div class="banner">
-            <h1>Powered By</h1>
-            <img src="mylogo.png" alt="Banner Image">
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="about.html">About Us</a>
+                <a href="careers.html">Careers</a>
+                <a href="blog.html">Blog</a>
+                <a href="catogories.html">View All Categories</a>
+            </div>
+            <div class="footer-links">
+                <a href="userterms.html">User Terms</a>
+                <a href="communityguidelines.html">Community Guidelines</a>
+                <a href="contentpolicy.html">Content Policy</a>
+                <a href="contentpolicyfaqs.html">Content Policy FAQs</a>
+            </div>
+            <div class="footer-links">
+                <a href="cookiepolicy.html">Cookie Policy</a>
+                <a href="privacypolicy.html">Privacy Policy</a>
+                <a href="dataprotectionagreement">Data Protection Agreement</a>
+            </div>
+            <div class="social-icons">
+                <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+                <a href="https://facebook.com"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.linkedin.com/in/kishanbantakal/"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy;2024 Special BOX UI</p>
         </div>
     </footer>
+    <script>
+        function openNav() {
+    document.getElementById("click").checked = true;
+    const sidenav = document.querySelector('.sidenav');
+    const mainContent = document.querySelector('#main-content');
+    sidenav.style.transform = 'translateX(0px)';
+    mainContent.style.marginLeft = '241px'; // Update the margin to push the content to the right
+}
+
+function closeNav() {
+    document.getElementById("click").checked = false;
+    const sidenav = document.querySelector('.sidenav');
+    const mainContent = document.querySelector('#main-content');
+    sidenav.style.transform = 'translateX(-200px)';
+    mainContent.style.marginLeft = '0px';
+}
+
+document.getElementById('click').addEventListener('click', function() {
+    if (this.checked) {
+        openNav();
+    } else {
+        closeNav();
+    }
+});
+
+document.getElementById('closebtn').addEventListener('click', function() {
+    closeNav();
+    document.getElementById('click').checked = false;
+});
+
+// Close the sidebar when clicking outside of it
+document.addEventListener('click', function(event) {
+    const sidenav = document.querySelector('.sidenav');
+    const checkbox = document.getElementById('click');
+    if (checkbox.checked && !sidenav.contains(event.target) && !event.target.matches('#click, #click *')) {
+        closeNav();
+    }
+});
+
+window.addEventListener('pageshow', function(event) {
+    if (event.persisted && document.referrer.includes(['loading.html', 'Contact.html', 'https://tinyurl.com/asadsdsadsaf', 'undermaintainance.html', 'premium.html', 'About.html'])) {
+        window.location.reload();
+    }
+});
+
+window.addEventListener('load', function() {
+    const loading = document.getElementById('loading');
+    setTimeout(() => {
+        loading.style.display = 'none';
+        document.body.classList.remove('hide-contents');
+    }, 2000); // Adjust the duration (2000ms for 2 seconds)
+});
+    </script>
     <script>
         document.querySelector("form").addEventListener("submit", function(event) {
             event.preventDefault(); // Prevent default form submission
