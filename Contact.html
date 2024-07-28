@@ -205,16 +205,16 @@
         });
 
         window.addEventListener('load', function() {
-            const loading = document.getElementById('loading');
-            setTimeout(() => {
-                loading.style.display = 'none';
-                document.body.classList.remove('hide-contents');
-            }, 2000); // Adjust the duration (2000ms for 2 seconds)
-            window.addEventListener('load', function() {
     const loading = document.getElementById('loading');
     document.body.classList.add('no-scroll'); // Disable scrolling
-            });
-        });
+
+    setTimeout(() => {
+        loading.style.display = 'none';
+        document.body.classList.remove('no-scroll'); // Enable scrolling
+    }, 2000); // Adjust the duration (2000ms for 2 seconds)
+});
+
+        
     </script>
     <script>
         document.querySelector("form").addEventListener("submit", function(event) {
