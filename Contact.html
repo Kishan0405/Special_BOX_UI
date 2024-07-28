@@ -189,11 +189,6 @@
             document.getElementById('click').checked = false;
         });
 
-        window.addEventListener('load', function() {
-    const loading = document.getElementById('loading');
-    document.body.classList.add('no-scroll'); // Disable scrolling
-        });
-
         // Close the sidebar when clicking outside of it
         document.addEventListener('click', function(event) {
             const sidenav = document.querySelector('.sidenav');
@@ -215,6 +210,10 @@
                 loading.style.display = 'none';
                 document.body.classList.remove('hide-contents');
             }, 2000); // Adjust the duration (2000ms for 2 seconds)
+            window.addEventListener('load', function() {
+    const loading = document.getElementById('loading');
+    document.body.classList.add('no-scroll'); // Disable scrolling
+            });
         });
     </script>
     <script>
