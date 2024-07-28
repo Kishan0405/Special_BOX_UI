@@ -189,6 +189,11 @@
             document.getElementById('click').checked = false;
         });
 
+        window.addEventListener('load', function() {
+    const loading = document.getElementById('loading');
+    document.body.classList.add('no-scroll'); // Disable scrolling
+        });
+
         // Close the sidebar when clicking outside of it
         document.addEventListener('click', function(event) {
             const sidenav = document.querySelector('.sidenav');
