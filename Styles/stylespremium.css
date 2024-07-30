@@ -132,8 +132,8 @@ button:disabled {
     height: 140px; /* Same height as QR code */
     margin: 20px auto; /* Center container and add margin */
     padding: 10px;
-    border: 2px solid #3498db;
-    background-color: #fff;
+    border: none; /* Remove border */
+    background-color: #fff; /* Ensure background is white */
 }
 
 #qrcode {
@@ -174,103 +174,51 @@ button:disabled {
     height: 140px; /* Match the container height */
 }
 
-/* Plan styles */
 .plan {
-    display: flex; /* Use flexbox to arrange items in a row */
-    gap: 20px; /* Space between the plans */
-    justify-content: center; /* Center align the plans horizontally */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 
 .plan-item {
-    border: 1px solid #ddd; /* Border to define the plan items */
-    border-radius: 8px; /* Rounded corners */
-    padding: 15px; /* Space inside each plan item */
-    background-color: #f9f9f9; /* Background color */
-    text-align: center; /* Center align text inside plan items */
-    flex: 1; /* Allow items to grow and shrink equally */
-    max-width: 200px; /* Limit the maximum width of each plan item */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    text-align: center;
+    flex: 1;
+    width: 250px; /* Set a fixed width for each plan item */
+    margin: 10px; /* Add margin to each plan item */
 }
 
 .plan-item h3 {
-    margin: 0 0 10px 0; /* Margin below the heading */
-    font-size: 1.2em; /* Adjust font size */
+    margin: 0 0 10px 0;
+    font-size: 1.2em;
 }
 
 .plan-item p {
-    margin: 0 0 10px 0; /* Margin below the price paragraph */
-    font-size: 1em; /* Adjust font size */
+    margin: 0 0 10px 0;
+    font-size: 1em;
 }
 
 .plan-item button {
-    padding: 10px 20px; /* Adjust button padding */
-    font-size: 1em; /* Adjust font size */
-    background-color: #3498db; /* Button background color */
-    color: #fff; /* Button text color */
-    border: none; /* Remove default button border */
-    border-radius: 4px; /* Optional: rounded corners for the button */
-    cursor: pointer; /* Show pointer cursor on hover */
-    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .plan-item button:hover {
-    background-color: #2980b9; /* Darker background on hover */
+    background-color: #2980b9;
 }
 
 .plan-item button:disabled {
-    background-color: #BDC3C7; /* Gray color to indicate disabled state */
-    cursor: not-allowed; /* Change cursor to not-allowed */
-    opacity: 0.6; /* Reduce opacity */
-}
-
-/* Media Queries for Mobile Devices */
-@media (max-width: 768px) {
-    .plan {
-        flex-direction: column; /* Stack plans vertically on smaller screens */
-        align-items: stretch; /* Stretch items to fill container width */
-    }
-
-    .plan-item {
-        max-width: 100%; /* Allow items to use full width */
-        margin-bottom: 1rem; /* Space between items */
-    }
-
-    button {
-        padding: 0.75rem 1rem; /* Adjust button padding for smaller screens */
-    }
-
-    section h2 {
-        font-size: 1.5rem;
-    }
-
-    section p {
-        font-size: 0.9rem;
-    }
-}
-
-/* Media Queries for Smaller Mobile Devices */
-@media (max-width: 480px) {
-    body {
-        padding: 0.5rem; /* Reduce padding on very small screens */
-    }
-
-    section {
-        padding: 0.5rem;
-    }
-
-    .plan-item {
-        padding: 10px; /* Reduce padding in plan items */
-    }
-
-    button {
-        padding: 0.5rem 1rem; /* Adjust button padding for small screens */
-        font-size: 0.875rem; /* Adjust font size for smaller buttons */
-    }
-
-    section h2 {
-        font-size: 1.25rem;
-    }
-
-    section p {
-        font-size: 0.875rem;
-    }
+    background-color: #BDC3C7;
+    cursor: not-allowed;
+    opacity: 0.6;
 }
