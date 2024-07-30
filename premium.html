@@ -11,7 +11,7 @@
   <link rel="icon" type="image/png" href="mylogo.png">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <style>
-    
+    /* Add your CSS styles here */
   </style>
 </head>
 <body>
@@ -58,19 +58,19 @@
           <div class="plan-item">
             <h3>Support Us</h3>
             <p>Price: ₹ 5 Anytime</p>
-            <button onclick="generateQRCode('5')" id="donateButton">Support ₹5</button>
+            <button onclick="handleSupport('5')" id="donateButton">Support ₹5</button>
           </div>
           <!-- New Plan for ₹50 -->
           <div class="plan-item">
             <h3>Support Us More</h3>
             <p>Price: ₹ 50 Anytime</p>
-            <button onclick="generateQRCode('50')" id="supportButton50">Support ₹50</button>
+            <button onclick="handleSupport('50')" id="supportButton50">Support ₹50</button>
           </div>
           <!-- Existing Plan for ₹100 -->
           <div class="plan-item">
             <h3>Donate and Support</h3>
             <p>Price: ₹ 100 Anytime</p>
-            <button onclick="generateQRCode('100')" id="supportButton100">Support ₹100</button>
+            <button onclick="handleSupport('100')" id="supportButton100">Support ₹100</button>
           </div>
         </div>
         <div id="qrcode-container">
@@ -122,6 +122,23 @@
     </div>
   </footer>
   <script>
+  function isAndroid() {
+    return /Android/i.test(navigator.userAgent);
+  }
+
+  function handleSupport(amount) {
+    if (isAndroid()) {
+      redirectToGPay(amount);
+    } else {
+      generateQRCode(amount);
+    }
+  }
+
+  function redirectToGPay(amount) {
+    const upiUrl = `upi://pay?pa=kishanbantakal@okicici&pn=Special%20BOX%20UI&mc=0000&tid=0000&btn=1&am=${amount}&cu=INR&url=https://specialboxui.netlify.app/premium`;
+    window.location.href = upiUrl;
+  }
+
   function generateQRCode(amount) {
     const paymentInfo = `upi://pay?pa=kishanbantakal@okicici&pn=Special%20BOX%20UI&mc=0000&tid=0000&btn=1&am=${amount}&cu=INR&url=https://specialboxui.netlify.app/premium`;
     const qrCodeElement = document.getElementById('qrcode');
@@ -204,7 +221,7 @@
         loading.style.display = 'none';
         document.body.classList.remove('no-scroll'); // Enable scrolling
     }, 2000); // Adjust the duration (2000ms for 2 seconds)
-});
+  });
 </script>
 
   <script src="loading.js"></script>
