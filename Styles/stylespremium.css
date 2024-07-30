@@ -5,53 +5,77 @@ body {
     color: #333;
     margin: 0;
     padding: 0;
+    background-color: #f4f4f4; /* Light background for better contrast */
 }
 
+/* Ensure text readability on mobile */
 main {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    animation: fadeInDown 1s ease-in-out;
+    padding: 1rem; /* Add padding to the main content */
 }
 
+/* Section styles */
 section {
-    flex: 1;
-    max-width: 100%;
-    padding: 0 1rem;
-    text-align: center;
-    animation: fadeInLeft 1s ease-in-out;
+    padding: 1rem;
+    background-color: #fff; /* Background for better readability */
+    border-radius: 8px; /* Rounded corners for sections */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
-section h2 {
-    font-size: 1.5rem;
+/* Header styles */
+header img {
+    max-width: 100%; /* Ensure logo fits within container */
+    height: auto;
+}
+
+h2 {
+    font-size: 1.75rem;
+}
+
+p {
     margin-bottom: 1rem;
+    font-size: 1rem;
 }
 
-section p {
-    margin-bottom: 1rem;
-}
-
+/* List styles */
 ul {
     padding: 0;
-    margin-left: 1rem;
+    margin: 0;
+    list-style: none; /* Remove default list styles */
 }
 
 ul li {
-    list-style-type: none;
     margin-bottom: 0.5rem;
-    color: red;
+    color: #333; /* Change to a dark color for better readability */
 }
 
-.plans {
+/* Button styles */
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    border-radius: 4px; /* Rounded corners for buttons */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05); /* Slight scale effect on hover */
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.7; /* Slightly reduced opacity for disabled buttons */
+}
+
+/* Plan styles */
+.plan {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.plan {
     margin-bottom: 2rem;
-    text-align: center;
 }
 
 .plan h3 {
@@ -60,23 +84,54 @@ ul li {
 
 .plan p {
     margin-bottom: 0.5rem;
+    font-size: 1rem;
 }
 
-button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
+/* QR code styles */
+#qrcode-container {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    height: 140px;
+    margin: 20px auto;
+    padding: 10px;
+    border: 2px solid #3498db;
+    background-color: #fff;
 }
 
-button:hover {
-    background-color: #0056b3;
+#qrcode {
+    display: none;
 }
 
-button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
+#qrcode-loading {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#qrcode-loading .spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+#qrcode-loading .loading-text {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #3498db;
+}
+
+.qr-loading {
+    display: block;
+    width: 140px;
+    height: 140px;
 }
 
 /* Separator styles */
@@ -84,7 +139,6 @@ button:disabled {
     width: 100%;
     margin: 2rem 0;
     border-bottom: 1px solid #ccc;
-    animation: fadeInUp 1s ease-in-out;
 }
 
 /* Animation Keyframes */
@@ -121,101 +175,56 @@ button:disabled {
     }
 }
 
+/* Media Queries for Mobile Devices */
+@media (max-width: 768px) {
+    .plan {
+        flex-direction: column;
+        align-items: stretch;
+    }
 
-#qrcode-container {
-    display: none; /* Initially hide QR code container */
-    flex-direction: column; /* Stack children vertically */
-    align-items: center; /* Center horizontally */
-    justify-content: center; /* Center vertically */
-    width: 140px; /* Same width as QR code */
-    height: 140px; /* Same height as QR code */
-    margin: 20px auto; /* Center container and add margin */
-    padding: 10px;
-    border: 2px solid #3498db;
-    background-color: #fff;
-  }
+    .plan-item {
+        max-width: none; /* Remove max-width to use full width */
+        margin-bottom: 1rem; /* Add margin between items */
+    }
 
-  #qrcode {
-    display: none; /* Initially hide QR code */
-  }
+    button {
+        padding: 0.75rem 1rem; /* Adjust padding for smaller screens */
+    }
 
-  #qrcode-loading {
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+    section h2 {
+        font-size: 1.5rem;
+    }
 
-  #qrcode-loading .spinner {
-    border: 4px solid rgba(0, 0, 0, 0.1);
-    align-items: center;
-    border-left-color: #3498db;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    animation: spin 1s linear infinite;
-    margin: 0 auto;
-  }
-
-  @keyframes spin {
-    to { transform: rotate(360deg); }
-  }
-
-  #qrcode-loading .loading-text {
-    margin-top: 10px;
-    font-size: 16px;
-    color: #3498db;
-  }
-
-  .qr-loading {
-    display: block; /* Ensure QR code element is displayed when needed */
-    width: 140px; /* Match the container width */
-    height: 140px; /* Match the container height */
-  }
-
-  .plan {
-    display: flex; /* Use flexbox to arrange items in a row */
-    gap: 20px; /* Space between the plans */
-    justify-content: center; /* Center align the plans horizontally */
-  }
-
-  .plan-item {
-    border: 1px solid #ddd; /* Border to define the plan items */
-    border-radius: 8px; /* Rounded corners */
-    padding: 15px; /* Space inside each plan item */
-    background-color: #f9f9f9; /* Background color */
-    text-align: center; /* Center align text inside plan items */
-    flex: 1; /* Allow items to grow and shrink equally */
-    max-width: 200px; /* Limit the maximum width of each plan item */
-  }
-
-  .plan-item h3 {
-    margin: 0 0 10px 0; /* Margin below the heading */
-    font-size: 1.2em; /* Adjust font size */
-  }
-
-  .plan-item p {
-    margin: 0 0 10px 0; /* Margin below the price paragraph */
-    font-size: 1em; /* Adjust font size */
-  }
-
-  .plan-item button {
-    padding: 10px 20px; /* Adjust button padding */
-    font-size: 1em; /* Adjust font size */
-    background-color: #3498db; /* Button background color */
-    color: #fff; /* Button text color */
-    border: none; /* Remove default button border */
-    border-radius: 4px; /* Optional: rounded corners for the button */
-    cursor: pointer; /* Show pointer cursor on hover */
-    transition: background-color 0.3s; /* Smooth transition for hover effect */
-  }
-
-  .plan-item button:hover {
-    background-color: #2980b9; /* Darker background on hover */
-  }
-
-.plan-item button:disabled {
-  background-color: #BDC3C7; /* Gray color to indicate disabled state */
-  cursor: not-allowed; /* Change cursor to not-allowed */
-  opacity: 0.6; /* Reduce opacity */
+    section p {
+        font-size: 0.9rem;
+    }
 }
+
+/* Media Queries for Smaller Mobile Devices */
+@media (max-width: 480px) {
+    body {
+        padding: 0.5rem; /* Reduce padding on very small screens */
+    }
+
+    section {
+        padding: 0.5rem;
+    }
+
+    .plan-item {
+        padding: 10px;
+    }
+
+    button {
+        padding: 0.5rem 1rem; /* Adjust button padding for small screens */
+        font-size: 0.875rem; /* Adjust font size for smaller buttons */
+    }
+
+    section h2 {
+        font-size: 1.25rem;
+    }
+
+    section p {
+        font-size: 0.875rem;
+    }
+}
+
