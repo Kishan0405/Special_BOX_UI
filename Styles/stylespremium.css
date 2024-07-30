@@ -40,6 +40,7 @@ ul {
 ul li {
     list-style-type: none;
     margin-bottom: 0.5rem;
+    color: red;
 }
 
 .plans {
@@ -76,33 +77,6 @@ button:hover {
 button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
-}
-
-footer {
-    background-color: #f2f2f2;
-    text-align: center;
-    padding: 1rem;
-    margin-top: 2rem;
-    animation: fadeInUp 1s ease-in-out;
-}
-
-/* Back button styles */
-.back-button {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    border-radius: 5px;
-    z-index: 9999; /* Ensures the button appears on top */
-    animation: fadeInLeft 1s ease-in-out;
-}
-
-.back-button:hover {
-    background-color: #0056b3;
 }
 
 /* Separator styles */
@@ -145,4 +119,103 @@ footer {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+
+#qrcode-container {
+    display: none; /* Initially hide QR code container */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    width: 140px; /* Same width as QR code */
+    height: 140px; /* Same height as QR code */
+    margin: 20px auto; /* Center container and add margin */
+    padding: 10px;
+    border: 2px solid #3498db;
+    background-color: #fff;
+  }
+
+  #qrcode {
+    display: none; /* Initially hide QR code */
+  }
+
+  #qrcode-loading {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #qrcode-loading .spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    align-items: center;
+    border-left-color: #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  #qrcode-loading .loading-text {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #3498db;
+  }
+
+  .qr-loading {
+    display: block; /* Ensure QR code element is displayed when needed */
+    width: 140px; /* Match the container width */
+    height: 140px; /* Match the container height */
+  }
+
+  .plan {
+    display: flex; /* Use flexbox to arrange items in a row */
+    gap: 20px; /* Space between the plans */
+    justify-content: center; /* Center align the plans horizontally */
+  }
+
+  .plan-item {
+    border: 1px solid #ddd; /* Border to define the plan items */
+    border-radius: 8px; /* Rounded corners */
+    padding: 15px; /* Space inside each plan item */
+    background-color: #f9f9f9; /* Background color */
+    text-align: center; /* Center align text inside plan items */
+    flex: 1; /* Allow items to grow and shrink equally */
+    max-width: 200px; /* Limit the maximum width of each plan item */
+  }
+
+  .plan-item h3 {
+    margin: 0 0 10px 0; /* Margin below the heading */
+    font-size: 1.2em; /* Adjust font size */
+  }
+
+  .plan-item p {
+    margin: 0 0 10px 0; /* Margin below the price paragraph */
+    font-size: 1em; /* Adjust font size */
+  }
+
+  .plan-item button {
+    padding: 10px 20px; /* Adjust button padding */
+    font-size: 1em; /* Adjust font size */
+    background-color: #3498db; /* Button background color */
+    color: #fff; /* Button text color */
+    border: none; /* Remove default button border */
+    border-radius: 4px; /* Optional: rounded corners for the button */
+    cursor: pointer; /* Show pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+  }
+
+  .plan-item button:hover {
+    background-color: #2980b9; /* Darker background on hover */
+  }
+
+.plan-item button:disabled {
+  background-color: #BDC3C7; /* Gray color to indicate disabled state */
+  cursor: not-allowed; /* Change cursor to not-allowed */
+  opacity: 0.6; /* Reduce opacity */
 }
