@@ -155,6 +155,7 @@ button:disabled {
     border-radius: 50%;
     border-color: #ccc transparent;
     animation: l16 1s infinite linear;
+    margin-left: 39px;
 }
 
 #qrcode-loading .spinner::before,
