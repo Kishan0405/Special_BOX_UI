@@ -6,7 +6,7 @@
   <title>Support Me</title>
   <link rel="stylesheet" href="styles/stylesindex.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-  <link rel="stylesheet" href="styles/stylespremium.css">
+  <link rel="stylesheet" href="styles/stylesdonate&support.css">
   <link rel="stylesheet" href="styles/stylesloadingpremium.css">
   <link rel="icon" type="image/png" href="mylogo.png">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
@@ -76,7 +76,7 @@
         <div id="qrcode-container">
           <div id="qrcode-loading">
             <div class="spinner"></div>
-            <div class="loading-text">Generating QR Code... <ul>Use Google Pay</ul> </div>
+            <div class="loading-text">Wait! QR Code is Generating....<ul>Use Google Pay</ul> </div>
           </div>
           <div id="qrcode" class="qr-loading"></div>
         </div>
@@ -171,7 +171,7 @@
     setTimeout(() => {
       loadingElement.style.display = 'none';
       qrCodeElement.style.display = 'block'; // Show QR code
-    }, 3000); // Adjust time if necessary based on QR code generation time
+    }, 8000); // Adjust time if necessary based on QR code generation time
   }
 
   function showLoading() {
