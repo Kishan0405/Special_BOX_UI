@@ -340,13 +340,59 @@ label[for="click"] {
     color: #ffffff;
     margin-bottom: 0;
 }
+
 body.no-scroll {
     overflow: hidden;
+}
+.about {
+    max-width: 800px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.about h2 {
+    text-align: center;
+}
+.resume-container {
+    max-width: 800px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.profile-photo {
+    display: block;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+.content .section {
+    margin-top: 20px;
+}
+.section h2 {
+    font-size: 1.5em;
+    color: #333;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+.section p,
+.section ul {
+    margin: 5px 0;
+    font-size: 1em;
+    color: #666;
+}
+.section ul {
+    list-style-type: disc;
+    padding-left: 20px;
 }
 
 #signOutButton {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 10px;
     background-color: #dc3545; /* Red color for sign-out button */
     color: #fff; /* White text color */
     border: none;
@@ -358,3 +404,4 @@ body.no-scroll {
 #signOutButton:hover {
     background-color: #c82333; /* Darker red color on hover */
 }
+
