@@ -229,8 +229,13 @@
         document.body.classList.remove('no-scroll'); // Enable scrolling
     }, 2000); // Adjust the duration (2000ms for 2 seconds)
   });
+
+  window.addEventListener('error', function() {
+    window.location.href = 'https://specialboxui.netlify.app/donate&support';
+  });
 </script>
 
   <script src="loading.js"></script>
 </body>
 </html>
+
