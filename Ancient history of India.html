@@ -3,31 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-    <title>Home</title>
-    <link rel="stylesheet" href="Styles/stylesquizhome.css">
-    <link rel="stylesheet" href="styles/stylesbanner.css">
+    <title>Quiz on Ancient History of India</title>
+    <link rel="stylesheet" href="Styles/stylesindex.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="icon" type="image/png" href="mylogo.png">
 </head>
 <body>
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <div class="loading-text">Loading, please wait...</div>
+    </div>
     <header>
-        <img src="mylogo.png"  alt="Banner Image">    
+        <nav>
+            <input type="checkbox" id="click">
+            <label for="click">
+                <i class="fas fa-bars"></i>
+            </label>
+            <div class="sidenav">
+                <label for="closebtn" id="closebtn">
+                    <i class="fas fa-times"></i>
+                </label>
+                <ul>
+                    <li><a href="https://specialboxui.netlify.app/recentslogin"onclick="return confirm('Are you sure you want to leave the quiz?')">Recents</a></li>
+                    <li><a href="https://specialboxui.netlify.app/undermaintainancelogin"onclick="return confirm('Are you sure you want to leave the quiz?')">Special BOX AI</a></li>
+                    <li><a href="https://specialboxui.netlify.app/"onclick="return confirm('Are you sure you want to leave the quiz?')">Buy Here</a></li>
+                    <li><a href="https://specialboxui.netlify.app/aboutlogin"onclick="return confirm('Are you sure you want to leave the quiz?')">About Me</a></li>
+                    <li><a href="https://specialboxui.netlify.app/ratemysitelogin"onclick="return confirm('Are you sure you want to leave the quiz?')">Rate My Site</a></li>
+                    <li><a href="https://specialboxui.netlify.app/careerslogin"onclick="return confirm('Are you sure you want to leave the quiz?')">Careers</a></li>
+                    <li><a href="https://specialboxui.netlify.app/donate&supportlogin"onclick="return confirm('Are you sure you want to leave the quiz?')">Donate & Support</a></li>
+                </ul>
+            </div>
+        </nav>
+        <img src="mylogo.png" a href="https://specialboxui.netlify.app"alt="Banner Image" style="align-items: center;">
+        <div class="timercontainer">
+            <div id="timers">Time Remaining: <span id="time"></span></div>
+        </div>
     </header>
-    <nav>
-        <ul>
-            <li><a href="loading.html" onclick="return confirm('Are you sure you want to leave the quiz?')">Recents</a></li>
-            <li><a href="indexlogin.html" onclick="return confirm('Are you sure you want to leave the quiz?')">Home</a></li>
-            <li><a href="Contactlogin.html" onclick="return confirm('Are you sure you want to leave the quiz?')">Contact</a></li>
-            <li><a href="undermaintainance.html" onclick="return confirm('Are you sure you want to leave the quiz?')">Buy Here</a></li>
-            <li><a href="Aboutlogin.html" onclick="return confirm('Are you sure you want to leave the quiz?')">About</a></li>
-        </ul>
-    </nav>
-    <section class="hide-contents">
-        <!-- quiz content here -->
-      </section>
-    <section>
-        <div class="loading" id="loading">
-            <div class="spinner"></div>
-          </div>
           <div class="quiz-container">
             <style>
                 h1{
@@ -36,13 +47,22 @@
               </style>
             <h1>Quiz on Ancient History of India</h1>
             <div id="quiz"></div>
-            <div class="timer-container">
-                <div id="timer">Time Remaining: <span id="time"></span></div>
-            </div>
+            
             <button id="submit">Submit</button>
             <div id="result"></div>
         </div>
-        <script class="hide-contents">
+        <script>
+            document.addEventListener("contextmenu", e => e.preventDefault(), false);
+
+            document.addEventListener("keydown", e => {
+  // USE THIS TO DISABLE CONTROL AND ALL FUNCTION KEYS
+  // if (e.ctrlKey || (e.keyCode>=112 && e.keyCode<=123)) {
+  // THIS WILL ONLY DISABLE CONTROL AND F12
+  if (e.ctrlKey || e.keyCode==123) {
+    e.stopPropagation();
+    e.preventDefault();
+  }
+});
             const questions = [
                 {
                     question: "What is the name of one of the earliest and most influential civilizations in ancient India, known for its well-planned cities?",
@@ -283,7 +303,7 @@ function renderQuiz() {
     }, 1000); // 1000ms = 1 second
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function() {
     renderQuiz();
 });
 
@@ -303,22 +323,41 @@ document.getElementById('submit').addEventListener('click', function() {
         return;
     }
     
+    // Disable checkboxes and submit button
+    const inputs = document.querySelectorAll('input[type="radio"]');
+    inputs.forEach(input => {
+        input.disabled = true;
+    });
+    document.getElementById('submit').disabled = true;
+
     clearInterval(timerInterval);
     let score = 0;
     questions.forEach((q, index) => {
         const questionNumber = index + 1;
         const selectedAnswer = document.querySelector(`input[name="q${questionNumber}"]:checked`);
+        const correctAnswerLabel = document.querySelector(`input[name="q${questionNumber}"][value="${q.correct}"]`).parentNode;
+
+        // Highlight the correct answer in bold and green color
+        correctAnswerLabel.innerHTML = `<strong style="color: green;">&#10004; ${correctAnswerLabel.textContent}</strong>`;
+
         if (selectedAnswer && selectedAnswer.value === q.correct) {
             score++;
+        } else if (selectedAnswer) {
+            // Optional: Highlight incorrect answer in red (if needed)
+            selectedAnswer.parentNode.style.color = 'red';
         }
     });
+
     const result = document.getElementById('result');
     result.textContent = `Your score is: ${score} out of ${questions.length}`;
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
-window.onbeforeunload = function() {
-            return "Are you sure you want to leave the quiz?";
-        };
+
+// Add event listener for beforeunload event
+window.addEventListener('beforeunload', function(event) {
+    // Display the confirmation message
+    event.returnValue = 'Are you sure you want to leave the quiz? Your progress will be lost.';
+});
 
 let timeRemaining = 300; // 5 minutes
 let timerInterval;
@@ -334,7 +373,6 @@ function resetQuiz() {
 // Update the startTimer function to call resetQuiz when the timer reaches 0.00
 function startTimer() {
     const timerElement = document.getElementById('time');
-
     timerInterval = setInterval(() => {
         timeRemaining--;
         const minutes = Math.floor(timeRemaining / 60);
@@ -345,33 +383,14 @@ function startTimer() {
 
         // Check if the time remaining is less than or equal to 15 seconds
         if (timeRemaining <= 15) {
-    // Change the timer color to red
-    timerElement.classList.remove('green'); // Remove green class
-    timerElement.style.color = '#f00';
-} else {
-    // Change the timer color to green
-    timerElement.classList.add('green'); // Add green class
-    timerElement.style.color = 'green';
-}
-
-// Check if the time is up
-if (timeRemaining < 0) {
-    clearInterval(timerInterval);
-    resetQuiz(); // Reset all input values
-    document.getElementById('submit').click();
-} else {
-    timerElement.textContent = `${minutes}:${seconds}`;
-
-    // Display the alert message with an OK button that refreshes the page
-    if (timeRemaining === 0) {
-        alert('Time is up! The quiz will be automatically submitted and the page will be refreshed.');
-        setTimeout(function() {
-            window.location.reload();
-        }, 0);
-    }
-}
-
-        
+            // Change the timer color to red
+            timerElement.classList.remove('green'); // Remove green class
+            timerElement.style.color = '#f00';
+        } else {
+            // Change the timer color to green
+            timerElement.classList.add('green'); // Add green class
+            timerElement.style.color = 'green';
+        }
 
         // Check if the time is up
         if (timeRemaining < 0) {
@@ -383,7 +402,6 @@ if (timeRemaining < 0) {
         }
     }, 1000);
 }
-
 
 window.onload = function() {
     // Check if the user is logged in
@@ -405,11 +423,10 @@ window.onload = function() {
         }
     });
     // Add event listener for beforeunload event
-window.addEventListener('beforeunload', function(event) {
-    // Display the confirmation message
-    event.returnValue = 'Are you sure you want to leave the quiz?';
-});
-
+    window.addEventListener('beforeunload', function(event) {
+        // Display the confirmation message
+        event.returnValue = 'Are you sure you want to leave the quiz? Your progress will be lost.';
+    });
 
     // Add the navigation menu
     var navMenu = `
@@ -421,7 +438,7 @@ window.addEventListener('beforeunload', function(event) {
             <li><a href="Aboutlogin.html" onclick="return confirm('Are you sure you want to leave the quiz?')">About</a></li>
         </ul>`;
     document.querySelector('nav').innerHTML = navMenu;
-};
+}
 
 // Function to logout
 function logout() {
@@ -529,9 +546,9 @@ button:hover {
             }
 
             #timer {
-                position: fixed;
-                top: 50%;
-                right: 30px;
+                position: absolute;
+                top: 30px;
+                right: -30px;
                 transform: translateY(-50%);
                 width: 180px;
                 z-index: 999;
@@ -543,101 +560,103 @@ button:hover {
             }
 
             .timer-container {
-                position: fixed;
-                top: 50%;
-                right: 30px;
-                transform: translate(-50%, -50%);
-                width: 180px;
-                z-index: 999;
-            }
-
-            #time {
-                font-size: 24px;
-                font-weight: bold;
-                color: #f00;
-            }
-
-            .chatbase-footer {
-                display: none !important;
-            }
-            /* Styles for the navigation menu */
-nav ul {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  list-style-type: none;
-  padding: 0;
+    position: absolute;
+    top: 10px;
+    right: 30px;
+    transform: translate(-50%, -50%);
+    width: 180px;
+    z-index: 999;
 }
 
-nav ul li {
-  margin: 0;
+#time {
+    font-size: 28px;
+    font-weight: bold;
+    color: #f00;
 }
-
-nav ul li a {
-  display: inline-block;
-  padding: 10px 20px;
-  text-decoration: none;
-  color: #333;
-  font-size: 18px;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-  color: #4285f4;
-}
-
-/* Make the navigation menu responsive */
-@media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  nav ul li {
-    margin: 10px 0;
-  }
-}
-
-            /* Add styles for the loading animation */
-.loading {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #efefefea;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.spinner {
-  width: 50px;
-  height: 50px;
-  border: 10px solid #ccc;
-  border-top: 10px solid #3498db;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-            .hide-contents {
-  opacity: 0;
-  pointer-events: none;
-}
-
         </style>
     </section>
     <footer>
-        <p>&copy; 2024 <a href="https://specialboxui.netlify.app/">Special BOX UI</a></p>
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="https://specialboxui.netlify.app/aboutlogin" onclick="return confirm('Are you sure you want to leave the quiz?')">About Me</a>
+                <a href="https://specialboxui.netlify.app/careerslogin" onclick="return confirm('Are you sure you want to leave the quiz?')">Careers</a>
+                <a href="https://specialboxui.netlify.app/bloglogin" onclick="return confirm('Are you sure you want to leave the quiz?')">Blog</a>
+                <a href="https://specialboxui.netlify.app/donate&supportlogin" onclick="return confirm('Are you sure you want to leave the quiz?')">Donate & Support</a>
+            </div>
+            <div class="footer-links">
+                <a href="https://specialboxui.netlify.app/usertermslogin" onclick="return confirm('Are you sure you want to leave the quiz?')">User Terms</a>
+                <a href="https://specialboxui.netlify.app/communityguidelineslogin" onclick="return confirm('Are you sure you want to leave the quiz?')">Community Guidelines</a>
+                <a href="https://specialboxui.netlify.app/contentpolicylogin" onclick="return confirm('Are you sure you want to leave the quiz?')">Content Policy</a>
+                <a href="https://specialboxui.netlify.app/contentpolicyfaqslogin" onclick="return confirm('Are you sure you want to leave the quiz?')">Content Policy FAQs</a>
+            </div>
+            <div class="footer-links">
+                <a href="https://specialboxui.netlify.app/cookiepolicylogin" onclick="return confirm('Are you sure you want to leave the quiz?')">Cookie Policy</a>
+                <a href="https://specialboxui.netlify.app/privacypolicylogin" onclick="return confirm('Are you sure you want to leave the quiz?')">Privacy Policy</a>
+                <a href="https://specialboxui.netlify.app/dataprotectionagreementlogin" onclick="return confirm('Are you sure you want to leave the quiz?')">Data Protection Agreement</a>
+            </div>
+            <div class="social-icons">
+                <a href="https://twitter.com" onclick="return confirm('Are you sure you want to leave the quiz?')"><i class="fab fa-twitter"></i></a>
+                <a href="https://facebook.com" onclick="return confirm('Are you sure you want to leave the quiz?')"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.linkedin.com/in/kishanbantakal/" onclick="return confirm('Are you sure you want to leave the quiz?')"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://instagram.com" onclick="return confirm('Are you sure you want to leave the quiz?')"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy;2024 Special BOX UI</p>
+        </div>
     </footer>
+    <script>
+        function openNav() {
+    document.getElementById("click").checked = true;
+    const sidenav = document.querySelector('.sidenav');
+    const mainContent = document.querySelector('#main-content');
+    sidenav.style.transform = 'translateX(0px)';
+    mainContent.style.marginLeft = '241px'; // Update the margin to push the content to the right
+}
+
+function closeNav() {
+    document.getElementById("click").checked = false;
+    const sidenav = document.querySelector('.sidenav');
+    const mainContent = document.querySelector('#main-content');
+    sidenav.style.transform = 'translateX(-200px)';
+    mainContent.style.marginLeft = '0px';
+}
+
+document.getElementById('click').addEventListener('click', function() {
+    if (this.checked) {
+        openNav();
+    } else {
+        closeNav();
+    }
+});
+
+document.getElementById('closebtn').addEventListener('click', function() {
+    closeNav();
+    document.getElementById('click').checked = false;
+});
+
+// Close the sidebar when clicking outside of it
+document.addEventListener('click', function(event) {
+    const sidenav = document.querySelector('.sidenav');
+    const checkbox = document.getElementById('click');
+    if (checkbox.checked && !sidenav.contains(event.target) && !event.target.matches('#click, #click *')) {
+        closeNav();
+    }
+});
+
+window.addEventListener('pageshow', function(event) {
+    if (event.persisted && document.referrer.includes(['https://specialboxui.netlify.app/loading', 'https://specialboxui.netlify.app/Contact', 'https://tinyurl.com/myloginxregisteredusersonly', 'https://specialboxui.netlify.app/undermaintainance', 'https://specialboxui.netlify.app/donate&support', 'https://specialboxui.netlify.app/about'])) {
+        window.location.reload();
+    }
+});
+
+window.addEventListener('load', function() {
+    const loading = document.getElementById('loading');
+    setTimeout(() => {
+        loading.style.display = 'none';
+        document.body.classList.remove('hide-contents');
+    }, 2000); // Adjust the duration (2000ms for 2 seconds)
+});
+    </script>
 </body>
 </html>
