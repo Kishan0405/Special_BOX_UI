@@ -449,65 +449,83 @@ function logout() {
         </script>
         <style>
             /* General styles for the quiz container */
-/* General styles for the quiz container */
+/* Quiz container styles */
 #quiz {
-  max-width: 800px auto;
+  max-width: 700px auto;
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 10px;
   background-color: #f9f9f9;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* Make the quiz container responsive */
-@media (max-width: 768px) {
-  #quiz {
-    width: 95%;
-    padding: 15px;
-  }
+/* Quiz header styles */
+.quiz-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
-/* Styles for each question container */
+.quiz-header h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.timer-container {
+  position: relative;
+  top: 0;
+  right: 0;
+  width: 180px;
+  z-index: 999;
+}
+
+/* Quiz body styles */
+.quiz-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
 .question-container {
   margin-bottom: 20px;
 }
 
-/* Styles for the question text */
 .question {
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
-/* Styles for the question labels */
-.question-container label {
-  display: block;
-  margin-bottom: 8px;
-  font-size: 16px;
-  cursor: pointer;
+.question-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-/* Styles for radio buttons */
+.question-container li {
+  margin-bottom: 10px;
+}
+
 .question-container input[type="radio"] {
   margin-right: 10px;
 }
 
-/* Make the quiz questions responsive */
-@media (max-width: 768px) {
-  .question {
-    font-size: 16px;
-  }
-
-  .question-container label {
-    font-size: 14px;
-  }
+.question-container label {
+  font-size: 16px;
+  cursor: pointer;
 }
 
-/* Styles for the submit button */
+/* Submit button styles */
 button {
   display: block;
-  margin: 20px auto 0; /* Center the button horizontally */
+  margin: 20px auto 0;
   padding: 15px;
   width: 25%;
   background-color: #28a745;
@@ -520,20 +538,11 @@ button {
   transition: background-color 0.3s ease;
 }
 
-/* Button hover state */
 button:hover {
   background-color: #218838;
 }
 
-/* Make the submit button responsive */
-@media (max-width: 768px) {
-  button {
-    width: 100%; /* Make the button take up the full width of the screen */
-    padding: 15px 0; /* Adjust padding for better touch target */
-  }
-}
-
-/* Styles for the result display */
+/* Result display styles */
 #result {
   margin-top: 20px;
   font-size: 20px;
@@ -541,40 +550,27 @@ button:hover {
   text-align: center;
 }
 
-/* Styles for the timer display */
-#timer,
-.timer-container {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 180px;
-  z-index: 999;
-}
-
-/* Timer styles */
-#time {
-  font-size: 28px;
-  font-weight: bold;
-  color: #f00;
-}
-
-/* Styles for timer span */
-#timer span {
-  font-weight: bold;
-  color: #333;
-}
-
-/* Adjust timer styles for smaller screens */
+/* Media queries for responsiveness */
 @media (max-width: 768px) {
-  #timer,
+  #quiz {
+    width: 95%;
+    padding: 15px;
+  }
+  .quiz-header {
+    flex-direction: column;
+    align-items: center;
+  }
   .timer-container {
     width: 100px;
     top: 5px;
     right: 5px;
   }
-
   #time {
     font-size: 20px;
+  }
+  button {
+    width: 100%;
+    padding: 15px 0;
   }
 }
 
