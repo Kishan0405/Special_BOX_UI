@@ -1,0 +1,255 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  animation: slideInFromTop 1s ease-in-out;
+}
+
+.profile-photo {
+  display: block;
+  margin: 0 auto 20px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  animation: fadeIn 1s ease-in-out;
+}
+
+h3 {
+  margin-bottom: 20px;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+h4, h6 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.input-field {
+  margin-bottom: 15px;
+}
+
+.input-field label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  width: calc(100% - 20px);
+  padding: 10px;
+  font-size: 12px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  animation: slideInFromLeft 1s ease-in-out;
+}
+
+p {
+  margin-top: 10px;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+  animation: fadeIn 1s ease-in-out;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromTop {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.back-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 0 auto;
+  display: block;
+  margin-top: -20px;
+}
+.back-button {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+.back-button:hover {
+  background-color: #0056b3;
+}
+
+.submit-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; /* Adjust this value as needed */
+}
+
+.submit {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.submit:hover {
+  background-color: #0056b3;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+@media (min-width: 768px) {
+  form {
+    width: 300px;
+  }
+}
+
+#loading-icon {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  text-align: center;
+  z-index: 9999;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.spinner {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 10px;
+}
+
+#loading-icon-first {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  text-align: center;
+  z-index: 9999;
+  background-color: rgb(255, 255, 255);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.spinner-first {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 10px;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media print {
+  body {
+    background-color: transparent;
+  }
+
+  form {
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  .profile-photo {
+    display: none;
+  }
+
+  h3 {
+    margin-bottom: -900px;
+  }
+}
+.register-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin-top: 20px;
+}
+.banner {
+  position: absolute;
+  bottom: 0; /* Or a fixed position based on your design */
+  width: 100%;
+  z-index: 10;  /* Ensure the banner is above the form */
+}

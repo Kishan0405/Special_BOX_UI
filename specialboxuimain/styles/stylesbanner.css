@@ -1,0 +1,17 @@
+.banner {
+    width: 100%; /* Makes the banner take up the full width of the page */
+    height: 150px; /* Sets the height of the banner */
+    background-color: #000; /* Sets the background color of the banner */
+    color: #fff; /* Sets the text color of the banner */
+    text-align: center; /* Centers the text in the banner */
+    position: relative; /* Allows for the image to be positioned on top of the background color */
+}
+
+.banner img {
+    width: auto; /* Makes the image fit the width of the banner */
+    height: auto; /* Makes the image adjust its height based on its width */
+    position: absolute; /* Positions the image on top of the background color */
+    top: 60%; /* Positions the image vertically at 50% of the banner's height */
+    align-items: center; /* Positions the image horizontally at 50% of the banner's width */
+    transform: translate(-50%, -50%); /* Centers the image both vertically and horizontally */
+}
