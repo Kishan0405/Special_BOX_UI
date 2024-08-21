@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/stylesindex.css">
+    <link rel="icon" type="image/png" href="../mylogo.png">
+    <title>Special BOX AI</title>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .special-box-ai-container {
+            width: 80%;
+            max-width: 1200px;
+            margin: 0 auto;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #fff;
+        }
+
+        .special-box-ai-iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+        }
+
+        .footer-ai {
+            margin-top: -30px;
+            height: 20px;
+            width: 200px;
+            font-size: 14px;
+            background-color: #fff;
+            color: #fff;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <div class="loading-text">Loading, please wait...</div>
+    </div>
+    <section class="special-box-ai-container">
+        <iframe src="https://app.fastbots.ai/embed/clzfil2t703v9nibcemo7o93n" frameborder="0" class="special-box-ai-iframe"></iframe>
+    </section>
+    <div class="footer-ai"></div>
+<script>
+    window.addEventListener('load', function() {
+  const loading = document.getElementById('loading');
+  document.body.classList.add('hide-contents'); // Add this line
+  setTimeout(() => {
+    loading.style.display = 'none';
+    document.body.classList.remove('hide-contents'); // Add this line
+  }, 2000); // Adjust the duration (2000ms for 2 seconds)
+});
+</script>
+</body>
+</html>
