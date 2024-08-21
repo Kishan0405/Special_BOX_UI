@@ -3,142 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Home</title>
-    <link rel="stylesheet" href="specialboxuimain/styles/stylesindex.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="icon" type="image/png" href="mylogo.png">
+    <title>Under Maintenance</title>
     <style>
-        /* Add your updated styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333333;
+        }
+        p {
+            color: #666666;
+        }
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #efefef;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 10px solid #ccc;
+            border-top: 10px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
     </style>
 </head>
 <body>
     <div class="loading" id="loading">
         <div class="spinner"></div>
-        <div class="loading-text">Loading, please wait...</div>
     </div>
-    <header>
-        <nav>
-            <input type="checkbox" id="click">
-            <label for="click">
-                <i class="fas fa-bars"></i>
-            </label>
-            <div class="sidenav">
-                <label for="closebtn" id="closebtn">
-                    <i class="fas fa-times"></i>
-                </label>
-                <ul>
-                    <li><a href="https://specialboxui.netlify.app/specialboxuimain/recents">Recents</a></li>
-                    <li><a href="https://specialboxui.free.nf/displayvideosherespecialboxuiforfreeusers.php">Special BOX UI Videos</a></li>
-                    <li><a href="https://specialboxui.netlify.app/specialboxuimain/specialboxai">Special BOX AI</a></li>
-                    <li><a href="https://tinyurl.com/myloginxregisteredusersonly">Buy Here</a></li>
-                    <li><a href="https://specialboxui.netlify.app/specialboxuimain/about">About Me</a></li>
-                    <li><a href="https://specialboxui.netlify.app/specialboxuimain/ratemysite">Rate My Site</a></li>
-                    <li><a href="https://specialboxui.netlify.app/specialboxuimain/careers">Careers</a></li>
-                    <li><a href="https://specialboxui.netlify.app/specialboxuimain/donate&support">Donate & Support</a></li>
-                </ul>
-            </div>
-        </nav>
-        <img src="mylogo.png" a href="https://specialboxui.netlify.app"alt="Banner Image" style="align-items: center;">
-        <h4><a href="https://tinyurl.com/myloginxregisteredusersonly">Login</a></h4>
-    </header>
-    <section id="main-content">
-        <h2>Contents/Posts</h2>
-        <ul>
-            <p><li><a href="https://specialboxui.free.nf/displayvideosherespecialboxuiforfreeusers.php"></a>Special BOX UI Videos</li></p>
-            <p><li><a href="https://specialboxui.free.nf/formshome.yml">Forms</a></li></p>
-            <p><li><a href="https://tinyurl.com/myloginxregisteredusersonly">Quiz on Ancient History of India</a></li></p>
-            <p><li><a href="https://tinyurl.com/myloginxregisteredusersonly">Quiz on Electronics and Computers</a></li></p>
-            <p><li><a href="https://tinyurl.com/myloginxregisteredusersonly"></a></li></p>
-            <p><li><a href="https://tinyurl.com/myloginxregisteredusersonly"></a></li></p>
-            <p><li><a href="https://tinyurl.com/myloginxregisteredusersonly"></a></li></p>
-            <p><li><a href="https://tinyurl.com/myloginxregisteredusersonly"></a></li></p>
-            <!-- Add more links to your other pages as needed -->
-        </ul>
-    </section>
-    <footer>
-        <div class="footer-container">
-            <div class="footer-links">
-                <a href="https://specialboxui.netlify.app/specialboxuimain/about">About Me</a>
-                <a href="https://specialboxui.netlify.app/specialboxuimain/careers">Careers</a>
-                <a href="https://specialboxui.netlify.app/specialboxuimain/blog">Blog</a>
-                <a href="https://specialboxui.netlify.app/specialboxuimain/donate&support">Donate & Support</a>
-            </div>
-            <div class="footer-links">
-                <a href="https://specialboxui.netlify.app/specialboxuimain/userterms">User Terms</a>
-                <a href="https://specialboxui.netlify.app/specialboxuimain/communityguidelines">Community Guidelines</a>
-                <a href="https://specialboxui.netlify.app/specialboxuimain/contentpolicy">Content Policy</a>
-                <a href="https://specialboxui.netlify.app/specialboxuimain/contentpolicyfaqs">Content Policy FAQs</a>
-            </div>
-            <div class="footer-links">
-                <a href="https://specialboxui.netlify.app/specialboxuimain/cookiepolicy">Cookie Policy</a>
-                <a href="https://specialboxui.netlify.app/specialboxuimain/privacypolicy">Privacy Policy</a>
-                <a href="https://specialboxui.netlify.app/specialboxuimain/dataprotectionagreement">Data Protection Agreement</a>
-            </div>
-            <div class="social-icons">
-                <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
-                <a href="https://facebook.com"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.linkedin.com/in/kishanbantakal/"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy;2024 Special BOX UI</p>
-        </div>
-    </footer>
+    <div class="container" id="content" style="display: none;">
+        <h1>Under Maintenance</h1>
+        <p>We apologize for any inconvenience, but this site is currently undergoing maintenance to ensure better service for you.</p>
+        <p>Please check back later. Thank you for your patience and understanding.</p>
+    </div>
+
     <script>
-        function openNav() {
-    document.getElementById("click").checked = true;
-    const sidenav = document.querySelector('.sidenav');
-    const mainContent = document.querySelector('#main-content');
-    sidenav.style.transform = 'translateX(0px)';
-    mainContent.style.marginLeft = '241px'; // Update the margin to push the content to the right
-}
-
-function closeNav() {
-    document.getElementById("click").checked = false;
-    const sidenav = document.querySelector('.sidenav');
-    const mainContent = document.querySelector('#main-content');
-    sidenav.style.transform = 'translateX(-200px)';
-    mainContent.style.marginLeft = '0px';
-}
-
-document.getElementById('click').addEventListener('click', function() {
-    if (this.checked) {
-        openNav();
-    } else {
-        closeNav();
-    }
-});
-
-document.getElementById('closebtn').addEventListener('click', function() {
-    closeNav();
-    document.getElementById('click').checked = false;
-});
-
-// Close the sidebar when clicking outside of it
-document.addEventListener('click', function(event) {
-    const sidenav = document.querySelector('.sidenav');
-    const checkbox = document.getElementById('click');
-    if (checkbox.checked && !sidenav.contains(event.target) && !event.target.matches('#click, #click *')) {
-        closeNav();
-    }
-});
-
-window.addEventListener('pageshow', function(event) {
-    if (event.persisted && document.referrer.includes(['https://specialboxui.netlify.app/loading', 'https://specialboxui.netlify.app/Contact', 'https://tinyurl.com/myloginxregisteredusersonly', 'https://specialboxui.netlify.app/undermaintainance', 'https://specialboxui.netlify.app/donate&support', 'https://specialboxui.netlify.app/about'])) {
-        window.location.reload();
-    }
-});
-
-window.addEventListener('load', function() {
-  const loading = document.getElementById('loading');
-  document.body.classList.add('hide-contents'); // Add this line
-  setTimeout(() => {
-    loading.style.display = 'none';
-    document.body.classList.remove('hide-contents'); // Add this line
-  }, 2000); // Adjust the duration (2000ms for 2 seconds)
-});
+        // JavaScript to stop the loading animation after a certain time and display the content
+        setTimeout(function() {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('content').style.display = 'block';
+        }, 3000); // Adjust the time (in milliseconds) as needed
     </script>
 </body>
 </html>
