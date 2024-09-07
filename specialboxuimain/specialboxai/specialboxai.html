@@ -10,26 +10,27 @@
     <title>Special BOX AI</title>
     <style>
         body {
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            flex-direction: column;
-        }
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    overflow: hidden; /* Prevents both vertical and horizontal scrolling */
+}
 
-        .special-box-ai-container {
-            width: 80%;
-            max-width: 1200px;
-            margin: 0 auto;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            border-radius: 8px;
-            margin-top: 50px;
-            overflow: hidden;
-            background-color: #fff;
-            display: flex;
-        }
+.special-box-ai-container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    margin-top: 50px;
+    overflow: hidden;
+    background-color: #fff;
+    display: flex;
+}
 
         .special-box-ai-iframe {
             width: 100%;
@@ -39,19 +40,19 @@
         }
 
         .footer-ai {
-    position: fixed; /* Ensures it stays fixed relative to the viewport */
-    bottom: 0; /* Adjusts position from the bottom of the viewport */
-    top: 630px;
-    right: 50%;
-    left: 50%; /* Centers the element horizontally */
-    transform: translateX(-50%); /* Centers the element horizontally */
-    height: 24px;
-    width: 200px;
-    font-size: 16px;
-    background-color: #fff;
-    color: #fff; /* Changed to a contrasting color for visibility */
-    z-index: 100; /* Adjust this value as needed to ensure it's on top */
-}
+            position: fixed;
+            bottom: 0;
+            top: 630px;
+            right: 50%;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 24px;
+            width: 200px;
+            font-size: 16px;
+            background-color: #fff;
+            color: #fff;
+            z-index: 100;
+        }
 
         .hidden {
             display: none;
@@ -99,7 +100,7 @@
     const sidenav = document.querySelector('.sidenav');
     const mainContent = document.querySelector('#main-content');
     sidenav.style.transform = 'translateX(0px)';
-    mainContent.style.marginLeft = '241px'; // Update the margin to push the content to the right
+    mainContent.style.marginLeft = '241px';
 }
 
 function closeNav() {
@@ -140,11 +141,11 @@ window.addEventListener('pageshow', function(event) {
 
 window.addEventListener('load', function() {
   const loading = document.getElementById('loading');
-  document.body.classList.add('hide-contents'); // Add this line
+  document.body.classList.add('hide-contents'); 
   setTimeout(() => {
     loading.style.display = 'none';
-    document.body.classList.remove('hide-contents'); // Add this line
-  }, 2000); // Adjust the duration (2000ms for 2 seconds)
+    document.body.classList.remove('hide-contents'); 
+  }, 2000);
 });
     </script>
 </body>
