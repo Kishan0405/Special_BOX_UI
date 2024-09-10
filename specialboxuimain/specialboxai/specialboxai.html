@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,27 +11,27 @@
     <title>Special BOX AI</title>
     <style>
         body {
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    flex-direction: column;
-    overflow: hidden; /* Prevents both vertical and horizontal scrolling */
-}
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            overflow: hidden;
+        }
 
-.special-box-ai-container {
-    width: 80%;
-    max-width: 1200px;
-    margin: 0 auto;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    border-radius: 8px;
-    margin-top: 10px;
-    overflow: hidden;
-    background-color: #fff;
-    display: flex;
-}
+        .special-box-ai-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-top: 10px;
+            overflow: hidden;
+            background-color: #fff;
+            display: flex;
+        }
 
         .special-box-ai-iframe {
             width: 100%;
@@ -59,6 +60,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="loading" id="loading">
         <div class="spinner"></div>
@@ -82,71 +84,75 @@
                     <li><a href="https://specialboxui.netlify.app/">Special BOX AI Server 5</a></li>
                     <li><a href="https://specialboxui.netlify.app/specialboxuimain/about">About Me</a></li>
                     <li><a href="https://specialboxui.netlify.app/specialboxuimain/ratemysite">Rate My Site</a></li>
-                    <li><a href="https://specialboxui.netlify.app/specialboxuimain/donate&support">Donate & Support</a></li>
+                    <li><a href="https://specialboxui.netlify.app/specialboxuimain/donate&support">Donate & Support</a>
+                    </li>
                 </ul>
             </div>
         </nav>
-        <img src="../mylogo.png" a href="https://specialboxui.netlify.app"alt="Banner Image" style="align-items: center;">
+        <img src="../mylogo.png" a href="https://specialboxui.netlify.app" alt="Banner Image"
+            style="align-items: center;">
         <h4><a href="https://tinyurl.com/myloginxregisteredusersonly">Login</a></h4>
     </header>
     <section class="special-box-ai-container">
-        <iframe src="https://app.fastbots.ai/embed/clzfil2t703v9nibcemo7o93n" frameborder="0" class="special-box-ai-iframe"></iframe>
+        <iframe src="https://app.fastbots.ai/embed/clzfil2t703v9nibcemo7o93n" frameborder="0"
+            class="special-box-ai-iframe"></iframe>
         <div class="footer-ai"></div>
     </section>
-    
+
     <script>
         function openNav() {
-    document.getElementById("click").checked = true;
-    const sidenav = document.querySelector('.sidenav');
-    const mainContent = document.querySelector('#main-content');
-    sidenav.style.transform = 'translateX(0px)';
-    mainContent.style.marginLeft = '241px';
-}
+            document.getElementById("click").checked = true;
+            const sidenav = document.querySelector('.sidenav');
+            const mainContent = document.querySelector('#main-content');
+            sidenav.style.transform = 'translateX(0px)';
+            mainContent.style.marginLeft = '241px';
+        }
 
-function closeNav() {
-    document.getElementById("click").checked = false;
-    const sidenav = document.querySelector('.sidenav');
-    const mainContent = document.querySelector('#main-content');
-    sidenav.style.transform = 'translateX(-200px)';
-    mainContent.style.marginLeft = '0px';
-}
+        function closeNav() {
+            document.getElementById("click").checked = false;
+            const sidenav = document.querySelector('.sidenav');
+            const mainContent = document.querySelector('#main-content');
+            sidenav.style.transform = 'translateX(-200px)';
+            mainContent.style.marginLeft = '0px';
+        }
 
-document.getElementById('click').addEventListener('click', function() {
-    if (this.checked) {
-        openNav();
-    } else {
-        closeNav();
-    }
-});
+        document.getElementById('click').addEventListener('click', function () {
+            if (this.checked) {
+                openNav();
+            } else {
+                closeNav();
+            }
+        });
 
-document.getElementById('closebtn').addEventListener('click', function() {
-    closeNav();
-    document.getElementById('click').checked = false;
-});
+        document.getElementById('closebtn').addEventListener('click', function () {
+            closeNav();
+            document.getElementById('click').checked = false;
+        });
 
-// Close the sidebar when clicking outside of it
-document.addEventListener('click', function(event) {
-    const sidenav = document.querySelector('.sidenav');
-    const checkbox = document.getElementById('click');
-    if (checkbox.checked && !sidenav.contains(event.target) && !event.target.matches('#click, #click *')) {
-        closeNav();
-    }
-});
+        // Close the sidebar when clicking outside of it
+        document.addEventListener('click', function (event) {
+            const sidenav = document.querySelector('.sidenav');
+            const checkbox = document.getElementById('click');
+            if (checkbox.checked && !sidenav.contains(event.target) && !event.target.matches('#click, #click *')) {
+                closeNav();
+            }
+        });
 
-window.addEventListener('pageshow', function(event) {
-    if (event.persisted && document.referrer.includes(['https://specialboxui.netlify.app/loading', 'https://specialboxui.netlify.app/Contact', 'https://tinyurl.com/myloginxregisteredusersonly', 'https://specialboxui.netlify.app/undermaintainance', 'https://specialboxui.netlify.app/donate&support', 'https://specialboxui.netlify.app/about'])) {
-        window.location.reload();
-    }
-});
+        window.addEventListener('pageshow', function (event) {
+            if (event.persisted && document.referrer.includes(['https://specialboxui.netlify.app/loading', 'https://specialboxui.netlify.app/Contact', 'https://tinyurl.com/myloginxregisteredusersonly', 'https://specialboxui.netlify.app/undermaintainance', 'https://specialboxui.netlify.app/donate&support', 'https://specialboxui.netlify.app/about'])) {
+                window.location.reload();
+            }
+        });
 
-window.addEventListener('load', function() {
-  const loading = document.getElementById('loading');
-  document.body.classList.add('hide-contents'); 
-  setTimeout(() => {
-    loading.style.display = 'none';
-    document.body.classList.remove('hide-contents'); 
-  }, 2000);
-});
+        window.addEventListener('load', function () {
+            const loading = document.getElementById('loading');
+            document.body.classList.add('hide-contents');
+            setTimeout(() => {
+                loading.style.display = 'none';
+                document.body.classList.remove('hide-contents');
+            }, 2000);
+        });
     </script>
 </body>
+
 </html>
