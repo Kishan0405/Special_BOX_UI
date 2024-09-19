@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="icon" type="image/png" href="mylogo.png">
     <style>
-        /* Add your updated styles here */
+    
     </style>
 </head>
 
@@ -31,10 +31,9 @@
                 </label>
                 <ul>
                     <li><a href="https://specialboxui.netlify.app/specialboxuimain/recents">Recents</a></li>
-                    <li><a href="https://specialboxui.free.nf/displayvideosherespecialboxuiforfreeusers.php">Special BOX
-                            UI Videos</a></li>
-                    <li><a href="https://specialboxui.netlify.app/specialboxuimain/specialboxai/specialboxai">Special
-                            BOX AI</a></li>
+                    <li><a href="https://specialboxui.netlify.app/specialboxuimain/specialboxai/specialboxai">Special BOX AI</a></li>
+                    <li><a href="https://specialboxui.free.nf/displayimagesherespecialboxuiforfreeusers.php">Special BOX UI Images</a></li>
+                    <li><a href="https://specialboxui.free.nf/displayvideosherespecialboxuiforfreeusers.php">Special BOX UI Videos</a></li>
                     <li><a href="https://tinyurl.com/myloginxregisteredusersonly">Buy Here</a></li>
                     <li><a href="https://specialboxui.netlify.app/specialboxuimain/about">About Me</a></li>
                     <li><a href="https://specialboxui.netlify.app/specialboxuimain/ratemysite">Rate My Site</a></li>
@@ -74,10 +73,7 @@
             <p>
                 <li><a href="https://tinyurl.com/myloginxregisteredusersonly"></a></li>
             </p>
-            <!-- Add more links to your other pages as needed -->
         </ul>
-        <script src="https://cdn.botpress.cloud/webchat/v2.1/inject.js"></script>
-        <script src="https://mediafiles.botpress.cloud/999e852d-9956-47d0-a6a1-5d8eeffc9c65/webchat/v2.1/config.js"></script>
     </section>
     <footer>
         <div class="footer-container">
@@ -110,60 +106,8 @@
             <p>&copy;2024 Special BOX UI</p>
         </div>
     </footer>
-    <script>
-        function openNav() {
-            document.getElementById("click").checked = true;
-            const sidenav = document.querySelector('.sidenav');
-            const mainContent = document.querySelector('#main-content');
-            sidenav.style.transform = 'translateX(0px)';
-            mainContent.style.marginLeft = '241px'; // Update the margin to push the content to the right
-        }
-
-        function closeNav() {
-            document.getElementById("click").checked = false;
-            const sidenav = document.querySelector('.sidenav');
-            const mainContent = document.querySelector('#main-content');
-            sidenav.style.transform = 'translateX(-200px)';
-            mainContent.style.marginLeft = '0px';
-        }
-
-        document.getElementById('click').addEventListener('click', function () {
-            if (this.checked) {
-                openNav();
-            } else {
-                closeNav();
-            }
-        });
-
-        document.getElementById('closebtn').addEventListener('click', function () {
-            closeNav();
-            document.getElementById('click').checked = false;
-        });
-
-        // Close the sidebar when clicking outside of it
-        document.addEventListener('click', function (event) {
-            const sidenav = document.querySelector('.sidenav');
-            const checkbox = document.getElementById('click');
-            if (checkbox.checked && !sidenav.contains(event.target) && !event.target.matches('#click, #click *')) {
-                closeNav();
-            }
-        });
-
-        window.addEventListener('pageshow', function (event) {
-            if (event.persisted && document.referrer.includes(['https://specialboxui.netlify.app/loading', 'https://specialboxui.netlify.app/Contact', 'https://tinyurl.com/myloginxregisteredusersonly', 'https://specialboxui.netlify.app/undermaintainance', 'https://specialboxui.netlify.app/donate&support', 'https://specialboxui.netlify.app/about'])) {
-                window.location.reload();
-            }
-        });
-
-        window.addEventListener('load', function () {
-            const loading = document.getElementById('loading');
-            document.body.classList.add('hide-contents'); // Add this line
-            setTimeout(() => {
-                loading.style.display = 'none';
-                document.body.classList.remove('hide-contents'); // Add this line
-            }, 2000); // Adjust the duration (2000ms for 2 seconds)
-        });
-    </script>
+    <script src="specialboxuimain/scripts/mainscript.js"></script>
+    <script src="https://cdn.botpress.cloud/webchat/v2.1/inject.js"></script>
+    <script src="https://mediafiles.botpress.cloud/999e852d-9956-47d0-a6a1-5d8eeffc9c65/webchat/v2.1/config.js"></script>
 </body>
-
 </html>
