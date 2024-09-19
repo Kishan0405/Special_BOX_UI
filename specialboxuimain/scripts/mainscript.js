@@ -46,10 +46,5 @@ window.addEventListener('load', function () {
     }, 2000); // Adjust the duration (2000ms for 2 seconds)
 });
 
-//For About Me
-document.getElementById("content-to-hide").style.display = "none";
-document.getElementById("content-to-hide-1").style.display = "none";
-document.getElementById("content-to-hide-2").style.display = "none";
-
 
 
