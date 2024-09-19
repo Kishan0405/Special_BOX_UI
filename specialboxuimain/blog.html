@@ -66,13 +66,13 @@
                 </label>
                 <ul>
                     <li><a href="https://specialboxui.netlify.app">Home</a></li>
-                    <li><a href="https://specialboxui.netlify.app/specialboxui/recents">Recents</a></li>
-                    <li><a href="https://specialboxui.netlify.app/specialboxui/specialboxai/specialboxai">Special BOX AI</a></li>
+                    <li><a href="https://specialboxui.netlify.app/specialboxuimain/recents">Recents</a></li>
+                    <li><a href="https://specialboxui.netlify.app/specialboxuimain/specialboxai/specialboxai">Special BOX AI</a></li>
                     <li><a href="https://tinyurl.com/myloginxregisteredusersonly">Buy Here</a></li>
-                    <li><a href="https://specialboxui.netlify.app/specialboxui/about">About Me</a></li>
-                    <li><a href="https://specialboxui.netlify.app/specialboxui/ratemysite">Rate My Site</a></li>
-                    <li><a href="https://specialboxui.netlify.app/specialboxui/careers">Careers</a></li>
-                    <li><a href="https://specialboxui.netlify.app/specialboxui/donate&support">Donate & Support</a></li>
+                    <li><a href="https://specialboxui.netlify.app/specialboxuimain/about">About Me</a></li>
+                    <li><a href="https://specialboxui.netlify.app/specialboxuimain/ratemysite">Rate My Site</a></li>
+                    <li><a href="https://specialboxui.netlify.app/specialboxuimain/careers">Careers</a></li>
+                    <li><a href="https://specialboxui.netlify.app/specialboxuimain/donate&support">Donate & Support</a></li>
                 </ul>
             </div>
         </nav>
@@ -112,21 +112,21 @@
     <footer>
         <div class="footer-container">
             <div class="footer-links">
-                <a href="https://specialboxui.netlify.app/specialboxui/about">About Me</a>
-                <a href="https://specialboxui.netlify.app/specialboxui/careers">Careers</a>
-                <a href="https://specialboxui.netlify.app/specialboxui/ratemysite">Rate My Site</a>
-                <a href="https://specialboxui.netlify.app/specialboxui/donate&support">Donate & Support</a>
+                <a href="https://specialboxui.netlify.app/specialboxuimain/about">About Me</a>
+                <a href="https://specialboxui.netlify.app/specialboxuimain/careers">Careers</a>
+                <a href="https://specialboxui.netlify.app/specialboxuimain/ratemysite">Rate My Site</a>
+                <a href="https://specialboxui.netlify.app/specialboxuimain/donate&support">Donate & Support</a>
             </div>
             <div class="footer-links">
-                <a href="https://specialboxui.netlify.app/specialboxui/userterms">User Terms</a>
-                <a href="https://specialboxui.netlify.app/specialboxui/communityguidelines">Community Guidelines</a>
-                <a href="https://specialboxui.netlify.app/specialboxui/contentpolicy">Content Policy</a>
-                <a href="https://specialboxui.netlify.app/specialboxui/contentpolicyfaqs">Content Policy FAQs</a>
+                <a href="https://specialboxui.netlify.app/specialboxuimain/userterms">User Terms</a>
+                <a href="https://specialboxui.netlify.app/specialboxuimain/communityguidelines">Community Guidelines</a>
+                <a href="https://specialboxui.netlify.app/specialboxuimain/contentpolicy">Content Policy</a>
+                <a href="https://specialboxui.netlify.app/specialboxuimain/contentpolicyfaqs">Content Policy FAQs</a>
             </div>
             <div class="footer-links">
-                <a href="https://specialboxui.netlify.app/specialboxui/cookiepolicy">Cookie Policy</a>
-                <a href="https://specialboxui.netlify.app/specialboxui/privacypolicy">Privacy Policy</a>
-                <a href="https://specialboxui.netlify.app/specialboxui/dataprotectionagreement">Data Protection Agreement</a>
+                <a href="https://specialboxui.netlify.app/specialboxuimain/cookiepolicy">Cookie Policy</a>
+                <a href="https://specialboxui.netlify.app/specialboxuimain/privacypolicy">Privacy Policy</a>
+                <a href="https://specialboxui.netlify.app/specialboxuimain/dataprotectionagreement">Data Protection Agreement</a>
             </div>
             <div class="social-icons">
                 <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
@@ -140,71 +140,8 @@
         </div>
     </footer>
 
-    <script>
-        function toggleContent(event) {
-            event.preventDefault();
-            const link = event.target;
-            const moreContent = link.previousElementSibling;
-
-            if (moreContent.style.display === "none" || moreContent.style.display === "") {
-                moreContent.style.display = "block";
-                link.textContent = "Read less...";
-            } else {
-                moreContent.style.display = "none";
-                link.textContent = "Read more...";
-            }
-        }
-
-        function openNav() {
-            document.getElementById("click").checked = true;
-            const sidenav = document.querySelector('.sidenav');
-            const mainContent = document.querySelector('#main-content');
-            sidenav.style.transform = 'translateX(0px)';
-            mainContent.style.marginLeft = '241px';
-        }
-
-        function closeNav() {
-            document.getElementById("click").checked = false;
-            const sidenav = document.querySelector('.sidenav');
-            const mainContent = document.querySelector('#main-content');
-            sidenav.style.transform = 'translateX(-200px)';
-            mainContent.style.marginLeft = '0px';
-        }
-
-        document.getElementById('click').addEventListener('click', function() {
-            if (this.checked) {
-                openNav();
-            } else {
-                closeNav();
-            }
-        });
-
-        document.getElementById('closebtn').addEventListener('click', function() {
-            closeNav();
-            document.getElementById('click').checked = false;
-        });
-
-        document.addEventListener('click', function(event) {
-            const sidenav = document.querySelector('.sidenav');
-            const checkbox = document.getElementById('click');
-            if (checkbox.checked && !sidenav.contains(event.target) && !event.target.matches('#click, #click *')) {
-                closeNav();
-            }
-        });
-
-        window.addEventListener('pageshow', function(event) {
-            if (event.persisted && document.referrer.includes(['https://specialboxui.netlify.app/specialboxui/loading', 'https://specialboxui.netlify.app/specialboxui/ratemysite', 'https://tinyurl.com/myloginxregisteredusersonly', 'https://specialboxui.netlify.app/specialboxui/undermaintainance', 'https://specialboxui.netlify.app/specialboxui/donate&support', 'https://specialboxui.netlify.app/specialboxui/about'])) {
-                window.location.reload();
-            }
-        });
-
-        window.addEventListener('load', function() {
-            const loading = document.getElementById('loading');
-            setTimeout(() => {
-                loading.style.display = 'none';
-                document.body.classList.remove('hide-contents');
-            }, 2000);
-        });
-    </script>
+    <script src="scripts/mainscript.js"></script>
+    <script src="https://cdn.botpress.cloud/webchat/v2.1/inject.js"></script>
+    <script src="https://mediafiles.botpress.cloud/999e852d-9956-47d0-a6a1-5d8eeffc9c65/webchat/v2.1/config.js"></script>
 </body>
 </html>
