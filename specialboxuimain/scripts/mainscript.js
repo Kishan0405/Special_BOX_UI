@@ -46,5 +46,16 @@ window.addEventListener('load', function () {
     }, 2000); // Adjust the duration (2000ms for 2 seconds)
 });
 
+function toggleContent(event) {
+    event.preventDefault();
+    const link = event.target;
+    const moreContent = link.previousElementSibling;
 
-
+    if (moreContent.style.display === "none" || moreContent.style.display === "") {
+        moreContent.style.display = "block";
+        link.textContent = "Read less...";
+    } else {
+        moreContent.style.display = "none";
+        link.textContent = "Read more...";
+    }
+}
