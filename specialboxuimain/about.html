@@ -43,10 +43,10 @@
     <section class="about">
         <h2>About Me</h2>
         <p>
-            Hi there! I'm the creator of this site. I'm a passionate web developer with a love for all things code. I am a student at the N M A M Institute of Technology, Nitte, Nitte University.
+            I am currently pursuing a Bachelor of Technology in Biotechnology at N M A M Institute of Technology, Nitte, part of Nitte University. As a passionate web developer, I enjoy creating dynamic websites and working with modern technologies.
         </p>
         <p>
-            In my free time, I enjoy learning and playing video games. I'm always looking for new and exciting projects to practice, so feel free to get in touch if you have any ideas!
+            My free time is often spent learning new skills or exploring exciting projects related to web development, technology, and gaming. I am always open to collaboration and look forward to new opportunities to innovate and grow in the field of technology.
         </p>
     </section>
     <div class="resume-container">
@@ -58,43 +58,51 @@
         <div class="content">
             <section class="section">
                 <h2>Contact Information</h2>
-                <p>Email: kishanbantakal@gmail.com</p>
-                <p>Phone: +91 7338323960</p>
+                <p>Email: <a href="mailto:kishanbantakal@gmail.com">kishanbantakal@gmail.com</a></p>
+                <p>Phone: <a href="tel:+917338323960">+91 7338323960</a></p>
                 <p>Address: 1-138 Kishan Nilaya, Podamale, Bantakal, Udupi, Karnataka, India. Zip:574115</p>
             </section>
             <section class="section">
                 <h2>Education</h2>
-                <p><strong>NITTE UNIVERSITY</strong> - Mangalore, Karnataka</p>
-                <p><strong>NMAM Institute of Technology Nitte, Karkala Taluk, Udupi - 574110</strong></p>
-                <p>Major: Bachelor of Technology in Biotechnology</p>
+                <p><strong>NITTE University</strong> — Mangalore, Karnataka</p>
+                <p><strong>NMAM Institute of Technology, Nitte</strong> — Karkala Taluk, Udupi, Karnataka, 574110</p>
+                <p>Bachelor of Technology (B.Tech) in Biotechnology</p>
                 <p>Expected Graduation: May 2027</p>
-            </section>
+                
+                <h2></h2>
+                
+                <p><strong>Karnataka School Examination and Assessment Board</strong> — Bangalore, Karnataka</p>
+                <p><strong>S V H Pre-University College, Innanje</strong> — Kapu Taluk, Udupi, Karnataka, 574122</p>
+                <p>Pre-University (PUC) — Physics, Chemistry, Mathematics, and Biology (PCMB)</p>
+                <p>Completed: April 2023</p>
+
+                <h2></h2>
+                
+                <p><strong>Karnataka School Examination and Assessment Board</strong> — Bangalore, Karnataka</p>
+                <p><strong>S V H High School, Innanje</strong> — Kapu Taluk, Udupi, Karnataka, 574122</p>
+                <p>SSLC — English, Hindi, Kannada, Mathematics, Science, Social Studies</p>
+                <p>Completed: July 2021</p>
+            </section>            
             <section class="section">
                 <h2>Experience</h2>
-                <div id="content-to-hide">
-                    <p><strong>Job Title</strong> - Company Name</p>
-                    <p>Month Year - Present</p>
+                    <p><strong>Internship: "Emerging Trends in Agricultural Technology"</strong> - NMAMIT, Nitte</p>
+                    <p>October 2023 - April 2024 </p>
+                    <p>Click on the title to access the final report on <a href="https://tinyurl.com/internshipreport2023-24">'Emerging Trends in Agricultural Technology.'</a></p>
                     <ul>
-                        <li>Responsibility or achievement</li>
-                        <li>Responsibility or achievement</li>
+                        <li>Gained hands-on experience in modern agricultural technologies.</li>
+                        <li>Explored advancements in agricultural machinery, biotechnology, and sustainable practices.</li>
+                        <li>Participated in visit-based learning and achieved industry-relevant objectives.</li>
                     </ul>
                 </div>
             </section>
             <section class="section">
                 <h2>Skills</h2>
-                <div id="content-to-hide-1">
                     <ul>
-                        <li>Skill 1</li>
-                        <li>Skill 2</li>
-                        <li>Skill 3</li>
+                        <li>Microsoft PowerPoint</li>
+                        <li>HTML, CSS</li>
+                        <li>Python, MySQL</li>
+                        <li>PHP, JavaScript</li>
                     </ul>
-                </div>
-            </section>
-            <section class="section">
-                <h2>Projects</h2>
-                <div id="content-to-hide-2">
-                    <p><strong>Project Title</strong></p>
-                    <p>Description of the project and what you did.</p>
                 </div>
             </section>
         </div>
@@ -129,62 +137,8 @@
             <p>&copy;2024 Special BOX UI</p>
         </div>
     </footer>
-    <script>
-        document.getElementById("content-to-hide").style.display = "none";
-        document.getElementById("content-to-hide-1").style.display = "none";
-        document.getElementById("content-to-hide-2").style.display = "none";
-        
-        function openNav() {
-            document.getElementById("click").checked = true;
-            const sidenav = document.querySelector('.sidenav');
-            const mainContent = document.querySelector('#main-content');
-            sidenav.style.transform = 'translateX(0px)';
-            mainContent.style.marginLeft = '241px'; // Update the margin to push the content to the right
-        }
-
-        function closeNav() {
-            document.getElementById("click").checked = false;
-            const sidenav = document.querySelector('.sidenav');
-            const mainContent = document.querySelector('#main-content');
-            sidenav.style.transform = 'translateX(-200px)';
-            mainContent.style.marginLeft = '0px';
-        }
-
-        document.getElementById('click').addEventListener('click', function() {
-            if (this.checked) {
-                openNav();
-            } else {
-                closeNav();
-            }
-        });
-
-        document.getElementById('closebtn').addEventListener('click', function() {
-            closeNav();
-            document.getElementById('click').checked = false;
-        });
-
-        // Close the sidebar when clicking outside of it
-        document.addEventListener('click', function(event) {
-            const sidenav = document.querySelector('.sidenav');
-            const checkbox = document.getElementById('click');
-            if (checkbox.checked && !sidenav.contains(event.target) && !event.target.matches('#click, #click *')) {
-                closeNav();
-            }
-        });
-
-        window.addEventListener('pageshow', function(event) {
-            if (event.persisted && document.referrer.includes(['https://specialboxui.netlify.app/specialboxuimain/loading', 'https://specialboxui.netlify.app/specialboxuimain/raremysite', 'https://tinyurl.com/myloginxregisteredusersonly', 'https://specialboxui.netlify.app/specialboxuimain/undermaintainance', 'https://specialboxui.netlify.app/specialboxuimain/donate&support', 'https://specialboxui.netlify.app/specialboxuimain/about'])) {
-                window.location.reload();
-            }
-        });
-
-        window.addEventListener('load', function() {
-            const loading = document.getElementById('loading');
-            setTimeout(() => {
-                loading.style.display = 'none';
-                document.body.classList.remove('no-scroll');
-            }, 2000); // Adjust the duration (2000ms for 2 seconds)
-        });
-    </script>
+    <script src="scripts/mainscript.js"></script>
+    <script src="https://cdn.botpress.cloud/webchat/v2.1/inject.js"></script>
+    <script src="https://mediafiles.botpress.cloud/999e852d-9956-47d0-a6a1-5d8eeffc9c65/webchat/v2.1/config.js"></script>
 </body>
 </html>
