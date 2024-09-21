@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,9 +11,10 @@
   <link rel="icon" type="image/png" href="mylogo.png">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <style>
-    /* Add your CSS styles here */
+
   </style>
 </head>
+
 <body>
   <div class="loading" id="loading">
     <div class="spinner"></div>
@@ -31,12 +33,13 @@
         <ul>
           <li><a href="https://specialboxui.netlify.app">Home</a></li>
           <li><a href="https://specialboxui.netlify.app/specialboxuimain/recents">Recents</a></li>
-          <li><a href="https://specialboxui.netlify.app/specialboxuimain/specialboxai/specialboxui">Special BOX AI</a></li>
+          <li><a href="https://specialboxui.netlify.app/specialboxuimain/specialboxai/specialboxui">Special BOX AI</a>
+          </li>
           <li><a href="https://tinyurl.com/myloginxregisteredusersonly">Buy Here</a></li>
           <li><a href="https://specialboxui.netlify.app/specialboxuimain/about">About Me</a></li>
           <li><a href="https://specialboxui.netlify.app/specialboxuimain/ratemysite">Rate My Site</a></li>
           <li><a href="https://specialboxui.netlify.app/specialboxuimain/careers">Careers</a></li>
-      </ul>
+        </ul>
       </div>
     </nav>
     <img src="mylogo.png" alt="Banner Image" style="display: block; margin: 0 auto;">
@@ -45,12 +48,14 @@
   <main>
     <section>
       <h2>Support My Work</h2>
-      <p>Thank you for your interest in supporting my website. Your contributions are invaluable in helping me continue to provide high-quality content and services. Here are some ways you can get involved:</p>
+      <p>Thank you for your interest in supporting my website. Your contributions are invaluable in helping me continue
+        to provide high-quality content and services. Here are some ways you can get involved:</p>
       <ul>
         <li><strong>Provide Feedback</strong>: Share your thoughts and suggestions to help me improve.</li>
         <li><strong>Get Support</strong>: Reach out for any assistance or customer support needs you may have.</li>
-        <li><strong>Exclusive Content and Updates</strong>: As a supporter, you'll gain access to exclusive content and updates as I work to enhance my offerings.</li>
-      </ul>            
+        <li><strong>Exclusive Content and Updates</strong>: As a supporter, you'll gain access to exclusive content and
+          updates as I work to enhance my offerings.</li>
+      </ul>
       <div class="separator">
         <p>Choose your plan:</p>
         <div class="plan">
@@ -76,7 +81,8 @@
         <div id="qrcode-container">
           <div id="qrcode-loading">
             <div class="spinner"></div>
-            <div class="loading-text">Wait! QR Code is Generating....<ul>Use Google Pay</ul> </div>
+            <div class="loading-text">Wait! QR Code is Generating....</div>
+            <div class="loading-text">Use Google Pay </div>
           </div>
           <div id="qrcode" class="qr-loading"></div>
         </div>
@@ -100,7 +106,8 @@
       <div class="footer-links">
         <a href="https://specialboxui.netlify.app/specialboxuimain/cookiepolicy">Cookie Policy</a>
         <a href="https://specialboxui.netlify.app/specialboxuimain/privacypolicy">Privacy Policy</a>
-        <a href="https://specialboxui.netlify.app/specialboxuimain/dataprotectionagreement">Data Protection Agreement</a>
+        <a href="https://specialboxui.netlify.app/specialboxuimain/dataprotectionagreement">Data Protection
+          Agreement</a>
       </div>
       <div class="social-icons">
         <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
@@ -113,117 +120,19 @@
       <h3>For Any Technical Support</h3>
       <p>If you have any questions or need assistance, please contact me directly:</p>
       <ul style="list-style-type: none; padding: 0;">
-        <li><h4>Email: <a href="mailto:kishanbantakal@gmail.com" style="color: white;">kishanbantakal@gmail.com</a></h4></li>
-        <li><h4>Phone: <a href="tel:+917338323960" style="color: white;">+91 7338323960</a></h4></li>
+        <li>
+          <h4>Email: <a href="mailto:kishanbantakal@gmail.com" style="color: white;">kishanbantakal@gmail.com</a></h4>
+        </li>
+        <li>
+          <h4>Phone: <a href="tel:+917338323960" style="color: white;">+91 7338323960</a></h4>
+        </li>
       </ul>
     </div>
     <div class="footer-bottom" style="text-align: center; margin-top: 20px;">
       <p>&copy; 2024 Special BOX UI</p>
     </div>
   </footer>
-  <script>
-  function isAndroid() {
-    return /Android/i.test(navigator.userAgent);
-  }
-
-  function handleSupport(amount) {
-    if (isAndroid()) {
-      redirectToGPay(amount);
-    } else {
-      generateQRCode(amount);
-    }
-  }
-
-  function redirectToGPay(amount) {
-    const upiUrl = `upi://pay?pa=kishanbantakal@okicici&pn=Special%20BOX%20UI&mc=0000&tid=0000&btn=1&am=${amount}&cu=INR&url=https://specialboxui.netlify.app/donate&support`;
-    window.location.href = upiUrl;
-  }
-
-  function generateQRCode(amount) {
-    const paymentInfo = `upi://pay?pa=kishanbantakal@okicici&pn=Special%20BOX%20UI&mc=0000&tid=0000&btn=1&am=${amount}&cu=INR&url=https://specialboxui.netlify.app/donate&support`;
-    const qrCodeElement = document.getElementById('qrcode');
-    const loadingElement = document.getElementById('qrcode-loading');
-    const qrContainer = document.getElementById('qrcode-container');
-
-    // Disable all buttons immediately when any button is clicked
-    const buttons = document.querySelectorAll('.plan-item button');
-    buttons.forEach(button => button.disabled = true);
-
-    // Show QR code container and loading animation
-    qrContainer.style.display = 'block';
-    loadingElement.style.display = 'block';
-    qrCodeElement.style.display = 'none'; // Hide QR code initially
-
-    // Clear any previous QR code
-    qrCodeElement.innerHTML = '';
-
-    // Generate QR code
-    new QRCode(qrCodeElement, {
-      text: paymentInfo,
-      width: 140,
-      height: 140,
-      colorDark: "#000000",
-      colorLight: "#ffffff",
-      correctLevel: QRCode.CorrectLevel.L
-    });
-
-    // Hide loading animation and show QR code after 3 seconds
-    setTimeout(() => {
-      loadingElement.style.display = 'none';
-      qrCodeElement.style.display = 'block'; // Show QR code
-    }, 8000); // Adjust time if necessary based on QR code generation time
-  }
-
-  function showLoading() {
-    document.getElementById('loading').style.display = 'block';
-  }
-
-  function hideLoading() {
-    document.getElementById('loading').style.display = 'none';
-  }
-
-  function openNav() {
-    document.getElementById("click").checked = true;
-    document.querySelector('.sidenav').style.transform = 'translateX(0px)';
-  }
-
-  function closeNav() {
-    document.getElementById("click").checked = false;
-    document.querySelector('.sidenav').style.transform = 'translateX(-200px)';
-  }
-
-  document.getElementById('click').addEventListener('click', function() {
-    if (this.checked) {
-      openNav();
-    } else {
-      closeNav();
-    }
-  });
-
-  document.getElementById('closebtn').addEventListener('click', function() {
-    closeNav();
-    document.getElementById('click').checked = false;
-  });
-
-  document.addEventListener('click', function(event) {
-    const sidenav = document.querySelector('.sidenav');
-    const checkbox = document.getElementById('click');
-    if (checkbox.checked && !sidenav.contains(event.target) && !event.target.matches('#click, #click *')) {
-      closeNav();
-    }
-  });
-
-  window.addEventListener('load', function() {
-    const loading = document.getElementById('loading');
-    document.body.classList.add('no-scroll'); // Disable scrolling
-
-    setTimeout(() => {
-        loading.style.display = 'none';
-        document.body.classList.remove('no-scroll'); // Enable scrolling
-    }, 2000); // Adjust the duration (2000ms for 2 seconds)
-  });
-</script>
-
-  <script src="loading.js"></script>
+  <script src="scripts/donate&supportscript.js"></script>
 </body>
+
 </html>
