@@ -36,13 +36,25 @@ document.addEventListener('click', function (event) {
     }
 });
 
-window.addEventListener('load', function () {
+// Close the sidebar when the pageshow event occurs
+window.addEventListener('pageshow', function (event) {
+    if (event.persisted && document.referrer.includes('https://specialboxui.netlify.app/specialboxuimain/loading') ||
+        document.referrer.includes('https://specialboxui.netlify.app/specialboxuimain/ratemysite') ||
+        document.referrer.includes('https://tinyurl.com/myloginxregisteredusersonly') ||
+        document.referrer.includes('https://specialboxui.netlify.app/specialboxuimain/undermaintainance') ||
+        document.referrer.includes('https://specialboxui.netlify.app/specialboxuimain/donate&support') ||
+        document.referrer.includes('https://specialboxui.netlify.app/specialboxuimain/about')) {
+        window.location.reload();
+    }
+});
+
+window.addEventListener('load', function() {
     const loading = document.getElementById('loading');
-    document.body.classList.add('hide-contents'); // Add this line
+    document.body.classList.add('no-scroll'); // Disable scrolling
+
     setTimeout(() => {
         loading.style.display = 'none';
-        document.body.classList.remove('hide-contents'); // Add this line
-        document.body.classList.remove('no-scroll');
+        document.body.classList.remove('no-scroll'); // Enable scrolling
     }, 2000); // Adjust the duration (2000ms for 2 seconds)
 });
 
@@ -58,4 +70,27 @@ function toggleContent(event) {
         moreContent.style.display = "none";
         link.textContent = "Read more...";
     }
-}
+};
+
+// For About and Resume
+// Smooth Scroll for Anchor Links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+// Show/Hide Sections on Click (Optional for Resume/Details Toggle)
+document.querySelectorAll('.section h2').forEach(sectionHeader => {
+    sectionHeader.addEventListener('click', function () {
+        let content = this.nextElementSibling;
+        if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+        } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+        }
+    });
+});
