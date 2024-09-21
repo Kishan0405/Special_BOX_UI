@@ -1,107 +1,157 @@
-/* General styles */
-body {
-    font-family: Arial, sans-serif;
+/* Global Styles */
+
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    scroll-behavior: smooth; /* Smooth scrolling */
-}
-
-article {
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin: 20px;
-    padding: 20px;
-    animation: fadeIn 1s ease; /* Fade in animation */
-}
-
-/* Game card styles */
-.game {
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    transition: transform 0.3s ease; /* Smooth scale on hover */
-}
-
-.game:hover {
-    transform: scale(1.05); /* Scale up on hover */
-}
-
-.game img {
-    max-width: 100%;
-    height: 200px; /* Set a fixed height for uniformity */
-    width: auto; /* Auto width to maintain aspect ratio */
-    display: block;
-    margin: 0 auto;
-    transition: transform 0.3s ease; /* Smooth scale on hover */
-}
-
-.game:hover img {
-    transform: scale(1.1); /* Scale up on hover */
-}
-
-.game h3 {
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
     color: #333;
+    scroll-behavior: smooth;
+    line-height: 1.6;
+  }
+  
+  /* Article Styles */
+  
+  article {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    padding: 25px;
+    animation: fadeIn 1s ease;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  article:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Game Container Styles */
+  
+  .games-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    margin: 0 auto;
+  }
+  
+  /* Game Card Styles */
+  
+  .game {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fafafa;
+  }
+  
+  .game:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .game h3 {
+    color: #2c3e50;
+    margin-top: 15px;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  
+  .game p {
+    color: #7f8c8d;
+    font-size: 1rem;
+    text-align: left;
     margin-top: 10px;
-}
-
-.game p {
-    color: #666;
-}
-
-.game a {
-    display: block;
-    margin-top: 10px;
+    line-height: 1.5;
+  }
+  
+  .game a {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 15px;
     text-decoration: none;
     color: #007bff;
-    transition: color 0.3s ease; /* Smooth color change on hover */
-}
-
-.game a:hover {
-    text-decoration: underline;
-    color: #0056b3; /* Darker blue on hover */
-}
-
-header h2 {
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
     text-align: center;
-    margin-bottom: 20px;
-    animation: slideInDown 1s ease; /* Slide in animation */
-}
-
-/* Keyframe animations */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes slideInDown {
-    from {
-        transform: translateY(-50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-/* Back button styles */
-.back-button {
+  }
+  
+  .game a:hover {
+    text-decoration: none;
     background-color: #007bff;
     color: #fff;
-    border: none;
-    border-radius: 4px;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.back-button:hover {
-    background-color: #0056b3;
-}
+    border-color: #0056b3;
+  }
+  
+  /* Header Styles */
+  
+  header h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #34495e;
+    font-size: 2rem;
+    animation: slideInDown 1s ease;
+  }
+  
+  /* Keyframe Animations */
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideInDown {
+    from {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Responsive Adjustments */
+  
+  @media (max-width: 768px) {
+    .game h3 {
+      font-size: 1.3rem;
+    }
+  
+    .game p {
+      font-size: 0.95rem;
+    }
+  }
+  
+  /* Additional Styles for Dynamic Height and Gap Adjustment */
+  
+  .games-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .game {
+    flex: 1 1 250px;
+    margin: 20px;
+  }
+  
+  .game-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
