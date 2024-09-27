@@ -209,5 +209,58 @@ document.addEventListener('DOMContentLoaded', () => {
         return null;
     }
 });
+document.addEventListener('DOMContentLoaded', () => {
+    const cookieBanner = document.getElementById('cookieBanner');
+    const cookieOverlay = document.getElementById('cookieOverlay');
+    const acceptCookiesBtn = document.getElementById('acceptCookies');
+    const closeBannerBtn = document.getElementById('closeBanner');
 
+    // Time in days until the banner shows again
+    const bannerExpirationDays = 5;
 
+    // Check if consent is already given and not expired
+    const isConsentGiven = () => {
+        const consentTimestamp = localStorage.getItem('cookieConsentTimestamp');
+        if (consentTimestamp) {
+            const currentTime = new Date().getTime();
+            const expiryTime = bannerExpirationDays * 24 * 60 * 60 * 1000; // 5 days in ms
+            return currentTime - consentTimestamp < expiryTime;
+        }
+        return false;
+    };
+
+    // Show the banner if consent is not given or expired
+    if (!isConsentGiven()) {
+        showBanner();
+    }
+
+    // Event listener for Accept button
+    acceptCookiesBtn.addEventListener('click', () => {
+        setCookieConsent();
+        hideBanner();
+    });
+
+    // Event listener for Close button
+    closeBannerBtn.addEventListener('click', () => {
+        hideBanner();
+    });
+
+    // Function to set cookie consent in localStorage with timestamp
+    function setCookieConsent() {
+        const currentTime = new Date().getTime();
+        localStorage.setItem('cookieConsent', 'true'); // Consent flag
+        localStorage.setItem('cookieConsentTimestamp', currentTime); // Store timestamp
+    }
+
+    // Function to show the cookie banner
+    function showBanner() {
+        cookieBanner.classList.add('show');
+        cookieOverlay.classList.add('show');
+    }
+
+    // Function to hide the cookie banner
+    function hideBanner() {
+        cookieBanner.classList.remove('show');
+        cookieOverlay.classList.remove('show');
+    }
+});
