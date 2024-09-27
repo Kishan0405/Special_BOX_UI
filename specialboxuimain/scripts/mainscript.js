@@ -94,3 +94,40 @@ document.querySelectorAll('.section h2').forEach(sectionHeader => {
         }
     });
 });
+
+// Script for Content Policy with smooth transition and arrow rotation
+document.addEventListener("DOMContentLoaded", function () {
+    const policySections = document.querySelectorAll(".policy-section");
+
+    policySections.forEach(section => {
+        const title = section.querySelector(".policy-title");
+        const content = section.querySelector(".policy-content");
+
+        // Add click event to the title
+        title.addEventListener("click", () => {
+            const isActive = content.classList.contains('active');
+
+            // Collapse other sections by removing 'active' and 'collapsed' from all
+            document.querySelectorAll('.policy-content').forEach(c => {
+                c.classList.remove('active');
+                c.style.maxHeight = null;
+            });
+            document.querySelectorAll('.policy-title').forEach(t => t.classList.remove('collapsed'));
+
+            // Toggle the current section's active state
+            if (!isActive) {
+                content.classList.add('active');
+                title.classList.add('collapsed');
+
+                // Use max-height for smooth height transition
+                content.style.maxHeight = content.scrollHeight + "px";
+            } else {
+                content.classList.remove('active');
+                title.classList.remove('collapsed');
+                content.style.maxHeight = null;
+            }
+        });
+    });
+});
+
+
