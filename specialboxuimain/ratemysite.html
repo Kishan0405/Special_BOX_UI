@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="styles/stylesindex.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="icon" type="image/png" href="mylogo.png">
+    <script>
+        // Redirect to the specified URL immediately
+        window.location.href = "https://specialboxui.free.nf/ratemysite";
+    </script>
 </head>
 <body>
     <div class="loading" id="loading">
@@ -28,7 +32,7 @@
                     <li><a href="https://specialboxui.netlify.app">Home</a></li>
                     <li><a href="https://specialboxui.netlify.app/specialboxuimain/recents">Recents</a></li>
                     <li><a href="https://specialboxui.netlify.app/specialboxuimain/specialboxai/specialboxai">Special BOX AI</a></li>
-                    <li><a href="https://specialboxui.free.nf/login">Buy Here</a></li>
+                    <li><a href="https://tinyurl.com/myloginxregisteredusersonly">Buy Here</a></li>
                     <li><a href="https://specialboxui.netlify.app/specialboxuimain/about">About Me</a></li>
                     <li><a href="https://specialboxui.netlify.app/specialboxuimain/careers">Careers</a></li>
                     <li><a href="https://specialboxui.netlify.app/specialboxuimain/donate&support">Donate & Support</a></li>
@@ -36,7 +40,7 @@
             </div>
         </nav>
         <img src="mylogo.png" alt="Banner Image" style="align-items: center;">
-        <h4><a href="https://specialboxui.free.nf/login">Login</a></h4>
+        <h4><a href="https://tinyurl.com/myloginxregisteredusersonly">Login</a></h4>
     </header>
     <section class="rating">
         <h2>Rate My Site</h2>
@@ -200,7 +204,7 @@
         });
 
         window.addEventListener('pageshow', function(event) {
-            if (event.persisted && document.referrer.includes(['https://specialboxui.netlify.app/specialboxuimain/loading', 'https://specialboxui.netlify.app/specialboxuimain/ratemysite', 'https://specialboxui.free.nf/login', 'https://specialboxui.netlify.app/specialboxuimain/undermaintainance', 'https://specialboxui.netlify.app/specialboxuimain/donate&support', 'https://specialboxui.netlify.app/specialboxuimain/about'])) {
+            if (event.persisted && document.referrer.includes(['https://specialboxui.netlify.app/specialboxuimain/loading', 'https://specialboxui.netlify.app/specialboxuimain/ratemysite', 'https://tinyurl.com/myloginxregisteredusersonly', 'https://specialboxui.netlify.app/specialboxuimain/undermaintainance', 'https://specialboxui.netlify.app/specialboxuimain/donate&support', 'https://specialboxui.netlify.app/specialboxuimain/about'])) {
                 window.location.reload();
             }
         });
