@@ -522,3 +522,144 @@ body.no-scroll {
     justify-content: space-between;
     height: 100%;
   }
+
+  /* Ensure that all elements are sized consistently */
+*,
+*::before,
+*::after {
+}
+
+/* General styling for cookie banner */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100%; /* Prevent overflow */
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    padding: 15px 20px; /* Reduced padding for better fit */
+    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all 0.6s ease;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+}
+
+.cookie-banner.show {
+    opacity: 1;
+    transform: translateY(0%);
+}
+
+.cookie-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+    flex-wrap: wrap; /* Allow content to wrap on smaller screens */
+}
+
+.cookie-content p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 75%; /* Prevents text from overflowing */
+}
+
+.cookie-content a {
+    color: #00bfff;
+    text-decoration: underline;
+}
+
+.cookie-controls {
+    display: flex;
+    gap: 10px;
+    margin-left: 10px;
+}
+
+.cookie-btn {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 14px; /* Adjusted font size for better fitting */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    white-space: nowrap; /* Prevents button text from wrapping */
+}
+
+.cookie-btn:hover {
+    background-color: #218838;
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.5);
+}
+
+/* Close button */
+.close-btn {
+    background-color: transparent;
+    color: #fff;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: #ff4d4d;
+}
+
+/* Overlay styling */
+.cookie-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 1001;
+}
+
+.cookie-overlay.show {
+    display: block;
+    opacity: 1;
+    transition: opacity 0.6s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .cookie-banner {
+        padding: 10px 15px;
+    }
+
+    .cookie-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .cookie-content p {
+        max-width: 100%;
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .cookie-controls {
+        flex-direction: column;
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .cookie-btn {
+        margin-top: 10px;
+        width: 100%; /* Full-width buttons on mobile */
+        padding: 10px 15px; /* Adjust padding for smaller screens */
+        font-size: 14px;
+    }
+
+    .close-btn {
+        font-size: 20px;
+    }
+}
