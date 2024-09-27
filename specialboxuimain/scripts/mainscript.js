@@ -131,3 +131,83 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+//Script for Cookie Policy?//
+// Function to check if cookies are already accepted
+function checkCookieConsent() {
+    return document.cookie.split('; ').find(row => row.startsWith('cookieConsent='));
+}
+
+// Function to hide the banner and set a cookie for consent
+function acceptCookies() {
+    document.cookie = "cookieConsent=true; path=/; max-age=" + 60*60*24*365;
+    const banner = document.getElementById('cookieBanner');
+    banner.classList.remove('show');
+}
+
+// Show banner if no cookie consent is given
+window.onload = function() {
+    const banner = document.getElementById('cookieBanner');
+    if (!checkCookieConsent()) {
+        banner.classList.add('show');
+    }
+}
+
+// Event listener for the accept button
+document.getElementById('acceptCookies').addEventListener('click', acceptCookies);
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const cookieBanner = document.getElementById('cookieBanner');
+    const cookieOverlay = document.getElementById('cookieOverlay');
+    const acceptCookiesBtn = document.getElementById('acceptCookies');
+    const closeBannerBtn = document.getElementById('closeBanner');
+
+    // Check if cookies have been accepted before
+    if (!getCookie('cookies_accepted')) {
+        showBanner();
+    }
+
+    // Accept cookies action
+    acceptCookiesBtn.addEventListener('click', () => {
+        setCookie('cookies_accepted', true, 365);
+        hideBanner();
+    });
+
+    // Close the banner without accepting cookies
+    closeBannerBtn.addEventListener('click', () => {
+        hideBanner();
+    });
+
+    function showBanner() {
+        cookieBanner.classList.add('show');
+        cookieOverlay.classList.add('show');
+    }
+
+    function hideBanner() {
+        cookieBanner.classList.remove('show');
+        cookieOverlay.classList.remove('show');
+    }
+
+    // Set a cookie
+    function setCookie(name, value, days) {
+        const date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        const expires = `expires=${date.toUTCString()}`;
+        document.cookie = `${name}=${value}; ${expires}; path=/`;
+    }
+
+    // Get a cookie
+    function getCookie(name) {
+        const decodedCookie = decodeURIComponent(document.cookie);
+        const cookies = decodedCookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            let cookie = cookies[i].trim();
+            if (cookie.indexOf(name + "=") == 0) {
+                return cookie.substring((name + "=").length, cookie.length);
+            }
+        }
+        return null;
+    }
+});
+
+
