@@ -524,10 +524,7 @@ body.no-scroll {
   }
 
   /* Ensure that all elements are sized consistently */
-*,
-*::before,
-*::after {
-}
+
 
 /* General styling for cookie banner */
 .cookie-banner {
@@ -547,6 +544,7 @@ body.no-scroll {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     border-radius: 10px 10px 0 0;
     overflow: hidden;
+    box-sizing: border-box;
 }
 
 .cookie-banner.show {
