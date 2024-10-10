@@ -134,7 +134,7 @@
     const sidenav = document.querySelector('.sidenav');
     const mainContent = document.querySelector('#main-content');
     sidenav.style.transform = 'translateX(0px)';
-    mainContent.style.marginLeft = '241px'; // Update the margin to push the content to the right
+    mainContent.style.marginLeft = '241px';
 }
 
 function closeNav() {
@@ -176,12 +176,12 @@ window.addEventListener('pageshow', function(event) {
 
 window.addEventListener('load', function() {
     const loading = document.getElementById('loading');
-    document.body.classList.add('no-scroll'); // Disable scrolling
+    document.body.classList.add('no-scroll');
 
     setTimeout(() => {
         loading.style.display = 'none';
-        document.body.classList.remove('no-scroll'); // Enable scrolling
-    }, 2000); // Adjust the duration (2000ms for 2 seconds)
+        document.body.classList.remove('no-scroll');
+    }, 2000);
 });
     </script>
 </body>
