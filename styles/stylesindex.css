@@ -21,20 +21,6 @@ body {
 
 
 
-.notice {
-    background-color: rgba(255, 255, 255, 0.8);
-    color: green;
-    padding: 10px;
-    text-align: center;
-    font-size: 1.2em;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    transition: opacity 0.5s ease;
-}
-
-
 
 
 /* Header Styles */
@@ -142,6 +128,7 @@ header:hover {
 .hide-contents {
     overflow: hidden;
 }
+
 /* Loading Styles End Here */
 
 
@@ -209,6 +196,7 @@ nav ul li a:hover {
         transform: rotate(0deg);
     }
 }
+
 /* Navigation Styles Ends Here */
 
 
@@ -309,7 +297,7 @@ nav ul li a:hover {
         border-radius: 8px;
         animation: fadeIn 0.5s ease-in-out;
     }
-    
+
     nav ul li {
         margin-bottom: 10px;
         text-align: center;
@@ -350,8 +338,8 @@ nav ul li a:hover {
 
 .sidebar {
     flex: 1;
-    min-width: 250px; /* Increased min-width for a better fit on larger screens */
-    max-width: 300px; /* Increased max-width for a more spacious sidebar */
+    min-width: 250px;
+    max-width: 300px;
     background-color: rgba(119, 225, 170, 0.9);
     padding: 20px;
     border-radius: 12px;
@@ -361,7 +349,7 @@ nav ul li a:hover {
 
 .content {
     flex: 2;
-    min-width: 300px; /* Increased min-width for a better fit on larger screens */
+    min-width: 300px;
     background-color: rgba(15, 229, 237, 0.9);
     padding: 20px;
     border-radius: 12px;
@@ -378,42 +366,42 @@ nav ul li a:hover {
     .sidebar,
     .content {
         margin-bottom: 20px;
-        transition: none; /* Disable transition for smoother layout on mobile */
+        transition: none;
     }
 }
 
 /* Hover Effects */
 .sidebar:hover,
 .content:hover {
-    transform: scale(1.05); /* Slightly increased scale for a more pronounced effect */
+    transform: scale(1.05);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
 }
 
 /* Enhanced Text Styles */
 .sidebar h2,
 .content h2 {
-    font-size: 1.5em; /* Increase heading size for better visibility */
-    margin-bottom: 15px; /* Add space below headings */
+    font-size: 1.5em;
+    margin-bottom: 15px;
 }
 
 .sidebar p,
 .content p {
-    line-height: 1.6; /* Improve readability with better line height */
+    line-height: 1.6;
 }
 
 /* Additional Styling for Better Visual Appeal */
 .sidebar {
-    border: 2px solid rgba(0, 0, 0, 0.1); /* Add a subtle border */
+    border: 2px solid rgba(0, 0, 0, 0.1);
 }
 
 .content {
-    border: 2px solid rgba(0, 0, 0, 0.1); /* Add a subtle border */
-    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; /* Add border color transition */
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
 }
 
 .sidebar:hover,
 .content:hover {
-    border-color: rgba(0, 0, 0, 0.3); /* Change border color on hover */
+    border-color: rgba(0, 0, 0, 0.3);
 }
 
 /* Content Styles Ends Here */
@@ -532,7 +520,7 @@ section {
     color: #007bff;
 }
 
-/* Enhanced Pro-level Footer Styles */
+/* Footer Styles */
 footer {
     display: flex;
     flex-direction: column;
@@ -671,7 +659,6 @@ footer:hover {
 
 .social-icons a:active {
     animation: rotate 0.5s linear;
-    /* Rotate animation on click */
 }
 
 .social-icons a::before {
