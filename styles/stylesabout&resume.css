@@ -21,21 +21,6 @@ body {
 
 
 
-.notice {
-    background-color: rgba(255, 255, 255, 0.8);
-    color: green;
-    padding: 10px;
-    text-align: center;
-    font-size: 1.2em;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    transition: opacity 0.5s ease;
-}
-
-
-
 
 /* Header Styles */
 header {
@@ -142,6 +127,7 @@ header:hover {
 .hide-contents {
     overflow: hidden;
 }
+
 /* Loading Styles End Here */
 
 
@@ -209,6 +195,7 @@ nav ul li a:hover {
         transform: rotate(0deg);
     }
 }
+
 /* Navigation Styles Ends Here */
 
 
@@ -309,7 +296,7 @@ nav ul li a:hover {
         border-radius: 8px;
         animation: fadeIn 0.5s ease-in-out;
     }
-    
+
     nav ul li {
         margin-bottom: 10px;
         text-align: center;
@@ -336,7 +323,7 @@ nav ul li a:hover {
 
 /* Navigation Toggle including Main Styles Ends Here */
 
-/* Enhanced Pro-level Footer Styles */
+/* Footer Styles */
 footer {
     display: flex;
     flex-direction: column;
@@ -475,7 +462,6 @@ footer:hover {
 
 .social-icons a:active {
     animation: rotate 0.5s linear;
-    /* Rotate animation on click */
 }
 
 .social-icons a::before {
@@ -552,82 +538,82 @@ footer:hover {
 .about-resume {
     background-color: #ffffffe9;
     border-radius: 8px;
-    padding: 40px; /* Increased padding for a more spacious feel */
+    padding: 40px;
     margin: 20px auto;
     max-width: 800px;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
-    border: 1px solid #e0e0e0; /* Light border for the main container */
-    transition: all 0.3s ease-in-out; /* Added transition for smooth animation */
-    position: relative; /* Allows z-index to take effect */
-    z-index: 0; /* Bring it forward */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    z-index: 0;
 }
 
 .about-resume h2 {
     color: #333;
-    border-bottom: 4px solid #007bff; /* Thicker border for emphasis */
+    border-bottom: 4px solid #007bff;
     padding-bottom: 10px;
-    margin-bottom: 25px; /* Added margin for better separation */
-    font-size: 28px; /* Increased font size for better visibility */
-    font-weight: 700; /* Bolder font for headings */
-    position: relative; /* Position for pseudo-element */
-    transition: all 0.3s ease-in-out; /* Added transition for smooth animation */
-    position: relative; /* Allows z-index to take effect */
-    z-index: 10; /* Bring it forward */
+    margin-bottom: 25px;
+    font-size: 28px;
+    font-weight: 700;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    z-index: 10;
 }
 
 .about-resume h2::after {
-    content: ''; /* Create an empty pseudo-element */
-    display: block; /* Make it a block element */
-    height: 4px; /* Height of the border */
-    width: 100%; /* Full width of the h2 */
-    background-color: #f1f1f1; /* Light gray border beneath the heading */
-    position: absolute; /* Position it absolutely */
-    bottom: -8px; /* Position it below the h2 */
-    left: 0; /* Align to the left */
-    border-radius: 2px; /* Rounded edges for a softer look */
-    transition: all 0.3s ease-in-out; /* Added transition for smooth animation */
+    content: '';
+    display: block;
+    height: 4px;
+    width: 100%;
+    background-color: #f1f1f1;
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
 }
 
 .about-resume p {
     color: #555;
-    margin-bottom: 20px; /* Increased margin for better readability */
-    line-height: 1.8; /* Improved line height for better readability */
-    font-size: 16px; /* Set a standard font size for paragraphs */
-    transition: all 0.3s ease-in-out; /* Added transition for smooth animation */
+    margin-bottom: 20px;
+    line-height: 1.8;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
 }
 
 /* Resume Container */
 .resume-container-resume {
     background-color: #fffffff2;
     border-radius: 8px;
-    padding: 40px; /* Further increased padding for consistency */
+    padding: 40px;
     margin: 20px auto;
     max-width: 800px;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
-    border: 1px solid #e0e0e0; /* Light border for the main container */
-    transition: all 0.3s ease-in-out; /* Added transition for smooth animation */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+    transition: all 0.3s ease-in-out;
 }
 
 /* Header Resume */
 .header-resume {
     display: flex;
-    flex-direction: column; /* Changed to column direction for better layout */
+    flex-direction: column;
     align-items: center;
     margin-bottom: 30px;
     border-bottom: 2px solid #e0e0e0;
     padding-bottom: 15px;
-    transition: all 0.3s ease-in-out; /* Added transition for smooth animation */
+    transition: all 0.3s ease-in-out;
 }
 
 .header-resume .profile-photo {
     border-radius: 50%;
     width: 140px;
     height: 140px;
-    margin-bottom: 20px; /* Added margin bottom for better spacing */
+    margin-bottom: 20px;
     object-fit: cover;
     border: 4px solid #007bff;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease-in-out; /* Added transition for smooth animation */
+    transition: all 0.3s ease-in-out;
 }
 
 .header-resume h1 {
@@ -636,15 +622,15 @@ footer:hover {
     color: #007bff;
     font-weight: 700;
     line-height: 1.2;
-    transition: all 0.3s ease-in-out; /* Added transition for smooth animation */
+    transition: all 0.3s ease-in-out;
 }
 
 .header-resume p {
     margin: 0;
     color: #777;
     font-size: 16px;
-    margin-top: 10px; /* Added margin top for better separation */
-    transition: all 0.3s ease-in-out; /* Added transition for smooth animation */
+    margin-top: 10px;
+    transition: all 0.3s ease-in-out;
 }
 
 /* Responsive adjustments for header */
@@ -654,86 +640,86 @@ footer:hover {
         align-items: flex-start;
         border-bottom: none;
         padding-bottom: 10px;
-        transition: all 0 .3s ease-in-out; /* Added transition for smooth animation */
+        transition: all 0 .3s ease-in-out;
     }
 
     .header-resume .profile-photo {
         margin-bottom: 10px;
-        transition: all 0.3s ease-in-out; /* Added transition for smooth animation */
+        transition: all 0.3s ease-in-out;
     }
 }
 
 @media (max-width: 480px) {
     .header-resume h1 {
         font-size: 26px;
-        transition: all 0.3s ease-in-out; /* Added transition for smooth animation */
+        transition: all 0.3s ease-in-out;
     }
 
     .header-resume p {
         font-size: 14px;
-        transition: all 0.3s ease-in-out; /* Added transition for smooth animation */
+        transition: all 0.3s ease-in-out;
     }
 }
 
 /* Content About Resume */
 .content-about-resume {
     margin-top: 20px;
-    transition: all 0.3s ease-in-out; /* Added transition for smooth animation */
+    transition: all 0.3s ease-in-out;
 }
 
 .section-about-resume {
-    margin-bottom: 40px; /* Increased margin for better separation */
-    transition: all 0.3s ease-in-out; /* Added transition for smooth animation */
+    margin-bottom: 40px;
+    transition: all 0.3s ease-in-out;
 }
 
 .section-about-resume h2 {
     color: #007bff;
-    margin-bottom: 15px; /* Increased margin for better spacing */
-    font-size: 24px; /* Increased font size for section titles */
-    border-bottom: 2px solid #e0e0e0; /* Subtle bottom border for section titles */
-    padding-bottom: 8px; /* Padding for spacing */
-    transition: all 0.3s ease-in-out; /* Added transition for smooth animation */
+    margin-bottom: 15px;
+    font-size: 24px;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 8px;
+    transition: all 0.3s ease-in-out;
 }
 
 .section-about-resume p {
     color: #555;
-    margin-bottom: 15 px; /* Increased margin for better readability */
-    font-size: 16px; /* Standard font size for sections */
-    transition: all 0.3s ease-in-out; /* Added transition for smooth animation */
+    margin-bottom: 15 px;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
 }
 
 .section-about-resume ul {
     list-style: disc;
-    margin-left: 30px; /* Increased left margin for list items */
-    transition: all 0.3s ease-in-out; /* Added transition for smooth animation */
+    margin-left: 30px;
+    transition: all 0.3s ease-in-out;
 }
 
 .section-about-resume a {
     color: #007bff;
     text-decoration: none;
-    transition: color 0.3s, background-color 0.3s; /* Smooth transition for hover effect */
-    padding: 5px; /* Added padding for better clickable area */
-    border-bottom: 1px dashed #007bff; /* Dashed underline for links */
-    transition: all 0.3s ease-in-out; /* Added transition for smooth animation */
+    transition: color 0.3s, background-color 0.3s;
+    padding: 5px;
+    border-bottom: 1px dashed #007bff;
+    transition: all 0.3s ease-in-out;
 }
 
 .section-about-resume a:hover {
-    text-decoration: none; /* Remove default underline on hover */
-    color: #0056b3; /* Darker shade on hover */
-    background-color: rgba(0, 123, 255, 0.1); /* Light background on hover for emphasis */
-    transition: all 0.3s ease-in-out; /* Added transition for smooth animation */
+    text-decoration: none;
+    color: #0056b3;
+    background-color: rgba(0, 123, 255, 0.1);
+    transition: all 0.3s ease-in-out;
 }
 
 /* Skills Section */
 .section-about-resume:last-of-type {
     border-top: 1px solid #ccc;
     padding-top: 20px;
-    transition: all 0.3s ease-in-out; /* Added transition for smooth animation */
+    transition: all 0.3s ease-in-out;
 }
 
 .section-about-resume:last-of-type h2 {
     margin-top: 20px;
-    transition: all 0.3s ease-in-out; /* Added transition for smooth animation */
+    transition: all 0.3s ease-in-out;
 }
 
 /* Media Queries for Responsiveness */
@@ -743,40 +729,42 @@ footer:hover {
         align-items: flex-start;
         border-bottom: none;
         padding-bottom: 10px;
-        transition: all 0.3s ease-in-out; /* Added transition for smooth animation */
+        transition: all 0.3s ease-in-out;
     }
 
     .header-resume .profile-photo {
-        margin-bottom: 15px; /* Increased margin for better separation */
-        transition: all 0.3s ease-in-out; /* Added transition for smooth animation */
+        margin-bottom: 15px;
+        transition: all 0.3s ease-in-out;
     }
 }
 
 /* Enhancing overall container responsiveness */
 @media (max-width: 480px) {
-    .resume-container-resume, .about-resume {
-        padding: 20px; /* Reduced padding for smaller screens */
-        transition: all 0.3s ease-in-out; /* Added transition for smooth animation */
+
+    .resume-container-resume,
+    .about-resume {
+        padding: 20px;
+        transition: all 0.3s ease-in-out;
     }
 
     .header-resume h1 {
-        font-size: 26px; /* Smaller font size on mobile */
-        transition: all 0.3s ease-in-out; /* Added transition for smooth animation */
+        font-size: 26px;
+        transition: all 0.3s ease-in-out;
     }
 
     .header-resume p {
-        font-size: 15px; /* Smaller font size on mobile */
-        transition: all 0.3s ease-in-out; /* Added transition for smooth animation */
+        font-size: 15px;
+        transition: all 0.3s ease-in-out;
     }
 
     .section-about-resume h2 {
-        font-size: 20px; /* Smaller section title font size on mobile */
-        transition: all 0.3s ease -in-out; /* Added transition for smooth animation */
+        font-size: 20px;
+        transition: all 0.3s ease -in-out;
     }
 
     .section-about-resume p {
-        font-size: 14px; /* Smaller paragraph font size on mobile */
-        transition: all 0.3s ease-in-out; /* Added transition for smooth animation */
+        font-size: 14px;
+        transition: all 0.3s ease-in-out;
     }
 }
 
@@ -795,4 +783,3 @@ footer:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
-
