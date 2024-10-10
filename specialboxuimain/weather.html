@@ -37,30 +37,28 @@
     </header>
 
     <section id="weather-section" class="weather-container">
-      <div class="weather-app">
-        <h1>Today's Weather</h1>
-        <div class="search-box">
-          <input type="text" id="city" placeholder="Enter city name" oninput="debounceSearch()">
-          <button onclick="getWeather()">Get Weather</button>
+        <div class="weather-app">
+            <h1>Today's Weather</h1>
+            <div class="search-box">
+                <input type="text" id="city" placeholder="Enter city name" oninput="debounceSearch()">
+                <button onclick="getWeather()">Get Weather</button>
+            </div>
+            <div id="spinner" class="spinner"></div>
+            <div id="weather-result" class="weather-result"></div>
+            <div id="error-message" class="error-message"></div>
+            <div class="recent-searches" id="recent-searches"></div>
         </div>
-        <div id="spinner" class="spinner"></div>
-        <div id="weather-result" class="weather-result"></div>
-        <div id="error-message" class="error-message"></div>
-        <div class="recent-searches" id="recent-searches"></div>
-      </div>
     </section>
-    
+
 
     <section id="about-me" style="display: none;">
-      <div class="about-me fade">
-          <i id="prevBtn" class="fas fa-chevron-left" aria-label="Previous"></i>
-          <i id="nextBtn" class="fas fa-chevron-right" aria-label="Next"></i>
-      </div>
-  </section>
+        <div class="about-me fade">
+            <i id="prevBtn" class="fas fa-chevron-left" aria-label="Previous"></i>
+            <i id="nextBtn" class="fas fa-chevron-right" aria-label="Next"></i>
+        </div>
+    </section>
     <footer>
-        <style>
 
-        </style>
         <div class="footer-container">
             <div class="footer-links">
                 <a href="https://specialboxui.netlify.app/specialboxuimain/about">About Me</a>
@@ -91,8 +89,7 @@
             <p>&copy;2024 Special BOX UI || Made by One Person || Kishan Raj</p>
         </div>
     </footer>
-  
-    <script src="../scripts/mainscript.js"></script>
+
     <script src="../scripts/weatherscript.js"></script>
     <script src="https://cdn.botpress.cloud/webchat/v2.1/inject.js"></script>
     <script
