@@ -75,22 +75,37 @@
 </head>
 
 <body>
-    <div class="main">
-        <div class="card">
-            <div class="header">
-                <h1>Page Unavailable</h1>
-            </div>
-            <div class="body">
-                <p>Page Unavailable - I apologize, but the requested page is currently unavailable.</p>
-                <a id="back-link" href="https://specialboxui.netlify.app/" target="_blank" aria-label="Back to homepage">
-                </p>
-                <hr>
-                <p>404 Error - Unexpected. Help me resolve this issue. Contact Special Box UI support via <a
-                        href="mailto:kishanbantakal@gmail.com">support email</a> for troubleshooting tips.</p>
-            </div>
-        </div>
-    </div>
+    <div class="main" id="main"></div>
+
     <script>
+        // Create the main container dynamically
+        const mainContainer = document.getElementById("main");
+
+        // Create the card element
+        const card = document.createElement("div");
+        card.classList.add("card");
+
+        // Add header with title
+        const header = document.createElement("div");
+        header.classList.add("header");
+        header.innerHTML = `<h1>Page Unavailable</h1>`;
+        card.appendChild(header);
+
+        // Add body with message and links
+        const body = document.createElement("div");
+        body.classList.add("body");
+        body.innerHTML = `
+            <p>Page Unavailable - I apologize, but the requested page is currently unavailable.</p>
+            <a id="back-link" href="https://specialboxui.netlify.app/" target="_blank" aria-label="Back to homepage">Back to Homepage</a>
+            <hr>
+            <p>404 Error - Unexpected. Help me resolve this issue. Contact Special Box UI support via <a href="mailto:kishanbantakal@gmail.com">support email</a> for troubleshooting tips.</p>
+        `;
+        card.appendChild(body);
+
+        // Append card to the main container
+        mainContainer.appendChild(card);
+
+        // JavaScript to handle "back-link" based on referrer
         (function () {
             if (document.referrer && document.location.host) {
                 const hostRegex = new RegExp("^https?://" + document.location.host);
