@@ -1,205 +1,190 @@
-// API endpoint and keys for Unsplash API
-const unsplashApiUrl = 'https://api.unsplash.com/photos/random';
-const apiKeys = [
-    'ifSuj0vqKcFawQ_FJyDFdi6uvqHyGbhxsm-WGjNbFB8',// Key 1
-    'AslxgBQoHEZ0M-e3_2q_4uUW49kblr5gNuCCaRe2emE',// Key 2
-    'se9AuhPWYM-0h8T8VKHM0wda33rj6qwCGbPgg5Gp6_8',// Key 3
-    'tCXdOMAjT4XMPZAlBJLCagdKAvYhkq3YxoETtWZfIyI',// Key 4
-    'JgO-n_iMdueu294Yy5x3TbdIR_b7vvabA029POkdwdk',// Key 5
-    'pHTJ6edBPLYg1qJmOoHrVRt37CkVMV6fh86wmtgCyj8',// Key 6
-    'grSrZOvcY0AFbyt6UWZhIIYYajj05x5yPnt39GDNfoo',// Key 7
-    'lGZm0LoZHFpw1JCi9rCCUrqT4bC2LFkGP8sqkL08_ok',// Key 8
-    '9_k0edXZKyyU23YFJ1jygYseHPWne57-VGitwJpzjXs'
-];
-
-// Array of queries for specific types of images
-const queries = ['Nature', 'Vehicle', 'Food', 'Travel', 'Science & Technology', 'Pets', 'Universe', 'Photography', 'Animals'];
-
-let images = []; // Store fetched images
-let currentImageIndex = 0; // Start with the first image
-let currentApiKeyIndex = 0; // Start with the first API key
-
-// Function to fetch random images based on themes
-async function fetchImages() {
-    for (const query of queries) {
-        await fetchImage(query);
-    }
-    console.log('Images fetched:', images);
-    changeBackground(); // Start background change after fetching
-}
-
-// Function to fetch a single image for a specific query
-async function fetchImage(query) {
-    try {
-        const response = await fetch(`${unsplashApiUrl}?client_id=${apiKeys[currentApiKeyIndex]}&query=${query}`);
-        
-        if (!response.ok) {
-            handleFetchError(query);
-            return; // Exit the function after handling the error
-        }
-
-        const data = await response.json();
-        images.push(data.urls.regular); // Store the regular-sized image
-    } catch (error) {
-        console.error(`Error fetching image for query "${query}":`, error);
-    }
-}
-
-// Function to handle fetch errors and switch API keys
-function handleFetchError(query) {
-    console.warn(`Error fetching image for "${query}" with key index ${currentApiKeyIndex}:`);
-    
-    // Switch to the next API key
-    currentApiKeyIndex = (currentApiKeyIndex + 1) % apiKeys.length;
-    console.warn(`Switching to API key index ${currentApiKeyIndex}`);
-    
-    // Retry fetching the image for the same query with the new API key
-    fetchImage(query);
-}
-
-// Function to change background image
-function changeBackground() {
-    if (images.length > 0) {
-        const imageUrl = images[currentImageIndex]; // Get current image
-        const img = new Image();
-        
-        img.src = imageUrl;
-        img.onload = function() {
-            // Set the background image only after it's fully loaded
-            document.body.style.backgroundImage = `url('${imageUrl}')`; // Set background
-            
-            // Fade out the loading screen after the background is set
-            const loading = document.querySelector('.loading');
-            fadeOutLoadingScreen(loading);
-        };
-        
-        img.onerror = function() {
-            console.warn(`Failed to load image at "${imageUrl}". Switching API key and retrying...`);
-            currentApiKeyIndex = (currentApiKeyIndex + 1) % apiKeys.length; // Switch to the next API key
-            fetchImageForCurrentQuery(); // Retry fetching the image
-        };
-        
-        currentImageIndex = (currentImageIndex + 1) % images.length; // Loop through images
-    }
-}
-
-// Function to fetch image again with the current query
-function fetchImageForCurrentQuery() {
-    const currentQuery = queries[Math.floor(currentImageIndex / queries.length)];
-    fetchImage(currentQuery);
-}
-
-// Function to handle loading screen behavior
-function handleLoadingScreen() {
-    const loading = document.querySelector('.loading'); // Select the loading element
-    document.body.classList.add('no-scroll'); // Disable scrolling
-
-    // Show loading for 3 seconds before starting fade out
+// Add loading animation logic
+document.addEventListener("DOMContentLoaded", function () {
     setTimeout(() => {
-        fadeOutLoadingScreen(loading); // Call the fade-out function
-    }, 3000); // Time to show loading (3000ms)
-}
-
-// Function to fade out the loading screen
-function fadeOutLoadingScreen(loading) {
-    loading.style.opacity = '0'; // Start fading out the loading screen
-
-    // Remove loading screen after fade-out transition
-    setTimeout(() => {
-        loading.style.display = 'none'; // Remove from view
-        document.body.classList.remove('no-scroll'); // Enable scrolling
-    }, 500); // Duration of fade-out transition (500ms)
-}
-
-// Fetch new images and start cycling backgrounds
-function startBackgroundChange() {
-    fetchImages(); // Initial fetch
-    setInterval(changeBackground, 10000); // Change every 10 seconds
-}
-
-// Start the process after the page loads
-window.addEventListener('load', () => {
-    handleLoadingScreen(); // Handle loading screen
-    startBackgroundChange(); // Start changing backgrounds
+        document.getElementById("loading").style.display = "none";
+    }, 1500); // 1.5 seconds timeout for loading screen
 });
 
+// Dynamically add header content
+const header = document.getElementById("header");
+header.innerHTML = `
+    <img src="../allimages/mylogo.png" alt="Banner Image" style="align-items: center;">
+    <nav>
+        <ul id="nav-list">
+            ${generateNavLinks()}
+        </ul>
+        <div class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+`;
 
-let currentIndex = 0;
-const aboutSections = document.querySelectorAll('.about-me');
-const totalSections = aboutSections.length;
-const indicators = document.querySelectorAll('.indicator');
+// Generate navigation links dynamically
+function generateNavLinks() {
+    const navLinks = [
+        { href: "https://specialboxui.netlify.app", label: "Home" },
+        { href: "https://specialboxui.netlify.app/specialboxuimain/services", label: "My Services" },
+        { href: "https://specialboxui.netlify.app/specialboxuimain/recents", label: "Recents" },
+        { href: "https://specialboxui.netlify.app/specialboxuimain/ratemysite", label: "Rate My Site" },
+        { href: "https://specialboxui.free.nf/login", label: "Login" }
+    ];
 
-function updateIndicators() {
-    indicators.forEach((indicator, index) => {
-        indicator.classList.toggle('active', index === currentIndex);
-    });
+    return navLinks.map(link => `<li><a href="${link.href}">${link.label}</a></li>`).join('');
 }
 
-function showSection(index) {
-    aboutSections.forEach((section) => {
-        section.classList.remove('show');
-        section.style.display = 'none';
-    });
-    aboutSections[index].style.display = 'block';
-    setTimeout(() => aboutSections[index].classList.add('show'), 10);
-    updateIndicators();
+// About & Resume section content
+const aboutResume = document.getElementById("about-resume");
+aboutResume.innerHTML = `
+    <h2>About Me</h2>
+    <p>
+        I am currently pursuing a Bachelor of Technology in Biotechnology at N M A M Institute of Technology, Nitte,
+        part of Nitte University. As a passionate web developer, I enjoy creating dynamic websites and working with
+        modern technologies.
+    </p>
+    <p>
+        My free time is often spent learning new skills or exploring exciting projects related to web development,
+        technology, and gaming. I am always open to collaboration and look forward to new opportunities to innovate
+        and grow in the field of technology.
+    </p>
+`;
+
+// Resume Container content
+const resumeContainer = document.getElementById("resume-container");
+resumeContainer.innerHTML = `
+    <div class="header-resume">
+        <img id="profile-photo" src="../allimages/myphoto.jpg" alt="Your Photo" class="profile-photo">
+        <h1>Kishan Raj</h1>
+        <p>Student | B.Tech Biotechnology</p>
+        <label for="photo-select">Choose Profile Photo:</label>
+        <select id="photo-select">
+            <option value="../allimages/myphoto.jpg">Photo 1</option>
+            <option value="../allimages/myphoto2.jpg">Photo 2</option>
+        </select>
+    </div>
+
+    <div class="content-about-resume">
+        <section class="section-about-resume">
+            <h2>Contact Information</h2>
+            <p>Email: <a href="mailto:kishanbantakal@gmail.com">kishanbantakal@gmail.com</a></p>
+            <p>Phone: <a href="tel:+917338323960">+91 7338323960</a></p>
+            <p>Address: 1-138 Kishan Nilaya, Podamale, Bantakal, Udupi, Karnataka, India. Zip:574115</p>
+        </section>
+        ${generateEducationSection()}
+        ${generateExperienceSection()}
+        <section class="section-about-resume">
+            <h2>Skills</h2>
+            <ul>
+                <li>Microsoft PowerPoint</li>
+                <li>HTML, CSS</li>
+                <li>Python, MySQL</li>
+                <li>PHP, JavaScript</li>
+            </ul>
+        </section>
+    </div>
+`;
+
+// Generate Education Section dynamically
+function generateEducationSection() {
+    return `
+        <section class="section-about-resume">
+            <h2>Education</h2>
+            <p><strong>NITTE University</strong> — Mangalore, Karnataka</p>
+            <p><strong>NMAM Institute of Technology, Nitte</strong> — Karkala Taluk, Udupi, Karnataka, 574110</p>
+            <p>Bachelor of Technology (B.Tech) in Biotechnology</p>
+            <p>Expected Graduation: May 2027</p>
+
+             <h2></h2>
+
+            <p><strong>Karnataka School Examination and Assessment Board</strong> — Bangalore, Karnataka</p>
+            <p><strong>S V H Pre-University College, Innanje</strong> — Kapu Taluk, Udupi, Karnataka, 574122</p>
+            <p>Pre-University (PUC) — Physics, Chemistry, Mathematics, and Biology (PCMB)</p>
+            <p>Completed: April 2023</p>
+
+            <h2></h2>
+
+            <p><strong>Karnataka School Examination and Assessment Board</strong> — Bangalore, Karnataka</p>
+            <p><strong>S V H High School, Innanje</strong> — Kapu Taluk, Udupi, Karnataka, 574122</p>
+            <p>SSLC — English, Hindi, Kannada, Mathematics, Science, Social Studies</p>
+            <p>Completed: July 2021</p>
+        </section>
+    `;
 }
 
-function showNextSection() {
-    currentIndex = (currentIndex + 1) % totalSections;
-    showSection(currentIndex);
+// Generate Experience Section dynamically
+function generateExperienceSection() {
+    return `
+        <section class="section-about-resume">
+            <h2>Experience</h2>
+            <p><strong>Developing Personal Website for Resume</strong> — NMAMIT, Nitte</p>
+            <p>March 2023 – Present</p>
+            <p><a href="https://specialboxui.netlify.app/">Visit My Personal Website</a></p>
+            <ul>
+                <li>Developing a personal website to gain practical experience in web development and design.</li>
+                <li>Utilizing textbooks and AI tools to enhance coding skills and stay updated with modern technologies.</li>
+                <li>Continuously refining and optimizing the website for a professional online presence.</li>
+            </ul>
+        </section>
+
+        <section class="section-about-resume">
+            <h2>Internship</h2>
+
+            <p><strong>Internship: "Emerging Trends in Agricultural Technology"</strong> - NMAMIT, Nitte</p>
+            <p>October 2023 - April 2024 </p>
+            <p>Click on the title to access the final report on <a
+                    href="https://tinyurl.com/internshipreport2023-24">'Emerging Trends in Agricultural
+                    Technology.'</a></p>
+            <ul>
+                <li>Gained hands-on experience in modern agricultural technologies.</li>
+                <li>Explored advancements in agricultural machinery, biotechnology, and sustainable practices.</li>
+                <li>Participated in visit-based learning and achieved industry-relevant objectives.</li>
+            </ul>
+        </section>
+
+        <section id="about-me" style="display: none;">
+    <div class="about-me fade">
+        <i id="prevBtn" class="fas fa-chevron-left" aria-label="Previous"></i>
+        <i id="nextBtn" class="fas fa-chevron-right" aria-label="Next"></i>
+    </div>
+</section>
+    `;
 }
 
-function showPrevSection() {
-    currentIndex = (currentIndex - 1 + totalSections) % totalSections;
-    showSection(currentIndex);
-}
+// Footer content
+const footer = document.getElementById("footer");
+footer.innerHTML = `
+    <div class="footer-container">
+        <div class="footer-links">
+            <a href="https://specialboxui.netlify.app/specialboxuimain/about">About Me</a>
+            <a href="https://specialboxui.netlify.app/specialboxuimain/careers">Careers</a>
+            <a href="https://specialboxui.netlify.app/specialboxuimain/blog">Blog</a>
+            <a href="https://specialboxui.netlify.app/specialboxuimain/donate&support">Donate & Support</a>
+        </div>
+        <div class="footer-links">
+            <a href="https://specialboxui.netlify.app/specialboxuimain/userterms">User Terms</a>
+            <a href="https://specialboxui.netlify.app/specialboxuimain/communityguidelines">Community Guidelines</a>
+            <a href="https://specialboxui.netlify.app/specialboxuimain/contentpolicy">Content Policy</a>
+            <a href="https://specialboxui.netlify.app/specialboxuimain/contentpolicyfaqs">Content Policy FAQs</a>
+        </div>
+        <div class="footer-links">
+            <a href="https://specialboxui.netlify.app/specialboxuimain/cookiepolicy">Cookie Policy</a>
+            <a href="https://specialboxui.netlify.app/specialboxuimain/privacypolicy">Privacy Policy</a>
+            <a href="https://specialboxui.netlify.app/specialboxuimain/dataprotectionagreement">Data Protection
+                Agreement</a>
+        </div>
+        <div class="social-icons">
+            <a href="https://x.com/"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.linkedin.com/in/kishanbantakal/"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://instagram.com/"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy;2024 Special BOX UI || Made by One Person || Kishan Raj</p>
+    </div>
+`;
 
-// Initial section with animation
-showSection(currentIndex);
-
-const intervalId = setInterval(showNextSection, 3000);
-
-// Handle button clicks
-document.getElementById('prevBtn').addEventListener('click', () => {
-    clearInterval(intervalId);
-    showPrevSection();
+// Handle Profile Photo selection
+document.getElementById("photo-select").addEventListener("change", function () {
+    var selectedPhoto = this.value;
+    document.getElementById("profile-photo").src = selectedPhoto;
 });
-
-document.getElementById('nextBtn').addEventListener('click', () => {
-    clearInterval(intervalId);
-    showNextSection();
-});
-
-// Handle clicks on indicators
-indicators.forEach((indicator) => {
-    indicator.addEventListener('click', () => {
-        clearInterval(intervalId);
-        currentIndex = parseInt(indicator.dataset.index);
-        showSection(currentIndex);
-    });
-});
-
-let isNavOpen = false;
-
-document.getElementById('nav-toggle').addEventListener('click', function () {
-    const navList = document.getElementById('nav-list');
-    navList.classList.toggle('show');
-
-    // Apply rotation animation
-    if (isNavOpen) {
-        this.style.animation = 'rotate-left 0.5s forwards';
-    } else {
-        this.style.animation = 'rotate-right 0.5s forwards';
-    }
-
-    isNavOpen = !isNavOpen;
-});
-
-// Simple script to close the notice after a few seconds
-setTimeout(() => {
-    document.querySelector('.notice').style.opacity = '0';
-    setTimeout(() => {
-        document.querySelector('.notice').style.display = 'none';
-    }, 500);
-}, 5000);
