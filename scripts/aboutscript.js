@@ -23,9 +23,9 @@ header.innerHTML = `
 function generateNavLinks() {
     const navLinks = [
         { href: "../index", label: "Home" },
-        { href: "specialboxuimain/services", label: "My Services" },
-        { href: "specialboxuimain/recents", label: "Recents" },
-        { href: "specialboxuimain/ratemysite", label: "Rate My Site" },
+        { href: "services", label: "My Services" },
+        { href: "recents", label: "Recents" },
+        { href: "ratemysite", label: "Rate My Site" },
         { href: "https://specialboxui.free.nf/login", label: "Login" }
     ];
 
