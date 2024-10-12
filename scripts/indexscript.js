@@ -135,30 +135,39 @@ section.innerHTML = `
   </div>
 `;
 
-const footer = document.getElementById("footer");
+const footer = document.createElement('footer');
 footer.innerHTML = `
-    <div class="footer-container">
-        <div class="footer-links">
-            <a href="about">About Me</a>
-            <a href="careers">Careers</a>
-            <a href="blog">Blog</a>
-            <a href="donate&support">Donate & Support</a>
-        </div>
-        <div class="footer-links">
-            <a href="userterms">User Terms</a>
-            <a href="contentpolicyfaqs">Join My Community</a>
-            <a href="communityguidelines">Community Guidelines</a>
-            <a href="contentpolicy">Content Policy</a>
-        </div>
-        <div class="social-icons">
-            <a href="https://www.linkedin.com/in/kishanbantakal/"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://github.com/Kishan0405/Special_BOX_UI"><i class="fab fa-github"></i></a>
-            <a href="http://t.me/kishanbantakal"><i class="fab fa-telegram"></i></a>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <p>&copy;2024 Special BOX UI || Made by One Person || Kishan Raj</p>
-    </div>
+  <style>
+
+  </style>
+  <div class="footer-container">
+      <div class="footer-links">
+          <a href="https://specialboxui.netlify.app/specialboxuimain/about">About Me</a>
+          <a href="https://specialboxui.netlify.app/specialboxuimain/careers">Careers</a>
+          <a href="https://specialboxui.netlify.app/specialboxuimain/blog">Blog</a>
+          <a href="https://specialboxui.netlify.app/specialboxuimain/donate&support">Donate & Support</a>
+      </div>
+      <div class="footer-links">
+          <a href="https://specialboxui.netlify.app/specialboxuimain/userterms">User Terms</a>
+          <a href="https://specialboxui.netlify.app/specialboxuimain/communityguidelines">Community Guidelines</a>
+          <a href="https://specialboxui.netlify.app/specialboxuimain/contentpolicy">Content Policy</a>
+          <a href="https://specialboxui.netlify.app/specialboxuimain/contentpolicyfaqs">Content Policy FAQs</a>
+      </div>
+      <div class="footer-links">
+          <a href="https://specialboxui.netlify.app/specialboxuimain/cookiepolicy">Cookie Policy</a>
+          <a href="https://specialboxui.netlify.app/specialboxuimain/privacypolicy">Privacy Policy</a>
+          <a href="https://specialboxui.netlify.app/specialboxuimain/dataprotectionagreement">Data Protection Agreement</a>
+      </div>
+      <div class="social-icons">
+          <a href="https://x.com/"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.linkedin.com/in/kishanbantakal/"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://instagram.com/"><i class="fab fa-instagram"></i></a>
+      </div>
+  </div>
+  <div class="footer-bottom">
+      <p>&copy;2024 Special BOX UI || Made by One Person || Kishan Raj</p>
+  </div>
 `;
 
 // Append body elements
