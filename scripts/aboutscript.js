@@ -1,11 +1,11 @@
-// Add loading animation logic
+// Add loading
 document.addEventListener("DOMContentLoaded", function () {
     setTimeout(() => {
         document.getElementById("loading").style.display = "none";
-    }, 1500); // 1.5 seconds timeout for loading screen
+    }, 1500);
 });
 
-// Dynamically add header content
+// Header content
 const header = document.getElementById("header");
 header.innerHTML = `
     <img src="../allimages/mylogo.png" alt="Banner Image" style="align-items: center;">
@@ -19,13 +19,13 @@ header.innerHTML = `
     </nav>
 `;
 
-// Generate navigation links dynamically
+// Navigation links
 function generateNavLinks() {
     const navLinks = [
-        { href: "https://specialboxui.netlify.app", label: "Home" },
-        { href: "https://specialboxui.netlify.app/specialboxuimain/services", label: "My Services" },
-        { href: "https://specialboxui.netlify.app/specialboxuimain/recents", label: "Recents" },
-        { href: "https://specialboxui.netlify.app/specialboxuimain/ratemysite", label: "Rate My Site" },
+        { href: "../index", label: "Home" },
+        { href: "specialboxuimain/services", label: "My Services" },
+        { href: "specialboxuimain/recents", label: "Recents" },
+        { href: "specialboxuimain/ratemysite", label: "Rate My Site" },
         { href: "https://specialboxui.free.nf/login", label: "Login" }
     ];
 
@@ -83,7 +83,7 @@ resumeContainer.innerHTML = `
     </div>
 `;
 
-// Generate Education Section dynamically
+// Education Section
 function generateEducationSection() {
     return `
         <section class="section-about-resume">
@@ -110,7 +110,7 @@ function generateEducationSection() {
     `;
 }
 
-// Generate Experience Section dynamically
+// Experience Section
 function generateExperienceSection() {
     return `
         <section class="section-about-resume">
