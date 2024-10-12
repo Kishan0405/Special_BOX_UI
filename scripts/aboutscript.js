@@ -18,7 +18,7 @@ function generateNavLinks() {
         { href: "../index", label: "Home" },
         { href: "services", label: "My Services" },
         { href: "recents", label: "Recents" },
-        { href: "ratemysite", label: "Rate My Site" },
+        { href: "NNM23BT027_Kishan_Raj.pdf", label: "Download Resume" },
         { href: "https://specialboxui.free.nf/login", label: "Login" }
     ];
 
