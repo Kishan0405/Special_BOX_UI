@@ -4,145 +4,336 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Test AI</title>
+  <title>Special BOX AI New Testing</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      margin: 0;
-      padding: 20px;
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #f4f7fa; /* Slightly lighter background */
+        margin: 0;
+        padding: 20px;
+        color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Full height */
+        flex-direction: row; /* Horizontal alignment */
+        overflow: hidden; /* Prevent overflow on small screens */
     }
 
-    #chatContainer {
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      background: white;
-      padding: 20px;
-      max-width: 600px;
-      margin: auto;
-      height: 400px;
-      overflow-y: auto;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    #left-column {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 20%; /* Width for larger screens */
+        height: 100vh;
+        background-color: #ffffff; /* White background for left column */
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s; /* Smooth transition for hover effects */
+    }
+
+    #left-column:hover {
+        transform: translateY(-5px); /* Subtle lift effect on hover */
+    }
+
+    #chat-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 80%; /* Width for larger screens */
+        height: 100vh;
+        padding: 20px;
+    }
+
+    #chatContainer,
+    #inputContainer {
+        display: none; /* Hide initially */
+        border-radius: 15px;
+        background: #ffffff; /* White background for chat container */
+        padding: 20px;
+        margin: auto;
+        overflow-y: auto;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+
+    #chatContainer:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
     }
 
     .message {
-      margin: 10px 0;
-      transition: transform 0.3s ease;
+        margin: 10px 0;
+        padding: 12px 18px;
+        border-radius: 18px;
+        transition: all 0.3s ease;
+        max-width: 75%;
+        line-height: 1.5;
+        animation: fadeIn 0.5s ease-out;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adding shadow */
+    }
+
+    .message:hover {
+        transform: scale(1.02);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
     }
 
     .user {
-      text-align: right;
-      color: blue;
+        text-align: right;
+        color: #ffffff;
+        background-color: #0673e7e2; /* A more vibrant blue */
+        margin-left: auto;
+        border-bottom-right-radius: 5px;
     }
 
     .bot {
-      text-align: left;
-      color: green;
+        color: #333;
+        background-color: #e9ecef; /* Light grey for bot messages */
+        border-bottom-left-radius: 5px;
     }
 
     #inputContainer {
-      display: flex;
-      margin-top: 10px;
+        display: flex;
+        margin-top: 20px;
+        width: 100%;
+        height: 8%;
+        border-top: 2px solid #dee2e6;
+        padding-top: 20px;
+        margin-bottom: 10%;
     }
 
     #userInput {
-      flex: 1;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      transition: border-color 0.3s;
+        flex: 1;
+        padding: 15px;
+        border: 2px solid #dee2e6;
+        border-radius: 30px;
+        transition: all 0.3s;
+        font-size: 16px;
     }
 
     #userInput:focus {
-      border-color: #007BFF;
+        border-color: #007bff; /* Change focus color */
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        outline: none; /* Remove default outline */
     }
 
     #sendButton {
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-      background-color: #007BFF;
-      color: white;
-      cursor: pointer;
-      margin-left: 10px;
-      position: relative;
-      overflow: hidden;
+        padding: 15px 25px;
+        border: none;
+        border-radius: 30px;
+        background: linear-gradient(135deg, #007bff, #0056b3); /* Gradient background */
+        color: white;
+        cursor: pointer;
+        margin-left: 15px;
+        transition: all 0.3s;
+        font-weight: 600;
+        font-size: 16px;
+        box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3); /* Adding shadow */
     }
 
     #sendButton:hover {
-      background-color: #0056b3;
+        background: linear-gradient(135deg, #0056b3, #00408c); /* Darker gradient on hover */
+        transform: translateY(-2px);
+        box-shadow: 0 5px 20px rgba(0, 123, 255, 0.5);
     }
 
-    #sendButton .fa {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      transition: transform 0.3s;
+    .typing-indicator {
+        font-size: 14px;
+        color: #868e96;
+        padding: 10px;
+        margin: 10px 0;
+        display: none;
+        font-style: italic;
     }
 
-    #sendButton:hover .fa {
-      transform: translate(-50%, -50%) scale(1.2);
+    .icon {
+        width: 25px;
+        height: auto;
+        margin: 0 10px;
+        vertical-align: middle;
     }
 
-    .message:nth-child(odd) {
-      animation: fadeInRight 0.5s;
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
-    .message:nth-child(even) {
-      animation: fadeInLeft 0.5s;
+    /* Centering button */
+    #startButton {
+        padding: 15px 25px;
+        border: none;
+        border-radius: 30px;
+        background-color: #007bff; /* Button color */
+        color: white;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 20px; /* Space above button */
+        transition: background 0.3s;
     }
 
-    @keyframes fadeInRight {
-      from {
-        transform: translateX(20px);
-        opacity: 0;
-      }
-
-      to {
-        transform: translateX(0);
-        opacity: 1;
-      }
+    #startButton:hover {
+        background-color: #0056b3; /* Darker button color on hover */
     }
 
-    @keyframes fadeInLeft {
-      from {
-        transform: translateX(-20px);
-        opacity: 0;
-      }
+    /* Responsive adjustments for mobile */
+    @media (max-width: 768px) {
+        body {
+            padding: 10px; /* Reduce padding for mobile */
+            flex-direction: column; /* Stack elements vertically */
+            justify-content: flex-start; /* Align items to the top */
+        }
 
-      to {
-        transform: translateX(0);
-        opacity: 1;
-      }
+        #left-column {
+            width: 100%; /* Full width for mobile */
+            height: auto; /* Allow height to adjust based on content */
+            padding: 15px; /* Adjust padding */
+            border-radius: 10px; /* Slightly smaller border radius */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Slightly less pronounced shadow */
+        }
+
+        #chat-container {
+            width: 100%; /* Full width for mobile */
+            height: auto; /* Allow height to adjust based on content */
+            padding: 10px; /* Add padding */
+        }
+
+        #chatContainer,
+        #inputContainer {
+            width: 100%; /* Full width for chat and input containers */
+            padding: 10px; /* Adjust padding for mobile */
+            border-radius: 10px; /* Adjust border radius */
+        }
+
+        .message {
+            max-width: 90%; /* Wider message bubbles */
+            padding: 10px; /* Adjust padding for mobile */
+            font-size: 14px; /* Smaller font size */
+        }
+
+        .user {
+            border-bottom-right-radius: 10px; /* Adjusted border radius */
+        }
+
+        .bot {
+            border-bottom-left-radius: 10px; /* Adjusted border radius */
+        }
+
+        #userInput {
+            padding: 10px; /* Reduced padding */
+            font-size: 14px; /* Adjust font size */
+        }
+
+        #sendButton {
+            padding: 10px 15px; /* Reduced padding */
+            font-size: 14px; /* Adjust font size */
+        }
+
+        .icon {
+            width: 20px; /* Adjust icon size for mobile */
+        }
+
+        .typing-indicator {
+            font-size: 12px; /* Smaller font for typing indicator */
+        }
+
+        /* Centering button */
+        #startButton {
+            padding: 10px 20px; /* Adjust padding for mobile */
+            font-size: 14px; /* Adjust font size */
+            margin-top: 10px; /* Reduced space above button */
+        }
+
+        /* Mobile-specific design adjustments */
+        #left-column {
+            background-color: #e9ecef; /* Light grey for mobile background */
+            color: #333; /* Dark text for readability */
+        }
+
+        #chatContainer {
+            background-color: #ffffff; /* White background for chat container */
+            border-radius: 10px; /* Rounded corners */
+            padding: 15px; /* Increased padding for mobile */
+            box-shadow: none; /* Remove shadow for mobile */
+        }
+
+        #sendButton {
+            background-color: #28a745; /* Green color for send button */
+            transition: background 0.3s, transform 0.3s; /* Added transition for scaling */
+        }
+
+        #sendButton:hover {
+            background-color: #218838; /* Darker green on hover */
+            transform: scale(1.05); /* Slightly larger on hover */
+        }
     }
-  </style>
+
+    /* Custom Scrollbar for WebKit Browsers */
+    ::-webkit-scrollbar {
+        width: 8px; /* Width of the scrollbar */
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1; /* Background of the scrollbar track */
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #888; /* Color of the scrollbar */
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555; /* Color on hover */
+    }
+</style>
+
 </head>
 
 <body>
-  <h1 style="text-align: center;">Test AI</h1>
-  <div id="chatContainer">
-    <div id="messages"></div>
+  <div id="left-column">
+    <h1 style="text-align: center;">Special BOX AI New Testing</h1>
+    <button id="startButton">Start Chat</button> <!-- Button to start chat -->
   </div>
-  <div id="inputContainer">
-    <input type="text" id="userInput" placeholder="Type your prompt here..." />
-    <button id="sendButton"><i class="fas fa-paper-plane"></i></button>
+  <div id="chat-container">
+    <div id="chatContainer">
+      <div id="messages"></div>
+    </div>
+
+    <div id="inputContainer">
+      <input type="text" id="userInput" placeholder="Type your prompt here..." />
+      <button id="sendButton"><i class="fas fa-paper-plane"></i></button>
+    </div>
   </div>
 
   <script type="importmap">
-    {
-      "imports": {
-        "@google/generative-ai": "https://esm.run/@google/generative-ai"
-      }
-    }
-  </script>
+        {
+            "imports": {
+                "@google/generative-ai": "https://esm.run/@google/generative-ai"
+            }
+        }
+    </script>
 
   <script type="module">
     import { GoogleGenerativeAI } from "@google/generative-ai";
 
     // Access your API key
     const genAI = new GoogleGenerativeAI("AIzaSyBDGrL9k8U6YKdv2OYNOrZg6CifYE01VLk");
+
+    document.getElementById('startButton').addEventListener('click', () => {
+      document.getElementById('chatContainer').style.display = 'block';
+      document.getElementById('inputContainer').style.display = 'flex';
+      document.getElementById('startButton').style.display = 'none'; // Hide the start button
+    });
 
     document.getElementById('sendButton').addEventListener('click', async () => {
       const userInput = document.getElementById('userInput').value;
@@ -177,109 +368,40 @@
     });
 
     function enhanceText(text) {
-      // Convert **bold** to <b>bold</b>
-      text = text.replace(/\*\*(.+?)\*\*/g, '<b>$1</b>');
+      // Helper function to replace patterns with HTML tags
+      const replacePatterns = [
+        { regex: /\*\*(.+?)\*\*/g, replacement: '<b>$1</b>' }, // Bold
+        { regex: /\*(.+?)\*/g, replacement: '<i>$1</i>' }, // Italic
+        { regex: /__(.+?)__/g, replacement: '<u>$1</u>' }, // Underline
+        { regex: /~~(.+?)~~/g, replacement: '<s>$1</s>' }, // Strikethrough
+        { regex: /^# (.+)$/gm, replacement: '<h1>$1</h1>' }, // Heading 1
+        { regex: /^## (.+)$/gm, replacement: '<h2>$1</h2>' }, // Heading 2
+        { regex: /^### (.+)$/gm, replacement: '<h3>$1</h3>' }, // Heading 3
+        { regex: /^> (.+)$/gm, replacement: '<blockquote>$1</blockquote>' }, // Blockquote
+        { regex: /\[([^\]]+)\]\(([^)]+)\)/g, replacement: '<a href="$2" target="_blank">$1</a>' } // Links
+      ];
 
-      // Convert *italic* to <i>italic</i>
-      text = text.replace(/\*(.+?)\*/g, '<i>$1</i>');
-
-      // Convert __underline__ to <u>
-      text = text.replace(/__(.+?)__/g, '<u>$1</u>');
-
-      // Convert ~~strikethrough~~ to <s>
-      text = text.replace(/~~(.+?)~~/g, '<s>$1</s>');
-
-      // Convert # Heading 1 to <h1>
-      text = text.replace(/^# (.+)$/gm, '<h1>$1</h1>');
-
-      // Convert ## Heading 2 to <h2>
-      text = text.replace(/^## (.+)$/gm, '<h2>$1</h2>');
-
-      // Convert ### Heading 3 to <h3>
-      text = text.replace(/^### (.+)$/gm, '<h3>$1</h3>');
-
-      // Convert block quotes with > to <blockquote>
-      text = text.replace(/^> (.+)$/gm, '<blockquote>$1</blockquote>');
-
-      // Convert `code` to <code>code</code>
-      text = text.replace(/`([^`]+)`/g, '<code>$1</code>');
-
-      // Convert ```code blocks``` to <pre><code> blocks
-      text = text.replace(/```([\s\S]+?)```/g, '<pre><code>$1</code></pre>');
-
-      // Convert URLs to clickable links
-      const urlRegex = /(https?:\/\/[^\s]+)/g;
-      text = text.replace(urlRegex, '<a href="$1" target="_blank">$1</a>');
-
-      // Convert emoji shorthand (:smile:) to actual emojis
-      text = text.replace(/:smile:/g, '😊')
-        .replace(/:heart:/g, '❤️')
-        .replace(/:thumbsup:/g, '👍');
-
-      // Convert * list items to <li> in a <ul>
-      text = text.replace(/\n\* (.+?)(\n|$)/g, '<ul><li>$1</li></ul>');
-
-      // Highlight important text marked with !!important!!
-      text = text.replace(/!!(.+?)!!/g, '<span style="background-color:yellow;">$1</span>');
-
-      // Spoiler text hidden inside ||spoiler||
-      text = text.replace(/\|\|(.+?)\|\|/g, '<span class="spoiler">$1</span>');
-
-      // Convert image URLs to <img> tags (supports jpg, png, gif)
-      const imageRegex = /(https?:\/\/[^\s]+\.(jpg|png|gif))/g;
-      text = text.replace(imageRegex, '<img src="$1" alt="Image" style="max-width:100%; height:auto;">');
-
-      // Color customization syntax: [color:red]text[/color]
-      text = text.replace(/\[color:(#[a-fA-F0-9]{6}|[a-zA-Z]+)\](.+?)\[\/color\]/g, '<span style="color:$1;">$2</span>');
-
-      // Convert text-based tables into HTML tables
-      text = text.replace(/\|\s*([^\|\n]+)\s*\|/g, function (match, contents) {
-        let rows = contents.trim().split(/\n/g);
-        let html = '<table><tbody>';
-        rows.forEach(function (row) {
-          let cols = row.split(/\s*\|\s*/g).filter(Boolean);
-          html += '<tr>';
-          cols.forEach(function (col) {
-            html += '<td>' + col + '</td>';
-          });
-          html += '</tr>';
-        });
-        html += '</tbody></table>';
-        return html;
-      });
-
-      // Footnotes: Add support for text marked as [^1]... and footnote at the bottom
-      let footnoteIndex = 0;
-      text = text.replace(/\[\^(\d+)\]/g, function (match, number) {
-        footnoteIndex++;
-        return `<sup id="fnref-${number}"><a href="#fn-${number}" title="Footnote ${number}">${number}</a></sup>`;
-      });
-
-      // Append footnotes at the end
-      const footnotes = [];
-      text = text.replace(/^(?:\[\^(\d+)\]:\s+(.+))$/gm, function (match, number, note) {
-        footnotes.push(`<li id="fn-${number}">${note} <a href="#fnref-${number}">↩</a></li>`);
-        return '';
-      });
-
-      if (footnotes.length > 0) {
-        text += `<ol>${footnotes.join('')}</ol>`;
+      // Iterate through the patterns and replace them
+      for (const { regex, replacement } of replacePatterns) {
+        text = text.replace(regex, replacement);
       }
-
       return text;
     }
 
-
     function displayMessage(text, sender, isHTML = false) {
-      const messageDiv = document.createElement('div');
-      messageDiv.classList.add('message', sender);
+      const messagesDiv = document.getElementById('messages');
+      const messageElement = document.createElement('div');
+      messageElement.className = 'message ' + sender;
+
+      // If isHTML is true, use innerHTML; otherwise, use textContent
       if (isHTML) {
-        messageDiv.innerHTML = text; // Use innerHTML for enhanced text
+        messageElement.innerHTML = text;
       } else {
-        messageDiv.textContent = text;
+        messageElement.textContent = text;
       }
-      document.getElementById('messages').appendChild(messageDiv);
-      document.getElementById('chatContainer').scrollTop = document.getElementById('chatContainer').scrollHeight; // Scroll to bottom
+
+      messagesDiv.appendChild(messageElement);
+      messagesDiv.scrollTop = messagesDiv.scrollHeight; // Scroll to bottom
     }
   </script>
 </body>
