@@ -8,293 +8,239 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     body {
-        font-family: 'Segoe UI', sans-serif;
-        background-color: #f4f7fa; /* Slightly lighter background */
-        margin: 0;
-        padding: 20px;
-        color: #333;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh; /* Full height */
-        flex-direction: row; /* Horizontal alignment */
-        overflow: hidden; /* Prevent overflow on small screens */
+    font-family: 'Roboto', sans-serif; 
+    background: linear-gradient(135deg, #e0eafc, #cfdef3); 
+    margin: 0;
+    padding: 20px;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Input Container */
+#inputContainer {
+    display: flex;
+    width: 70%; /* Width of the input container */
+    height: 8.5%; /* Height of the input container */
+    position: fixed; /* Keeps the container at the bottom */
+    bottom: 0; /* Aligns it to the bottom */
+    left: 50%; /* Positions it in the center horizontally */
+    transform: translateX(-35%); /* Adjusts the position to truly center it */
+    border-top: 2px solid rgba(255, 255, 255, 0.2);
+    padding: 10px 20px; /* Adjusted padding */
+    background-color: rgba(255, 255, 255, 0.6); /* Set background for visibility */
+    border-radius: 30px; /* Rounded edges for a smoother look */
+    backdrop-filter: blur(5px); /* Slight blur effect */
+}
+
+
+
+#userInput {
+    flex: 1;
+    padding: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.4); 
+    border-radius: 50px;
+    font-size: 16px;
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 0.6); 
+    transition: all 0.3s ease;
+}
+
+#userInput:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.4);
+    outline: none;
+}
+
+#sendButton {
+    padding: 15px 25px;
+    border: none;
+    border-radius: 100%;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    cursor: pointer;
+    margin-left: 10px;
+    font-weight: 500;
+    font-size: 16px;
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+#sendButton:hover {
+    background: linear-gradient(135deg, #0056b3, #003c89);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.5);
+}
+
+/* Layout */
+#left-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.7); 
+    padding: 20px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px); 
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+#left-column:hover {
+    transform: translateY(-8px); 
+    background: rgba(255, 255, 255, 0.85); 
+}
+
+#chat-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Change to flex-start for proper alignment */
+    width: 100%;
+    height: 80%; /* Adjust height to leave space for the input container */
+    margin-top: 5%;
+    margin-bottom: 10%;
+    padding: 20px;
+    overflow-y: auto; /* Enables vertical scrolling */
+    overflow-x: auto; /* Prevents horizontal scrolling */
+}
+
+
+
+
+#inputContainer {
+    display: none;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.8); 
+    padding: 20px;
+    margin: auto;
+    overflow-y: auto;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+/* Chat Messages */
+.message {
+    margin: 10px 0;
+    padding: 14px 20px;
+    border-radius: 20px;
+    line-height: 1.5;
+    animation: fadeIn 0.5s ease-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
+    transition: all 0.3s ease;
+    max-width: 100%; /* Set a max width to limit message width */
+    word-wrap: break-word; /* Ensure long words break to the next line */
+}
+
+/* Hover effect for messages */
+.message:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); 
+}
+
+/* User message styles */
+.user {
+    text-align: right; /* Aligns text to the right */
+    color: #fff; /* Text color */
+    background: linear-gradient(135deg, #007aff, #0056b3); /* User background */
+    margin-left: auto; /* Align user messages to the right */
+    border-bottom-right-radius: 10px; /* Rounded corner */
+}
+
+/* Bot message styles */
+.bot {
+    color: #333; /* Text color */
+    background: linear-gradient(135deg, #ececec, #f1f1f1); /* Bot background */
+    border-bottom-left-radius: 10px; /* Rounded corner */
+}
+
+/* Specific styles for user messages */
+.user.message {
+    margin-left: auto; /* Align user messages to the right */
+    max-width: 75%; /* User messages can take up to 75% of the chat container width */
+    width: fit-content; /* Adjust width based on content */
+}
+
+/* Specific styles for bot messages */
+.bot.message {
+    margin-right: auto; /* Align bot messages to the left */
+    max-width: 75%; /* Bot messages can take up to 75% of the chat container width */
+    width: fit-content; /* Adjust width based on content */
+}
+
+
+/* Buttons */
+#startButton {
+    padding: 15px 25px;
+    border: none;
+    border-radius: 30px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+#startButton:hover {
+    background-color: #0056b3;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.5); 
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
     }
-
-    #left-column {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 20%; /* Width for larger screens */
-        height: 100vh;
-        background-color: #ffffff; /* White background for left column */
-        padding: 20px;
-        border-radius: 15px;
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s; /* Smooth transition for hover effects */
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
+}
 
-    #left-column:hover {
-        transform: translateY(-5px); /* Subtle lift effect on hover */
-    }
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
 
-    #chat-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 80%; /* Width for larger screens */
-        height: 100vh;
-        padding: 20px;
-    }
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
 
-    #chatContainer,
-    #inputContainer {
-        display: none; /* Hide initially */
-        border-radius: 15px;
-        background: #ffffff; /* White background for chat container */
-        padding: 20px;
-        margin: auto;
-        overflow-y: auto;
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
-    }
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 123, 255, 0.6);
+    border-radius: 10px;
+}
 
-    #chatContainer:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-    }
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 123, 255, 0.8);
+}
 
-    .message {
-        margin: 10px 0;
-        padding: 12px 18px;
-        border-radius: 18px;
-        transition: all 0.3s ease;
-        max-width: 75%;
-        line-height: 1.5;
-        animation: fadeIn 0.5s ease-out;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adding shadow */
-    }
+/* Misc */
+.typing-indicator {
+    font-size: 14px;
+    color: #aaa;
+    padding: 10px;
+    margin: 10px 0;
+    font-style: italic;
+    display: none;
+}
 
-    .message:hover {
-        transform: scale(1.02);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
-    }
+.icon {
+    width: 30px;
+    height: auto;
+    margin: 0 10px;
+    vertical-align: middle;
+    padding: 20px 25px;
+}
 
-    .user {
-        text-align: right;
-        color: #ffffff;
-        background-color: #0673e7e2; /* A more vibrant blue */
-        margin-left: auto;
-        border-bottom-right-radius: 5px;
-    }
 
-    .bot {
-        color: #333;
-        background-color: #e9ecef; /* Light grey for bot messages */
-        border-bottom-left-radius: 5px;
-    }
 
-    #inputContainer {
-        display: flex;
-        margin-top: 20px;
-        width: 100%;
-        height: 8%;
-        border-top: 2px solid #dee2e6;
-        padding-top: 20px;
-        margin-bottom: 10%;
-    }
-
-    #userInput {
-        flex: 1;
-        padding: 15px;
-        border: 2px solid #dee2e6;
-        border-radius: 30px;
-        transition: all 0.3s;
-        font-size: 16px;
-    }
-
-    #userInput:focus {
-        border-color: #007bff; /* Change focus color */
-        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-        outline: none; /* Remove default outline */
-    }
-
-    #sendButton {
-        padding: 15px 25px;
-        border: none;
-        border-radius: 30px;
-        background: linear-gradient(135deg, #007bff, #0056b3); /* Gradient background */
-        color: white;
-        cursor: pointer;
-        margin-left: 15px;
-        transition: all 0.3s;
-        font-weight: 600;
-        font-size: 16px;
-        box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3); /* Adding shadow */
-    }
-
-    #sendButton:hover {
-        background: linear-gradient(135deg, #0056b3, #00408c); /* Darker gradient on hover */
-        transform: translateY(-2px);
-        box-shadow: 0 5px 20px rgba(0, 123, 255, 0.5);
-    }
-
-    .typing-indicator {
-        font-size: 14px;
-        color: #868e96;
-        padding: 10px;
-        margin: 10px 0;
-        display: none;
-        font-style: italic;
-    }
-
-    .icon {
-        width: 25px;
-        height: auto;
-        margin: 0 10px;
-        vertical-align: middle;
-    }
-
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(10px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    /* Centering button */
-    #startButton {
-        padding: 15px 25px;
-        border: none;
-        border-radius: 30px;
-        background-color: #007bff; /* Button color */
-        color: white;
-        cursor: pointer;
-        font-size: 16px;
-        margin-top: 20px; /* Space above button */
-        transition: background 0.3s;
-    }
-
-    #startButton:hover {
-        background-color: #0056b3; /* Darker button color on hover */
-    }
-
-    /* Responsive adjustments for mobile */
-    @media (max-width: 768px) {
-        body {
-            padding: 10px; /* Reduce padding for mobile */
-            flex-direction: column; /* Stack elements vertically */
-            justify-content: flex-start; /* Align items to the top */
-        }
-
-        #left-column {
-            width: 100%; /* Full width for mobile */
-            height: auto; /* Allow height to adjust based on content */
-            padding: 15px; /* Adjust padding */
-            border-radius: 10px; /* Slightly smaller border radius */
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Slightly less pronounced shadow */
-        }
-
-        #chat-container {
-            width: 100%; /* Full width for mobile */
-            height: auto; /* Allow height to adjust based on content */
-            padding: 10px; /* Add padding */
-        }
-
-        #chatContainer,
-        #inputContainer {
-            width: 100%; /* Full width for chat and input containers */
-            padding: 10px; /* Adjust padding for mobile */
-            border-radius: 10px; /* Adjust border radius */
-        }
-
-        .message {
-            max-width: 90%; /* Wider message bubbles */
-            padding: 10px; /* Adjust padding for mobile */
-            font-size: 14px; /* Smaller font size */
-        }
-
-        .user {
-            border-bottom-right-radius: 10px; /* Adjusted border radius */
-        }
-
-        .bot {
-            border-bottom-left-radius: 10px; /* Adjusted border radius */
-        }
-
-        #userInput {
-            padding: 10px; /* Reduced padding */
-            font-size: 14px; /* Adjust font size */
-        }
-
-        #sendButton {
-            padding: 10px 15px; /* Reduced padding */
-            font-size: 14px; /* Adjust font size */
-        }
-
-        .icon {
-            width: 20px; /* Adjust icon size for mobile */
-        }
-
-        .typing-indicator {
-            font-size: 12px; /* Smaller font for typing indicator */
-        }
-
-        /* Centering button */
-        #startButton {
-            padding: 10px 20px; /* Adjust padding for mobile */
-            font-size: 14px; /* Adjust font size */
-            margin-top: 10px; /* Reduced space above button */
-        }
-
-        /* Mobile-specific design adjustments */
-        #left-column {
-            background-color: #e9ecef; /* Light grey for mobile background */
-            color: #333; /* Dark text for readability */
-        }
-
-        #chatContainer {
-            background-color: #ffffff; /* White background for chat container */
-            border-radius: 10px; /* Rounded corners */
-            padding: 15px; /* Increased padding for mobile */
-            box-shadow: none; /* Remove shadow for mobile */
-        }
-
-        #sendButton {
-            background-color: #28a745; /* Green color for send button */
-            transition: background 0.3s, transform 0.3s; /* Added transition for scaling */
-        }
-
-        #sendButton:hover {
-            background-color: #218838; /* Darker green on hover */
-            transform: scale(1.05); /* Slightly larger on hover */
-        }
-    }
-
-    /* Custom Scrollbar for WebKit Browsers */
-    ::-webkit-scrollbar {
-        width: 8px; /* Width of the scrollbar */
-    }
-
-    ::-webkit-scrollbar-track {
-        background: #f1f1f1; /* Background of the scrollbar track */
-        border-radius: 10px;
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background: #888; /* Color of the scrollbar */
-        border-radius: 10px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-        background: #555; /* Color on hover */
-    }
 </style>
 
 </head>
@@ -368,25 +314,79 @@
     });
 
     function enhanceText(text) {
-      // Helper function to replace patterns with HTML tags
-      const replacePatterns = [
-        { regex: /\*\*(.+?)\*\*/g, replacement: '<b>$1</b>' }, // Bold
-        { regex: /\*(.+?)\*/g, replacement: '<i>$1</i>' }, // Italic
-        { regex: /__(.+?)__/g, replacement: '<u>$1</u>' }, // Underline
-        { regex: /~~(.+?)~~/g, replacement: '<s>$1</s>' }, // Strikethrough
-        { regex: /^# (.+)$/gm, replacement: '<h1>$1</h1>' }, // Heading 1
-        { regex: /^## (.+)$/gm, replacement: '<h2>$1</h2>' }, // Heading 2
-        { regex: /^### (.+)$/gm, replacement: '<h3>$1</h3>' }, // Heading 3
-        { regex: /^> (.+)$/gm, replacement: '<blockquote>$1</blockquote>' }, // Blockquote
-        { regex: /\[([^\]]+)\]\(([^)]+)\)/g, replacement: '<a href="$2" target="_blank">$1</a>' } // Links
-      ];
+    // Helper function to replace patterns with HTML tags
+    const replacePatterns = [
+        { regex: /\*\*(.+?)\*\*/g, replacement: '<strong>$1</strong>' },
+        { regex: /\*(.+?)\*/g, replacement: '<em>$1</em>' },
+        { regex: /__(.+?)__/g, replacement: '<u>$1</u>' },
+        { regex: /~~(.+?)~~/, replacement: '<s>$1</s>' },
+        { regex: /^# (.+)$/gm, replacement: '<h1>$1</h1>' },
+        { regex: /^## (.+)$/gm, replacement: '<h2>$1</h2>' },
+        { regex: /^### (.+)$/gm, replacement: '<h3>$1</h3>' },
+        { regex: /^> (.+)$/gm, replacement: '<blockquote>$1</blockquote>' },
+        { regex: /\[([^\]]+)\]\(([^)]+)\)/g, replacement: '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>' },
+    ];
 
-      // Iterate through the patterns and replace them
-      for (const { regex, replacement } of replacePatterns) {
-        text = text.replace(regex, replacement);
-      }
-      return text;
-    }
+    // Special handling for AI-generated content
+    text = text.replace(/(Somecontents Given by AI:)\s*(.+(?:\n(?!\n).*)*)/g, (match, header, content) => {
+        const formattedContent = content.trim().split('\n').map(line => {
+            line = line.trim();
+            if (line.startsWith('- ')) {
+                return `<li>${line.substring(2)}</li>`;
+            }
+            return `<p>${line}</p>`;
+        }).join('');
+        return `<section class="ai-content">
+            <h4 class="ai-header">${header}</h4>
+            <ul>${formattedContent}</ul>
+        </section>`;
+    });
+
+    // Handle bullet points and numbered lists
+    text = text.replace(/(\n- .+)+/g, match => `<ul>${match.replace(/^- /gm, '<li>')}</ul>`);
+    text = text.replace(/(\n\d+\. .+)+/g, match => `<ol>${match.replace(/^\d+\. /gm, '<li>')}</ol>`);
+
+    // Apply all replacement patterns
+    replacePatterns.forEach(pattern => {
+        text = text.replace(pattern.regex, pattern.replacement);
+    });
+
+    // Split the text into paragraphs and format them into HTML
+    const paragraphs = text.split(/\n{2,}/).filter(p => p.trim() !== '');
+
+    // Format paragraphs into HTML
+    const formattedText = paragraphs.map(p => {
+        if (p.startsWith('<') && p.endsWith('>')) {
+            return p;
+        }
+        return `<p>${p}</p>`;
+    }).join('');
+
+    return `<article>${formattedText}</article>`;
+}
+
+// Example usage
+const inputText = `
+# Main Title
+This is some regular content.
+
+## Key Points
+Somecontents Given by AI:
+- Important Message: This message is crucial for understanding.
+- Additional Info: Here is some more relevant information.
+- Third Point: Another important detail.
+
+### Further Details
+1. First Point: Description of the first point.
+2. Second Point: Description of the second point.
+
+> This is a blockquote providing additional context.
+
+For more information, visit [Google](https://www.google.com).
+`;
+
+const outputHTML = enhanceText(inputText);
+console.log(outputHTML);
 
     function displayMessage(text, sender, isHTML = false) {
       const messagesDiv = document.getElementById('messages');
