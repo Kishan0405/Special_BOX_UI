@@ -103,9 +103,9 @@ body {
     justify-content: flex-start;
     /* Change to flex-start for proper alignment */
     width: 100%;
-    height: 80%;
+    height: 60%;
     /* Adjust height to leave space for the input container */
-    margin-top: 15%;
+    margin-top: 10%;
     margin-bottom: 10%;
     padding: 20px;
     overflow-y: auto;
@@ -244,21 +244,66 @@ body {
 }
 
 /* Misc */
+/* Add this CSS to styles/stylesspecialboxai.css or stylesindex.css */
 .typing-indicator {
-    font-size: 14px;
-    color: #aaa;
-    padding: 10px;
-    margin: 10px 0;
-    font-style: italic;
-    display: none;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    justify-content: flex-start;
 }
 
-.icon {
-    width: 30px;
-    height: auto;
-    margin: 0 10px;
+.typing-indicator span {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin: 0 3px;
+    background-color: #bbb;
+    border-radius: 50%;
+    animation: proTyping 1.5s infinite ease-in-out;
+}
+
+.typing-indicator span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.typing-indicator span:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.typing-indicator span:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+@keyframes proTyping {
+
+    0%,
+    100% {
+        transform: scale(1);
+        background-color: #bbb;
+    }
+
+    50% {
+        transform: scale(1.4);
+        /* Slight expansion for a smooth pulse effect */
+        background-color: #007bff;
+        /* Change color at the peak of the animation */
+    }
+}
+
+
+
+.message-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
     vertical-align: middle;
-    padding: 20px 25px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.messages {
+    display: inline-block;
+    vertical-align: middle;
 }
 
 
@@ -274,15 +319,18 @@ body {
         max-width: 100%;
         max-height: 100px;
         margin-bottom: 10px;
-        
+
         /* New positioning styles */
         position: fixed;
         bottom: 0;
         left: 50%;
         transform: translateX(-50%);
-        width: 100%; /* or specify a fixed width if you prefer */
-        padding: 10px; /* Add some padding for better appearance */
-        box-sizing: border-box; /* Ensures padding doesn't affect overall width */
+        width: 100%;
+        /* or specify a fixed width if you prefer */
+        padding: 10px;
+        /* Add some padding for better appearance */
+        box-sizing: border-box;
+        /* Ensures padding doesn't affect overall width */
     }
 
     #userInput {
@@ -317,7 +365,8 @@ body {
         margin: 5% 0;
         padding: 12px;
         overflow-y: auto !important;
-        overflow-x: hidden; /* Prevent horizontal scrolling */
+        overflow-x: hidden;
+        /* Prevent horizontal scrolling */
     }
 
     .message {
@@ -339,12 +388,56 @@ body {
 
     .icon {
         width: 30px;
+        border-radius: 100%;
         padding: 12px;
     }
 
+    /* Add this CSS to styles/stylesspecialboxai.css or stylesindex.css */
     .typing-indicator {
-        font-size: 0.85rem;
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+        justify-content: flex-start;
     }
+
+    .typing-indicator span {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        margin: 0 3px;
+        background-color: #bbb;
+        border-radius: 50%;
+        animation: proTyping 1.5s infinite ease-in-out;
+    }
+
+    .typing-indicator span:nth-child(1) {
+        animation-delay: 0s;
+    }
+
+    .typing-indicator span:nth-child(2) {
+        animation-delay: 0.15s;
+    }
+
+    .typing-indicator span:nth-child(3) {
+        animation-delay: 0.3s;
+    }
+
+    @keyframes proTyping {
+
+        0%,
+        100% {
+            transform: scale(1);
+            background-color: #bbb;
+        }
+
+        50% {
+            transform: scale(1.4);
+            /* Slight expansion for a smooth pulse effect */
+            background-color: #007bff;
+            /* Change color at the peak of the animation */
+        }
+    }
+
 }
 
 /* Mobile Styles for very small screens (below 480px) */
@@ -359,15 +452,18 @@ body {
         max-width: 100%;
         max-height: 100px;
         margin-bottom: 10px;
-        
+
         /* New positioning styles */
         position: fixed;
         bottom: 0;
         left: 50%;
         transform: translateX(-50%);
-        width: 100%; /* or specify a fixed width if you prefer */
-        padding: 10px; /* Add some padding for better appearance */
-        box-sizing: border-box; /* Ensures padding doesn't affect overall width */
+        width: 100%;
+        /* or specify a fixed width if you prefer */
+        padding: 10px;
+        /* Add some padding for better appearance */
+        box-sizing: border-box;
+        /* Ensures padding doesn't affect overall width */
     }
 
     #userInput {
@@ -402,7 +498,8 @@ body {
         margin: 5% 0;
         padding: 12px;
         overflow-y: auto !important;
-        overflow-x: hidden; /* Prevent horizontal scrolling */
+        overflow-x: hidden;
+        /* Prevent horizontal scrolling */
     }
 
     .message {
@@ -427,9 +524,50 @@ body {
         padding: 12px;
     }
 
+    /* Add this CSS to styles/stylesspecialboxai.css or stylesindex.css */
     .typing-indicator {
-        font-size: 0.85rem;
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+        justify-content: flex-start;
     }
+
+    .typing-indicator span {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        margin: 0 3px;
+        background-color: #bbb;
+        border-radius: 50%;
+        animation: proTyping 1.5s infinite ease-in-out;
+    }
+
+    .typing-indicator span:nth-child(1) {
+        animation-delay: 0s;
+    }
+
+    .typing-indicator span:nth-child(2) {
+        animation-delay: 0.15s;
+    }
+
+    .typing-indicator span:nth-child(3) {
+        animation-delay: 0.3s;
+    }
+
+    @keyframes proTyping {
+
+        0%,
+        100% {
+            transform: scale(1);
+            background-color: #bbb;
+        }
+
+        50% {
+            transform: scale(1.4);
+            /* Slight expansion for a smooth pulse effect */
+            background-color: #007bff;
+            /* Change color at the peak of the animation */
+        }
+    }
+
 }
-
-
