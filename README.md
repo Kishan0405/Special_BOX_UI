@@ -45,4 +45,4 @@ Contributions are welcome! Feel free to fork this repository, submit issues, or 
 
 ## 📧 Contact
 
-If you have any questions or feedback, feel free to reach out via email: [kishan@example.com](mailto:kishanbantakal@gmail.com).
+If you have any questions or feedback, feel free to reach out via email: [kishanbantakal@gmail.com](mailto:kishanbantakal@gmail.com).
