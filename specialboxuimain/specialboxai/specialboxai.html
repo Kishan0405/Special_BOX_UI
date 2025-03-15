@@ -67,7 +67,7 @@
         import { GoogleGenerativeAI } from "@google/generative-ai";
 
         // Configure your API key
-        const apiKey = "AIzaSyBDGrL9k8U6YKdv2OYNOrZg6CifYE01VLk"; // Ensure to keep this secure
+        const apiKey = "AIzaSyDiD7MRHVtINKL64sRodLTP9LDQfJ4FWmY"; // Ensure to keep this secure
         const genAI = new GoogleGenerativeAI(apiKey);
 
         const chatContainer = document.getElementById('chatContainer');
@@ -106,7 +106,7 @@
             }
 
             try {
-                const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+                const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
                 const result = await model.generateContent(input);
                 const text = await result.response.text();
 
